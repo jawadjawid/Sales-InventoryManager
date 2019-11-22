@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#383A3A"
+    tools:context="com.example.Application.user3">
+
+    <Button
+        android:id="@+id/checkOut"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="717dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="14dp"
+        android:background="#E2E7DF"
+        android:text="CHECKOUT"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/list3"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="629dp"
+        android:layout_marginEnd="208dp"
+        android:layout_marginBottom="109dp"
+        android:text="Total Price:"
+        android:textAlignment="center"
+        android:textColor="#FAF5F5"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/list2"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_above="@+id/list4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="36dp"
+        android:text="SHOPPING CART"
+        android:textAlignment="center"
+        android:textColor="#FAF5F5"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/list4"
+        android:layout_width="343dp"
+        android:layout_height="462dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="193dp"
+        android:text="All Items"
+        android:textAlignment="textStart"
+        android:textColor="#FAF5F5"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/totalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="629dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="110dp"
+        android:ems="10"
+        android:hint="$0.00"
+        android:inputType="numberDecimal"
+        android:textColor="#0A0A0A"
+        android:textColorHint="#F3EFEF" />
+</RelativeLayout>
