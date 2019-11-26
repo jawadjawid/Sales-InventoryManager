@@ -1,14 +1,16 @@
-package com.example.Application;
+package com.Application.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Login extends AppCompatActivity {
+import com.example.Application.R;
+
+public class user1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activitylogin);
+        setContentView(R.layout.activity_user1);
     }
 }

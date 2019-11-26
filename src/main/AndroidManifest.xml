@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IntialPage"></activity>
-        <activity android:name=".user3" />
-        <activity android:name=".user2" />
-        <activity android:name=".user1" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Admin" />
-        <activity android:name=".Login">
+        <activity android:name="com.Application.View.IntialPage"></activity>
+        <activity android:name="com.Application.View.user3" />
+        <activity android:name="com.Application.View.user2" />
+        <activity android:name="com.Application.View.user1" />
+        <activity android:name="com.Application.View.MainActivity" />
+        <activity android:name="com.Application.View.Admin" />
+        <activity android:name="com.Application.View.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

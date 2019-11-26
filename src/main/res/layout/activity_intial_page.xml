@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#383A3A"
-    tools:context="com.example.Application.IntialPage">
+    tools:context="com.Application.View.IntialPage">
 
     <TextView
         android:id="@+id/list5"

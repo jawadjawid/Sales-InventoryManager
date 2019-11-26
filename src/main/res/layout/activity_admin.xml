@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#383A3A"
-    tools:context="com.example.Application.Admin">
+    tools:context="com.Application.View.Admin">
 
     <Button
         android:id="@+id/promoteEmployee"
