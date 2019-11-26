@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#383A3A"
-    tools:context="com.Application.View.user2">
+    tools:context="com.Application.View.Customer.user2">
 
     <Button
         android:id="@+id/add8"

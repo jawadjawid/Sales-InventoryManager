@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.Application.View.IntialPage"></activity>
-        <activity android:name="com.Application.View.user3" />
-        <activity android:name="com.Application.View.user2" />
-        <activity android:name="com.Application.View.user1" />
-        <activity android:name="com.Application.View.MainActivity" />
-        <activity android:name="com.Application.View.Admin" />
+        <activity android:name="com.Application.View.Customer.user3" />
+        <activity android:name="com.Application.View.Customer.user2" />
+        <activity android:name="com.Application.View.Customer.user1" />
+        <activity android:name="com.Application.View.Employee.MainActivity" />
+        <activity android:name="com.Application.View.Admin.Admin" />
         <activity android:name="com.Application.View.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

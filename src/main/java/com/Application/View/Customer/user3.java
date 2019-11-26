@@ -1,4 +1,4 @@
-package com.Application.View;
+package com.Application.View.Customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.Application.R;
 
-public class user1 extends AppCompatActivity {
+public class user3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user1);
+        setContentView(R.layout.activity_user3);
     }
 }

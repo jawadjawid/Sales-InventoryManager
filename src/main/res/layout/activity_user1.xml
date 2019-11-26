@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#383A3A"
-    tools:context="com.Application.View.user1">
+    tools:context="com.Application.View.Customer.user1">
 
     <Button
         android:id="@+id/LogOut"
