@@ -1,7 +1,8 @@
-package com.b07.users;
+package com.Application.Model.users;
 
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.security.PasswordHelpers;
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.security.PasswordHelpers;
+
 import java.sql.SQLException;
 
 public abstract class User {

@@ -1,7 +1,8 @@
-package com.b07.validator;
+package com.Application.Model.validator;
 
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.users.User;
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.users.User;
+
 import java.math.BigDecimal;
 import java.sql.SQLException;
 

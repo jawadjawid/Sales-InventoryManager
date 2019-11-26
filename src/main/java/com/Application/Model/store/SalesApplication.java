@@ -1,4 +1,4 @@
-package com.b07.store;
+package com.Application.Model.store;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,22 +9,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.b07.database.DatabaseDeleter;
-import com.b07.database.helper.DatabaseInsertHelper;
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.exceptions.ConnectionFailedException;
-import com.b07.exceptions.DatabaseInsertException;
-import com.b07.interaction.AdminInteraction;
-import com.b07.interaction.CustomerInteraction;
-import com.b07.interaction.EmployeeInteraction;
-import com.b07.interaction.UserInteraction;
-import com.b07.inventory.Inventory;
-import com.b07.inventory.ItemTypes;
-import com.b07.users.Customer;
-import com.b07.users.Employee;
-import com.b07.users.EmployeeInterface;
-import com.b07.users.Roles;
-import com.b07.users.User;
+import com.Application.Model.database.DatabaseDeleter;
+import com.Application.Model.database.helper.DatabaseInsertHelper;
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.inventory.Inventory;
+import com.Application.Model.inventory.ItemTypes;
+import com.Application.Model.exceptions.ConnectionFailedException;
+import com.Application.Model.exceptions.DatabaseInsertException;
+import com.Application.Model.interaction.AdminInteraction;
+import com.Application.Model.interaction.CustomerInteraction;
+import com.Application.Model.interaction.EmployeeInteraction;
+import com.Application.Model.interaction.UserInteraction;
+import com.Application.Model.users.Customer;
+import com.Application.Model.users.Employee;
+import com.Application.Model.users.EmployeeInterface;
+import com.Application.Model.users.Roles;
+import com.Application.Model.users.User;
 
 public class SalesApplication {
 
@@ -108,11 +108,11 @@ public class SalesApplication {
 				}
 			} else {
 				initializeRolesToId();
-				String mainMenuOptions = "Menu\r\n" + "1 - Employee Login\r\n" + "2 - Customer Login\r\n"
+				String mainMenuOptions = "Menu\r\n" + "1 - Employee LoginView\r\n" + "2 - Customer LoginView\r\n"
 						+ "0 - Exit\r\n";
 				String mainMenuChoice = UserInteraction.userOptions(bufferedReader, mainMenuOptions, getChoices(0, 2));
 				if (mainMenuChoice.equals("1")) {
-					User preUser = UserInteraction.logIn(bufferedReader, "Employee Login", Roles.EMPLOYEE);
+					User preUser = UserInteraction.logIn(bufferedReader, "Employee LoginView", Roles.EMPLOYEE);
 					if (preUser != null) {
 
 						// if employee login successful
@@ -126,7 +126,7 @@ public class SalesApplication {
 					}
 				} else if (mainMenuChoice.equals("2")) {
 					User preUser;
-					while ((preUser = UserInteraction.logIn(bufferedReader, "Customer Login",
+					while ((preUser = UserInteraction.logIn(bufferedReader, "Customer LoginView",
 							Roles.CUSTOMER)) == null) {
 						System.out.println("Incorrect. Try again.");
 					}

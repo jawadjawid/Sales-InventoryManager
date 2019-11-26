@@ -9,13 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.Application.View.IntialPage"></activity>
+        <activity
+            android:name="com.example.salesapp.EmployeeOptionsSidebar"
+            android:label="@string/title_activity_employee_options_sidebar"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name="com.Application.View.IntialPage" />
         <activity android:name="com.Application.View.Customer.user3" />
         <activity android:name="com.Application.View.Customer.user2" />
         <activity android:name="com.Application.View.Customer.user1" />
         <activity android:name="com.Application.View.Employee.MainActivity" />
         <activity android:name="com.Application.View.Admin.Admin" />
-        <activity android:name="com.Application.View.Login">
+        <activity android:name="com.Application.View.LoginView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

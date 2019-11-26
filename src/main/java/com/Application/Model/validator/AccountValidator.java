@@ -1,9 +1,9 @@
-package com.b07.validator;
+package com.Application.Model.validator;
 
 import java.sql.SQLException;
 
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.users.User;
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.users.User;
 
 public class AccountValidator {
 	public static boolean validateUserId(int id) {

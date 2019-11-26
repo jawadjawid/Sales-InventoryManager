@@ -1,4 +1,4 @@
-package com.b07.store;
+package com.Application.Model.store;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -7,13 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.b07.database.helper.DatabaseInsertHelper;
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.database.helper.DatabaseUpdateHelper;
-import com.b07.exceptions.DatabaseInsertException;
-import com.b07.inventory.Inventory;
-import com.b07.inventory.Item;
-import com.b07.users.Customer;
+import com.Application.Model.database.helper.DatabaseInsertHelper;
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.database.helper.DatabaseUpdateHelper;
+import com.Application.Model.inventory.Inventory;
+import com.Application.Model.inventory.Item;
+import com.Application.Model.exceptions.DatabaseInsertException;
+import com.Application.Model.users.Customer;
 
 public class ShoppingCart {
 

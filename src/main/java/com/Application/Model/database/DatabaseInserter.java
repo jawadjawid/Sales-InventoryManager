@@ -1,7 +1,7 @@
-package com.b07.database;
+package com.Application.Model.database;
 
-import com.b07.exceptions.DatabaseInsertException;
-import com.b07.security.PasswordHelpers;
+import com.Application.Model.security.PasswordHelpers;
+import com.Application.Model.exceptions.DatabaseInsertException;
 
 import java.math.BigDecimal;
 import java.sql.Connection;

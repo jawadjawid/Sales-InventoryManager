@@ -1,9 +1,10 @@
-package com.b07.store;
+package com.Application.Model.store;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
-import com.b07.inventory.Item;
-import com.b07.users.User;
+
+import com.Application.Model.inventory.Item;
+import com.Application.Model.users.User;
 
 public class SaleImpl implements Sale {
 

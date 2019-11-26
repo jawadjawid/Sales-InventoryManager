@@ -1,15 +1,16 @@
-package com.b07.interaction;
+package com.Application.Model.interaction;
 
-import com.b07.database.helper.DatabaseInsertHelper;
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.exceptions.DatabaseInsertException;
-import com.b07.inventory.Inventory;
-import com.b07.inventory.Item;
-import com.b07.store.SalesApplication;
-import com.b07.users.Employee;
-import com.b07.users.EmployeeInterface;
-import com.b07.users.Roles;
-import com.b07.users.User;
+import com.Application.Model.database.helper.DatabaseInsertHelper;
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.exceptions.DatabaseInsertException;
+import com.Application.Model.inventory.Inventory;
+import com.Application.Model.inventory.Item;
+import com.Application.Model.store.SalesApplication;
+import com.Application.Model.users.Employee;
+import com.Application.Model.users.EmployeeInterface;
+import com.Application.Model.users.Roles;
+import com.Application.Model.users.User;
+
 import java.io.BufferedReader;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -52,7 +53,7 @@ public class EmployeeInteraction extends UserInteraction {
 
 		String customerIdOptions = "Enter the id of the customer to associate an account to.";
 
-		int chosenCustomerId = Integer.parseInt(UserInteraction.userOptions(bufferedReader, customerIdOptions,
+		int chosenCustomerId = Integer.parseInt(userOptions(bufferedReader, customerIdOptions,
 				getAllIds(rolesToId,Roles.CUSTOMER)));
 		int accountId = DatabaseInsertHelper.insertAccount(chosenCustomerId);
 		System.out.println("An account was created for the customer with the account id " + accountId);
@@ -65,7 +66,7 @@ public class EmployeeInteraction extends UserInteraction {
 			EmployeeInterface emIn) {
 		// pick new employee id
 		// type its pass
-		User preUser = logIn(bufferedReader, "Employee Login", Roles.EMPLOYEE);
+		User preUser = logIn(bufferedReader, "Employee LoginView", Roles.EMPLOYEE);
 		if (preUser != null) {
 			// if employee login successful
 			// convert user to employee
@@ -79,7 +80,7 @@ public class EmployeeInteraction extends UserInteraction {
 	// restocks inventory by allowing employee to view items, give an item id and
 	// quantity as input in order to specify the restocking options
 	public static void restockInventory(BufferedReader bufferedReader, HashMap<String, Integer> rolesToId,
-			Inventory inventory, EmployeeInterface emIn) {
+										Inventory inventory, EmployeeInterface emIn) {
 		try {
 			String itemNameOptions = "Choose one of the following items:\r\n";
 			List<Item> items = DatabaseSelectHelper.getAllItems();

@@ -1,6 +1,6 @@
-package com.b07.database;
+package com.Application.Model.database;
 
-import com.b07.exceptions.ConnectionFailedException;
+import com.Application.Model.exceptions.ConnectionFailedException;
 
 import java.io.IOException;
 import java.nio.file.Files;

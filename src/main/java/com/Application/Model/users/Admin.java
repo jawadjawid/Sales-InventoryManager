@@ -1,10 +1,11 @@
-package com.b07.users;
+package com.Application.Model.users;
 
 import java.sql.SQLException;
 import java.util.List;
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.database.helper.DatabaseUpdateHelper;
-import com.b07.exceptions.DatabaseInsertException;
+
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.database.helper.DatabaseUpdateHelper;
+import com.Application.Model.exceptions.DatabaseInsertException;
 
 public class Admin extends User {
 

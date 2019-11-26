@@ -1,4 +1,4 @@
-package com.b07.inventory;
+package com.Application.Model.inventory;
 
 import java.util.HashMap;
 

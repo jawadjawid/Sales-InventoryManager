@@ -1,7 +1,8 @@
-package com.b07.store;
+package com.Application.Model.store;
 
-import com.b07.database.DatabaseDriver;
-import com.b07.exceptions.ConnectionFailedException;
+import com.Application.Model.database.DatabaseDriver;
+import com.Application.Model.exceptions.ConnectionFailedException;
+
 import java.sql.Connection;
 
 /**

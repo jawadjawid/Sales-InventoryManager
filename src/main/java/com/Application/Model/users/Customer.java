@@ -1,4 +1,4 @@
-package com.b07.users;
+package com.Application.Model.users;
 
 public class Customer extends User {
 

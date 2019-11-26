@@ -1,21 +1,21 @@
-package com.b07.database.helper;
+package com.Application.Model.database.helper;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import com.b07.database.DatabaseInserter;
-import com.b07.exceptions.DatabaseInsertException;
-import com.b07.store.SalesApplication;
-import com.b07.validator.AccountSummaryValidator;
-import com.b07.validator.AccountValidator;
-import com.b07.validator.InventoryValidator;
-import com.b07.validator.ItemizedSalesValidator;
-import com.b07.validator.ItemsValidator;
-import com.b07.validator.RolesValidator;
-import com.b07.validator.SalesValidator;
-import com.b07.validator.UserRoleValidator;
-import com.b07.validator.UsersValidator;
+import com.Application.Model.database.DatabaseInserter;
+import com.Application.Model.exceptions.DatabaseInsertException;
+import com.Application.Model.store.SalesApplication;
+import com.Application.Model.validator.AccountSummaryValidator;
+import com.Application.Model.validator.AccountValidator;
+import com.Application.Model.validator.InventoryValidator;
+import com.Application.Model.validator.ItemizedSalesValidator;
+import com.Application.Model.validator.ItemsValidator;
+import com.Application.Model.validator.RolesValidator;
+import com.Application.Model.validator.SalesValidator;
+import com.Application.Model.validator.UserRoleValidator;
+import com.Application.Model.validator.UsersValidator;
 
 public class DatabaseInsertHelper extends DatabaseInserter {
 

@@ -1,9 +1,10 @@
-package com.b07.validator;
+package com.Application.Model.validator;
 
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.inventory.Item;
-import com.b07.store.Sale;
-import com.b07.store.SalesLog;
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.inventory.Item;
+import com.Application.Model.store.Sale;
+import com.Application.Model.store.SalesLog;
+
 import java.math.BigDecimal;
 import java.sql.SQLException;
 

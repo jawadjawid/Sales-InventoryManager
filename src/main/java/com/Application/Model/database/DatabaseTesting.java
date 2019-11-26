@@ -1,6 +1,4 @@
-package com.b07.database;
-
-import com.b07.exceptions.ConnectionFailedException;
+package com.Application.Model.database;
 
 import java.math.BigDecimal;
 import java.sql.Connection;

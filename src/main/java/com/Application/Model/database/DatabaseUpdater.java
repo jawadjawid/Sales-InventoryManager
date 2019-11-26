@@ -1,4 +1,4 @@
-package com.b07.database;
+package com.Application.Model.database;
 
 import java.math.BigDecimal;
 import java.sql.Connection;

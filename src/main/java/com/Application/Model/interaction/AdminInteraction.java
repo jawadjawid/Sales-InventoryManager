@@ -1,4 +1,4 @@
-package com.b07.interaction;
+package com.Application.Model.interaction;
 
 import java.io.BufferedReader;
 import java.math.BigDecimal;
@@ -7,16 +7,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.exceptions.DatabaseInsertException;
-import com.b07.inventory.Item;
-import com.b07.store.Sale;
-import com.b07.store.SalesApplication;
-import com.b07.store.SalesLog;
-import com.b07.users.Admin;
-import com.b07.users.Employee;
-import com.b07.users.Roles;
-import com.b07.users.User;
+
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.exceptions.DatabaseInsertException;
+import com.Application.Model.inventory.Item;
+import com.Application.Model.store.Sale;
+import com.Application.Model.store.SalesApplication;
+import com.Application.Model.store.SalesLog;
+import com.Application.Model.users.Admin;
+import com.Application.Model.users.Employee;
+import com.Application.Model.users.Roles;
+import com.Application.Model.users.User;
 
 public class AdminInteraction extends UserInteraction {
 

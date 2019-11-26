@@ -1,4 +1,4 @@
-package com.b07.interaction;
+package com.Application.Model.interaction;
 
 import java.io.BufferedReader;
 import java.sql.SQLException;
@@ -7,13 +7,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import com.b07.database.helper.DatabaseInsertHelper;
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.exceptions.DatabaseInsertException;
-import com.b07.inventory.Item;
-import com.b07.store.Account;
-import com.b07.store.SalesApplication;
-import com.b07.store.ShoppingCart;
+import com.Application.Model.database.helper.DatabaseInsertHelper;
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.exceptions.DatabaseInsertException;
+import com.Application.Model.inventory.Item;
+import com.Application.Model.store.Account;
+import com.Application.Model.store.SalesApplication;
+import com.Application.Model.store.ShoppingCart;
 
 public class CustomerInteraction extends UserInteraction {
 

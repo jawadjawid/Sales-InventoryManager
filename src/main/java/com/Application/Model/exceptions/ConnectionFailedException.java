@@ -1,4 +1,4 @@
-package com.b07.exceptions;
+package com.Application.Model.exceptions;
 
 public class ConnectionFailedException extends Exception {
 

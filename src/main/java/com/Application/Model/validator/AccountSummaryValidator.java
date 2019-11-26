@@ -1,11 +1,9 @@
-package com.b07.validator;
+package com.Application.Model.validator;
 
 import java.sql.SQLException;
 
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.inventory.Item;
-import com.b07.store.Account;
-import com.b07.store.AccountImpl;
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.inventory.Item;
 
 public class AccountSummaryValidator {
 

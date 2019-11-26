@@ -1,4 +1,4 @@
-package com.b07.interaction;
+package com.Application.Model.interaction;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,13 +6,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import com.b07.database.helper.DatabaseInsertHelper;
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.exceptions.DatabaseInsertException;
-import com.b07.exceptions.InvalidLoginException;
-import com.b07.users.EmployeeInterface;
-import com.b07.users.Roles;
-import com.b07.users.User;
+
+import com.Application.Model.database.helper.DatabaseInsertHelper;
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.exceptions.DatabaseInsertException;
+import com.Application.Model.exceptions.InvalidLoginException;
+import com.Application.Model.users.EmployeeInterface;
+import com.Application.Model.users.Roles;
+import com.Application.Model.users.User;
 
 public class UserInteraction {
 
@@ -96,7 +97,7 @@ public class UserInteraction {
       }
       return null;
     } catch (IOException | NumberFormatException | NullPointerException | InvalidLoginException e1) {
-      System.out.println("Error with Account Login.");
+      System.out.println("Error with Account LoginView.");
       System.out.println("Please ensure to provide appropriate login information.\n\n");
       return null;
     } catch (SQLException e2) {

@@ -1,4 +1,4 @@
-package com.b07.database;
+package com.Application.Model.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.b07.security.PasswordHelpers;
+import com.Application.Model.security.PasswordHelpers;
 
 import java.math.BigDecimal;
 
