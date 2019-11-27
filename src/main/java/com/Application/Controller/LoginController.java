@@ -31,7 +31,7 @@ public class LoginController implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.loginButton) {
             try {
-                EditText userIdEditText = view.findViewById(R.id.userIdEditText);
+                EditText userIdEditText = view.findViewById(R.id.usernameEditText);
                 int userId = Integer.parseInt(userIdEditText.getText().toString());
                 User user = DatabaseSelectHelper.getUserDetails(userId);
 
@@ -65,7 +65,7 @@ public class LoginController implements View.OnClickListener {
                                 User user = new Employee(1,"gang",35,"dfsdfsd");
                                 Intent intent = new Intent(appContext, EmployeeOptionsView.class);
                                 intent.putExtra("user", user);
-                                appContext.startActivity(intent);
+                                view.startActivity(intent);
                                 dialogInterface.cancel();
                             }
                         })

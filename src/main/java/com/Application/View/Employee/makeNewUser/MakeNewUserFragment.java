@@ -24,13 +24,13 @@ public class MakeNewUserFragment extends Fragment {
         makeNewUserViewModel =
                 ViewModelProviders.of(this).get(MakeNewUserViewModel.class);
         View root = inflater.inflate(R.layout.fragment_make_new_user, container, false);
-        final TextView textView = root.findViewById(R.id.text_make_new_user);
-        makeNewUserViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+      //  final TextView textView = root.findViewById(R.id.text_make_new_user);
+       // makeNewUserViewModel.getText().observe(this, new Observer<String>() {
+         //   @Override
+       //     public void onChanged(@Nullable String s) {
+        //        textView.setText(s);
+       //     }
+      //  });
         return root;
     }
 }

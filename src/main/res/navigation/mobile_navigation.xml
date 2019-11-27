@@ -24,12 +24,6 @@
         tools:layout="@layout/fragment_make_new_account" />
 
     <fragment
-        android:id="@+id/nav_make_new_employee"
-        android:name="com.Application.View.Employee.makeNewEmployee.MakeNewEmployeeFragment"
-        android:label="@string/make_new_employee"
-        tools:layout="@layout/fragment_make_new_employee" />
-
-    <fragment
         android:id="@+id/nav_restock_inventory"
         android:name="com.Application.View.Employee.restockInventory.RestockInventoryFragment"
         android:label="@string/restock_inventory"

@@ -15,9 +15,9 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="authenticate_new_employee">Authenticate New Employee</string>
-    <string name="make_new_user">Make New User</string>
-    <string name="make_new_account">Make New Account</string>
-    <string name="make_new_employee">Make New Employee</string>
+    <string name="make_new_user">Create New User</string>
+    <string name="make_new_account">Create New Account</string>
+    <string name="make_new_employee">Create New Employee</string>
     <string name="restock_inventory">Restock Inventory</string>
     <string name="title_activity_employee_options">EmployeeOptionsView</string>
 </resources>

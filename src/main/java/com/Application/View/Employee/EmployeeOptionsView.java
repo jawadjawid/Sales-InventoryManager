@@ -2,6 +2,8 @@ package com.Application.View.Employee;
 
 import android.os.Bundle;
 
+import com.Application.Controller.Employee.EmployeeOptionsController;
+import com.Application.Controller.LoginController;
 import com.example.Application.R;
 
 import androidx.navigation.NavController;
@@ -21,11 +23,13 @@ import android.view.Menu;
 public class EmployeeOptionsView extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private EmployeeOptionsController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employee_options);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -33,13 +37,13 @@ public class EmployeeOptionsView extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_authenticate_new_employee, R.id.nav_make_new_user, R.id.nav_make_new_account,
-                R.id.nav_make_new_employee, R.id.nav_restock_inventory)
+                R.id.nav_authenticate_new_employee, R.id.nav_make_new_user, R.id.nav_make_new_account, R.id.nav_restock_inventory)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        controller = new EmployeeOptionsController(this);
     }
 
     @Override

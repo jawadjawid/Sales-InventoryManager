@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="#383A3A"
+    android:gravity="center">
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:hint="Username"
+        android:textColor="#F7F4F4"
+        android:textColorHint="#F3EFEF" />
+
+    <EditText
+        android:id="@+id/userAgeEditText"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="number"
+        android:textColor="#F7F4F4"
+        android:textColorHint="#F3EFEF" />
+
+    <EditText
+        android:id="@+id/userAddressEditText"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:hint="Address"
+        android:textColor="#F7F4F4"
+        android:textColorHint="#F3EFEF" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColorHint="#F3EFEF" />
+
+</LinearLayout>
