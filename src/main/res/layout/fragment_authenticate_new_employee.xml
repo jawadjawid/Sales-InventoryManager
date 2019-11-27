@@ -28,7 +28,7 @@
     <include layout="@layout/content_user_login_fields"></include>
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/authenticateNewEmployeeButton"
         android:layout_width="@dimen/user_info_field_width"
         android:layout_height="40dp"
         android:background="#E6F0F0"

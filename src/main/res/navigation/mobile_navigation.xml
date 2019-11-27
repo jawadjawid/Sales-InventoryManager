@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/nav_authenticate_new_employee"
-        android:name="com.Application.View.Employee.authenticateNewEmployee.AuthenticateNewEmployeeFragment"
+        android:name="com.Application.View.Employee.AuthenticateNewEmployeeFragmentView"
         android:label="@string/authenticate_new_employee"
         tools:layout="@layout/fragment_authenticate_new_employee" />
 
     <fragment
         android:id="@+id/nav_make_new_user"
-        android:name="com.Application.View.Employee.makeNewUser.MakeNewUserFragment"
+        android:name="com.Application.View.Employee.MakeNewUserFragmentView"
         android:label="@string/make_new_user"
         tools:layout="@layout/fragment_make_new_user" />
 
     <fragment
         android:id="@+id/nav_make_new_account"
-        android:name="com.Application.View.Employee.makeNewAccount.MakeNewAccountFragment"
+        android:name="com.Application.View.Employee.MakeNewAccountFragmentView"
         android:label="@string/make_new_account"
         tools:layout="@layout/fragment_make_new_account" />
 
     <fragment
         android:id="@+id/nav_restock_inventory"
-        android:name="com.Application.View.Employee.restockInventory.RestockInventoryFragment"
+        android:name="com.Application.View.Employee.RestockInventoryFragmentView"
         android:label="@string/restock_inventory"
         tools:layout="@layout/fragment_restock_inventory" />
 
