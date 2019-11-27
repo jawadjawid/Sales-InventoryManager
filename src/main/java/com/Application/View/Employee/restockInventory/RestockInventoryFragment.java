@@ -24,13 +24,13 @@ public class RestockInventoryFragment extends Fragment {
         restockInventoryViewModel =
                 ViewModelProviders.of(this).get(RestockInventoryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_restock_inventory, container, false);
-        final TextView textView = root.findViewById(R.id.text_restock_inventory);
-        restockInventoryViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+     //   final TextView textView = root.findViewById(R.id.text_restock_inventory);
+      //  restockInventoryViewModel.getText().observe(this, new Observer<String>() {
+     //       @Override
+        //    public void onChanged(@Nullable String s) {
+      //          textView.setText(s);
+       //     }
+      //  });
         return root;
     }
 }

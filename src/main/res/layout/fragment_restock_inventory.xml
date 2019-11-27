@@ -1,19 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#383A3A"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
 
     <TextView
-        android:id="@+id/text_restock_inventory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/productsLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:text="Products"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textColor="#FAF5F5"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        android:layout_margin="40dp">
+
+        <TextView
+            android:id="@+id/fishingRodLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:text="Fishing Rod"
+            android:textAlignment="center"
+            android:textColor="#FCF9F9"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/addFishingRodButton"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:background="#F3F5F5"
+            android:text="+"
+            android:textAlignment="center"
+            android:textColor="#050505"
+            android:textSize="24sp"
+            android:layout_marginLeft="@dimen/product_add_button_margin_left"
+            android:layout_marginBottom="@dimen/product_add_button_margin_bottom"/>
+
+        <TextView
+            android:id="@+id/hockeyStickLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:text="Hockey Stick"
+            android:textColor="#FAF7F7"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/addHockeyStickButton"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:background="#F3F5F5"
+            android:text="+"
+            android:textAlignment="center"
+            android:textColor="#050505"
+            android:textSize="24sp"
+            android:layout_marginLeft="@dimen/product_add_button_margin_left"
+            android:layout_marginBottom="@dimen/product_add_button_margin_bottom"/>
+
+
+        <TextView
+            android:id="@+id/skatesLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:text="Skates"
+            android:textColor="#FAF7F7"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/addSkatesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:background="#F3F5F5"
+            android:text="+"
+            android:textAlignment="center"
+            android:textColor="#050505"
+            android:textSize="24sp"
+            android:layout_marginLeft="@dimen/product_add_button_margin_left"
+            android:layout_marginBottom="@dimen/product_add_button_margin_bottom"/>
+
+        <TextView
+            android:id="@+id/runningShoesLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="63dp"
+            android:text="Running Shoes"
+            android:textColor="#FAF7F7"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/addRunningShoesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:background="#F3F5F5"
+            android:text="+"
+            android:textAlignment="center"
+            android:textColor="#050505"
+            android:textSize="24sp"
+            android:layout_marginLeft="@dimen/product_add_button_margin_left"
+            android:layout_marginBottom="@dimen/product_add_button_margin_bottom"/>
+
+        <TextView
+            android:id="@+id/proteinBarLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="71dp"
+            android:text="Protein Bar"
+            android:textColor="#FAF7F7"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/addProteinBarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:background="#F3F5F5"
+            android:text="+"
+            android:textAlignment="center"
+            android:textColor="#050505"
+            android:textSize="24sp"
+            android:layout_marginLeft="@dimen/product_add_button_margin_left"
+            android:layout_marginBottom="@dimen/product_add_button_margin_bottom"/>
+    </GridLayout>
+
+
+</LinearLayout>
