@@ -15,7 +15,7 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name="com.Application.View.IntialPage" />
         <activity android:name="com.Application.View.Customer.user3" />
-        <activity android:name="com.Application.View.Customer.user2" />
+        <activity android:name="com.Application.View.Customer.CustomerShoppingView" />
         <activity android:name="com.Application.View.Customer.CustomerHomeView" />
         <activity android:name="com.Application.View.Employee.MainActivity" />
         <activity android:name="com.Application.View.Admin.Admin" />
