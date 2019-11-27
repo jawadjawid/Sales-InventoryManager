@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.Application.Model.database.helper.DatabaseSelectHelper;
 import com.Application.Model.users.Employee;
 import com.Application.Model.users.User;
+import com.Application.View.Customer.CustomerHomeView;
 import com.Application.View.Employee.EmployeeOptionsView;
 import com.Application.View.Employee.MainActivity;
 import com.Application.View.LoginView;
@@ -59,7 +60,7 @@ public class LoginController implements View.OnClickListener {
             } catch (NullPointerException | NumberFormatException e) {
                 Toast.makeText(appContext, "Please Enter appropriate login information!", Toast.LENGTH_SHORT).show();
                                 User user = new Employee(1,"gang",35,"dfsdfsd");
-                                Intent intent = new Intent(appContext, EmployeeOptionsView.class);
+                                Intent intent = new Intent(appContext, CustomerHomeView.class);
                                 intent.putExtra("user", user);
                                 view.startActivity(intent);
             }
