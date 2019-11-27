@@ -23,13 +23,13 @@ public class AuthenticateNewEmployeeFragment extends Fragment {
         authenticateNewEmployeeViewModel =
                 ViewModelProviders.of(this).get(AuthenticateNewEmployeeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_authenticate_new_employee, container, false);
-        final TextView textView = root.findViewById(R.id.text_authenticate_new_employee);
-        authenticateNewEmployeeViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+       // final TextView textView = root.findViewById(R.id.text_authenticate_new_employee);
+       // authenticateNewEmployeeViewModel.getText().observe(this, new Observer<String>() {
+      //      @Override
+      //      public void onChanged(@Nullable String s) {
+      //          textView.setText(s);
+      //      }
+     //   });
         return root;
     }
 }
