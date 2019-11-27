@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#383A3A"
+    android:orientation="vertical"
+    tools:context="com.Application.View.Customer.CustomerCartView">
+
+    <TextView
+        android:id="@+id/shoppingCartHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="69dp"
+        android:text="SHOPPING CART"
+        android:textAlignment="center"
+        android:textColor="#FAF5F5"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/itemsTextArea"
+        android:layout_width="337dp"
+        android:layout_height="250dp"
+        android:layout_below="@+id/shoppingCartHeading"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="22dp"
+        android:hint="Items..."
+        android:textAlignment="textStart"
+        android:textColor="#FAF5F5"
+        android:textColorHint="#F8B6B3B3"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/totalPriceLabel"
+        android:layout_width="332dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="22dp"
+        android:text="Total: "
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/totalPriceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="$0.00"
+        android:textColorHint="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="22dp"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/checkOutBtn"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="22dp"
+        android:background="#2196F3"
+        android:text="Check Out"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
+
+</LinearLayout>

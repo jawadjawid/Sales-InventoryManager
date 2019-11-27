@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.Application.Model.users.Employee;
 import com.Application.Model.users.User;
+import com.Application.View.Customer.CustomerCartView;
 import com.Application.View.Customer.CustomerHomeView;
 import com.Application.View.Customer.CustomerShoppingView;
 import com.Application.View.Employee.MainActivity;
@@ -29,7 +30,8 @@ public class CustomerHomeController implements View.OnClickListener{
             view.startActivity(intent);
         }
         else if(v.getId() == R.id.cartBtn){
-
+            Intent intent = new Intent(appContext, CustomerCartView.class);
+            view.startActivity(intent);
         }
         else if(v.getId() == R.id.LogOutBtn){
             Intent intent = new Intent(appContext, LoginView.class);

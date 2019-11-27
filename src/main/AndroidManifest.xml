@@ -14,7 +14,7 @@
             android:label="@string/title_activity_employee_options"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name="com.Application.View.IntialPage" />
-        <activity android:name="com.Application.View.Customer.user3" />
+        <activity android:name="com.Application.View.Customer.CustomerCartView" />
         <activity android:name="com.Application.View.Customer.CustomerShoppingView" />
         <activity android:name="com.Application.View.Customer.CustomerHomeView" />
         <activity android:name="com.Application.View.Employee.MainActivity" />
