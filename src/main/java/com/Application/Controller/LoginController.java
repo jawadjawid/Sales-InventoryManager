@@ -6,12 +6,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.users.Employee;
 import com.Application.Model.users.User;
+import com.Application.View.Employee.EmployeeOptionsView;
 import com.Application.View.Employee.MainActivity;
 import com.Application.View.LoginView;
 import com.example.Application.R;
@@ -55,13 +55,17 @@ public class LoginController implements View.OnClickListener {
                             }
                         })
                         .show();
-            } catch (NullPointerException e) {
+            } catch (NullPointerException | NumberFormatException e) {
                 Log.d("E","EHHEHEH");
                 new AlertDialog.Builder(appContext).setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Please Enter appropriate login information!")
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                User user = new Employee(1,"gang",35,"dfsdfsd");
+                                Intent intent = new Intent(appContext, EmployeeOptionsView.class);
+                                intent.putExtra("user", user);
+                                appContext.startActivity(intent);
                                 dialogInterface.cancel();
                             }
                         })

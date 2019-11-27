@@ -3,41 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_authenticate_new_employee">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.salesapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_authenticate_new_employee"
+        android:name="com.Application.View.Employee.authenticateNewEmployee.AuthenticateNewEmployeeFragment"
+        android:label="@string/authenticate_new_employee"
+        tools:layout="@layout/fragment_authenticate_new_employee" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.salesapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_make_new_user"
+        android:name="com.Application.View.Employee.makeNewUser.MakeNewUserFragment"
+        android:label="@string/make_new_user"
+        tools:layout="@layout/fragment_make_new_user" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.salesapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_make_new_account"
+        android:name="com.Application.View.Employee.makeNewAccount.MakeNewAccountFragment"
+        android:label="@string/make_new_account"
+        tools:layout="@layout/fragment_make_new_account" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.example.salesapp.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        android:id="@+id/nav_make_new_employee"
+        android:name="com.Application.View.Employee.makeNewEmployee.MakeNewEmployeeFragment"
+        android:label="@string/make_new_employee"
+        tools:layout="@layout/fragment_make_new_employee" />
 
     <fragment
-        android:id="@+id/nav_share"
-        android:name="com.example.salesapp.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
+        android:id="@+id/nav_restock_inventory"
+        android:name="com.Application.View.Employee.restockInventory.RestockInventoryFragment"
+        android:label="@string/restock_inventory"
+        tools:layout="@layout/fragment_restock_inventory" />
 
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="com.example.salesapp.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
 </navigation>

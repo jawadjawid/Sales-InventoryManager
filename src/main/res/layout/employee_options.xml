@@ -9,7 +9,7 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/app_bar_employee_options_sidebar"
+        layout="@layout/app_bar_employee_options"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_employee_options_sidebar"
-        app:menu="@menu/activity_employee_options_sidebar_drawer" />
+        app:headerLayout="@layout/nav_header_employee_options"
+        app:menu="@menu/employee_options_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
