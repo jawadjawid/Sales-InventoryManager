@@ -13,7 +13,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class EmployeeOptionsController implements View.OnClickListener {
     private EmployeeOptionsView view;
-    private Context appContext;
+    private static Context appContext;
 
     public EmployeeOptionsController(Context context) {
         appContext = context;
@@ -33,6 +33,10 @@ public class EmployeeOptionsController implements View.OnClickListener {
         User user = (User) intent.getSerializableExtra("user");
         TextView usernameTextView = headerView.findViewById(R.id.usernameTextView);
         usernameTextView.setText(user.getName());
+    }
+
+    public static Context getContext(){
+        return appContext;
     }
 
 
