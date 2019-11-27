@@ -3,9 +3,10 @@ package com.Application.Model.users;
 import com.Application.Model.database.helper.DatabaseSelectHelper;
 import com.Application.Model.security.PasswordHelpers;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 
-public abstract class User {
+public abstract class User implements Serializable {
 
   private int id;
   private String name;

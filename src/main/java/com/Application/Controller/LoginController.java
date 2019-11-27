@@ -1,12 +1,14 @@
 package com.Application.Controller;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Application.Model.database.helper.DatabaseSelectHelper;
 import com.Application.Model.users.User;
@@ -14,42 +16,56 @@ import com.Application.View.Employee.MainActivity;
 import com.Application.View.LoginView;
 import com.example.Application.R;
 
+import java.sql.SQLException;
+
 public class LoginController implements View.OnClickListener {
     private LoginView view;
     private Context appContext;
 
     public LoginController(Context context) {
         appContext = context;
-        view = (LoginView)appContext;
-        Log.d("GAY","noeeeeeeee");
+        view = (LoginView) appContext;
     }
 
     @Override
     public void onClick(View v) {
-        Log.d("GAY","no");
-
-
-        if(v.getId() == R.id.LogIn){
+        if (v.getId() == R.id.loginButton) {
             try {
-                Intent intent = new Intent(this.appContext, MainActivity.class);
-                appContext.startActivity(intent);
+                EditText userIdEditText = view.findViewById(R.id.userIdEditText);
+                int userId = Integer.parseInt(userIdEditText.getText().toString());
+                User user = DatabaseSelectHelper.getUserDetails(userId);
 
-              //  Button button1 = (Button) view.findViewById(R.id.LogIn);
+                EditText passwordEditText = view.findViewById(R.id.passwordEditText);
+                String password = passwordEditText.getText().toString();
 
-             //   EditText textView1 = (EditText) view.findViewById(R.id.userId);
-             //   int userId = Integer.parseInt(textView1.getText().toString());
-            //    User user = DatabaseSelectHelper.getUserDetails(userId);
+                if (user.authenticate(password)) {
+                    Intent intent = new Intent(this.appContext, MainActivity.class);
+                    intent.putExtra("user", user);
+                    appContext.startActivity(intent);
+                }
 
-            //    EditText textView2 = (EditText) view.findViewById(R.id.Password);
-             //   String password = textView2.getText().toString();
-
-             //   if(user.authenticate(password)){
-                    // login successful
-
-             //   }
-
-            }catch (Exception e){
-
+            } catch (SQLException e) {
+                Log.d("E","EHHEHEH");
+                new AlertDialog.Builder(appContext).setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Database Error!")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        })
+                        .show();
+            } catch (NullPointerException e) {
+                Log.d("E","EHHEHEH");
+                new AlertDialog.Builder(appContext).setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Please Enter appropriate login information!")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        })
+                        .show();
             }
         }
     }
