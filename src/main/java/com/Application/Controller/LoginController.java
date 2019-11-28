@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.database.helper.DatabaseSelectHelper;
 import com.Application.Model.users.Employee;
 import com.Application.Model.users.User;
@@ -32,41 +33,33 @@ public class LoginController implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.loginButton) {
             try {
+                DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(view);
+
                 EditText userIdEditText = view.findViewById(R.id.usernameEditText);
                 int userId = Integer.parseInt(userIdEditText.getText().toString());
-                User user = DatabaseSelectHelper.getUserDetails(userId);
+                User user = mydb.getUserDetailsH(userId);
 
                 EditText passwordEditText = view.findViewById(R.id.passwordEditText);
                 String password = passwordEditText.getText().toString();
 
-                if (user.authenticate(password)) {
-                    Intent intent = new Intent(this.appContext, MainActivity.class);
+                String dbPass = mydb.getPasswordH(userId);
+
+                Log.d("hehe", "abt to authentiate pass");
+                if (user.authenticate(password, dbPass)) {
+
+                    Log.d("hehe", "apparentyl it worked!!!");
+                    Intent intent = new Intent(this.appContext, EmployeeOptionsView.class);
                     intent.putExtra("user", user);
                     appContext.startActivity(intent);
                 }
 
-            } catch (SQLException e) {
-                Log.d("E","EHHEHEH");
-                new AlertDialog.Builder(appContext).setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("Database Error!")
-                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
-                            }
-                        })
-                        .show();
             } catch (NullPointerException | NumberFormatException e) {
                 Toast.makeText(appContext, "Please Enter appropriate login information!", Toast.LENGTH_SHORT).show();
-                                User user = new Employee(1,"gang",35,"dfsdfsd");
-                                Intent intent = new Intent(appContext, EmployeeOptionsView.class);
-                                intent.putExtra("user", user);
-                                view.startActivity(intent);
             }
         }
     }
 
-    private void justInitSth(){
+    private void justInitSth() {
 
     }
 

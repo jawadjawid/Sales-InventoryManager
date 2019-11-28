@@ -45,7 +45,7 @@ public class UsersValidator {
         return true;
     }
 
-    public static void setContext(Context context) {
-        mydb = new DatabaseDriverAndroidHelper(context);
+    public static void setContext(DatabaseDriverAndroidHelper db) {
+        mydb = db;
     }
 }

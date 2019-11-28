@@ -88,4 +88,9 @@ public abstract class User implements Serializable {
     return authenticated;
   }
 
+  public final boolean authenticate(String password, String dbPassword)  {
+    authenticated = PasswordHelpers.comparePassword(dbPassword, password);
+    return authenticated;
+  }
+
 }

@@ -1,50 +1,38 @@
 package com.Application.Controller;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.Application.Model.database.DatabaseDriverAndroid;
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
-import com.Application.Model.database.helper.DatabaseInsertHelper;
-import com.Application.Model.store.SalesApplication;
-import com.Application.Model.users.Admin;
-import com.Application.Model.users.User;
 import com.Application.View.Employee.MainActivity;
 import com.Application.View.InitialAdminSignupView;
 import com.Application.View.InitialEmployeeSignupView;
+import com.Application.View.LoginView;
 import com.example.Application.R;
 
-import java.util.List;
-
-public class InitialAdminSignupController implements View.OnClickListener{
-    InitialAdminSignupView view;
+public class InitialEmployeeSignupController implements View.OnClickListener{
+    InitialEmployeeSignupView view;
     Context appContext;
 
-    public InitialAdminSignupController(Context context){
+    public InitialEmployeeSignupController(Context context){
         appContext = context;
-        view = (InitialAdminSignupView) appContext;
+        view = (InitialEmployeeSignupView) appContext;
+        Log.d("hehe","ACACACFIRSTTnim at employeeeeeeeeo wa" +
+                "y");
     }
 
     @Override
     public void onClick(View v) {
-        // admin has clicked sign up
+        // employee has clicked sign up
         try {
-
-
-            Log.d("hehe","no wa" +
+            Log.d("hehe","nim at employeeeeeeeeo wa" +
                     "y");
             DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(view);
-            appContext.deleteDatabase("inventorymgmt.db");
-           mydb.insertRoleH("ADMIN");
-            mydb.insertRoleH("EMPLOYEE");
-           mydb.insertRoleH("CUSTOMER");
-
+         //   appContext.deleteDatabase("inventorymgmt.db");
 
            // SalesApplication.insertIntoRolesTable();
            // SalesApplication.initializeRolesToId();
@@ -63,22 +51,21 @@ public class InitialAdminSignupController implements View.OnClickListener{
             Log.d("hehe","dsds");
 
            int userId = Math.toIntExact(mydb.insertNewUserH(name, age, address, password));
-         mydb.insertUserRoleH(userId, 1);
-
-
+         mydb.insertUserRoleH(userId, 2);
 
             Log.d("hehe","wat the hell");
 
             Toast.makeText(view,"success!!!  " + userId,Toast.LENGTH_SHORT).show();
 
          //  User users = mydb.getUserDetailsH(1);
-           Log.d("hehehe","ok abt to go to employee");
+           Log.d("hehehe","dfsf");
 
-            Intent intent = new Intent(appContext, InitialEmployeeSignupView.class);
+            Intent intent = new Intent(appContext, LoginView.class);
             appContext.startActivity(intent);
+
         }catch(Exception e){
             Toast.makeText(view,"oh hehe i messed up",Toast.LENGTH_SHORT).show();
-            Log.d("hehe","naanannananwat the hell");
+            Log.d("hehe","wat the hell");
             e.printStackTrace();
         }
     }
