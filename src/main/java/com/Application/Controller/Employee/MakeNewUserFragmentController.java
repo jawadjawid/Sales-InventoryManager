@@ -1,21 +1,16 @@
 package com.Application.Controller.Employee;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.View;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.Application.Controller.SignUpController;
+import com.Application.Controller.SignupController;
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
-import com.Application.View.Employee.MakeNewUserFragmentView;
-import com.Application.View.LoginView;
 import com.example.Application.R;
 
 
-public class MakeNewUserFragmentController extends SignUpController implements View.OnClickListener {
+public class MakeNewUserFragmentController extends SignupController implements View.OnClickListener {
     private View view;
     private Context appContext;
 

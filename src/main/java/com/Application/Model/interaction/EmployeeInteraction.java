@@ -66,7 +66,7 @@ public class EmployeeInteraction extends UserInteraction {
 			EmployeeInterface emIn) {
 		// pick new employee id
 		// type its pass
-		User preUser = logIn(bufferedReader, "Employee LoginView", Roles.EMPLOYEE);
+		User preUser = logIn(bufferedReader, "Employee MainLoginView", Roles.EMPLOYEE);
 		if (preUser != null) {
 			// if employee login successful
 			// convert user to employee

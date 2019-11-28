@@ -12,7 +12,7 @@ import com.Application.View.InitialEmployeeSignupView;
 
 import java.math.BigDecimal;
 
-public class InitialAdminSignupController extends SignUpController implements View.OnClickListener{
+public class InitialAdminSignupController extends SignupController implements View.OnClickListener{
     InitialAdminSignupView view;
     Context appContext;
 

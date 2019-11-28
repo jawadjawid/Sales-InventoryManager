@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.NumberPicker;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,8 +22,9 @@ public class MakeNewAccountFragmentView extends Fragment {
         View root = inflater.inflate(R.layout.fragment_make_new_account, container, false);
 
         controller = new MakeNewAccountFragmentController(root);
-      //  Button authenticateNewEmployeeButton = root.findViewById(R.id.authenticateNewEmployeeButton);
-      //  authenticateNewEmployeeButton.setOnClickListener(controller);
+        Button selectCustomerIdButton = root.findViewById(R.id.selectCustomerIdButton);
+        selectCustomerIdButton.setOnClickListener(controller);
+
         return root;
     }
 }

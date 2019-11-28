@@ -97,7 +97,7 @@ public class UserInteraction {
       }
       return null;
     } catch (IOException | NumberFormatException | NullPointerException | InvalidLoginException e1) {
-      System.out.println("Error with Account LoginView.");
+      System.out.println("Error with Account MainLoginView.");
       System.out.println("Please ensure to provide appropriate login information.\n\n");
       return null;
     } catch (SQLException e2) {

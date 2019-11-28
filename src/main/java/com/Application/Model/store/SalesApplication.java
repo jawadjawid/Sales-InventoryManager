@@ -108,11 +108,11 @@ public class SalesApplication {
 				}
 			} else {
 				initializeRolesToId();
-				String mainMenuOptions = "Menu\r\n" + "1 - Employee LoginView\r\n" + "2 - Customer LoginView\r\n"
+				String mainMenuOptions = "Menu\r\n" + "1 - Employee MainLoginView\r\n" + "2 - Customer MainLoginView\r\n"
 						+ "0 - Exit\r\n";
 				String mainMenuChoice = UserInteraction.userOptions(bufferedReader, mainMenuOptions, getChoices(0, 2));
 				if (mainMenuChoice.equals("1")) {
-					User preUser = UserInteraction.logIn(bufferedReader, "Employee LoginView", Roles.EMPLOYEE);
+					User preUser = UserInteraction.logIn(bufferedReader, "Employee MainLoginView", Roles.EMPLOYEE);
 					if (preUser != null) {
 
 						// if employee login successful
@@ -126,7 +126,7 @@ public class SalesApplication {
 					}
 				} else if (mainMenuChoice.equals("2")) {
 					User preUser;
-					while ((preUser = UserInteraction.logIn(bufferedReader, "Customer LoginView",
+					while ((preUser = UserInteraction.logIn(bufferedReader, "Customer MainLoginView",
 							Roles.CUSTOMER)) == null) {
 						System.out.println("Incorrect. Try again.");
 					}

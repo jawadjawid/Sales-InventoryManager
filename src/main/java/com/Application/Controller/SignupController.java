@@ -9,7 +9,7 @@ import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.exceptions.DatabaseInsertException;
 import com.example.Application.R;
 
-public class SignUpController {
+public class SignupController {
 
     protected int createUser(AppCompatActivity view, DatabaseDriverAndroidHelper mydb, int roleId) throws DatabaseInsertException {
         EditText usernameEditText = view.findViewById(R.id.usernameEditText);

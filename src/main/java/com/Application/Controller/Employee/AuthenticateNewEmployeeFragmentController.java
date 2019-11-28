@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
+import com.Application.Controller.LoginController;
 
-public class AuthenticateNewEmployeeFragmentController implements View.OnClickListener {
+
+public class AuthenticateNewEmployeeFragmentController extends LoginController implements View.OnClickListener {
     private View view;
 
     public AuthenticateNewEmployeeFragmentController(View view) {
@@ -15,7 +17,10 @@ public class AuthenticateNewEmployeeFragmentController implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        Log.d("NOO","YESYESEYSEYSHEHEHHEHEH");
+        // check if login works
+        // if it does, change the name in the header view
+
+
     }
 
 

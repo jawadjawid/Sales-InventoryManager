@@ -2,19 +2,14 @@ package com.Application.Controller;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
-import com.Application.View.Employee.MainActivity;
-import com.Application.View.InitialAdminSignupView;
 import com.Application.View.InitialEmployeeSignupView;
-import com.Application.View.LoginView;
-import com.example.Application.R;
+import com.Application.View.MainLoginView;
 
-public class InitialEmployeeSignupController extends SignUpController implements View.OnClickListener{
+public class InitialEmployeeSignupController extends SignupController implements View.OnClickListener{
     InitialEmployeeSignupView view;
     Context appContext;
 
@@ -32,7 +27,7 @@ public class InitialEmployeeSignupController extends SignUpController implements
 
             Toast.makeText(view,"User with id " + userId + " created.",Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(appContext, LoginView.class);
+            Intent intent = new Intent(appContext, MainLoginView.class);
             appContext.startActivity(intent);
         }catch(Exception e){
             Toast.makeText(view,"Please ensure that all fields are completed.",Toast.LENGTH_SHORT).show();
