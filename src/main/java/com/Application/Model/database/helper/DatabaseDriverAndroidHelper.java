@@ -1,11 +1,29 @@
 package com.Application.Model.database.helper;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import com.Application.Model.database.DatabaseDriverAndroid;
 import com.Application.Model.database.DatabaseInserter;
+import com.Application.Model.database.DatabaseSelector;
 import com.Application.Model.exceptions.DatabaseInsertException;
+import com.Application.Model.inventory.Inventory;
+import com.Application.Model.inventory.InventoryImpl;
+import com.Application.Model.inventory.Item;
+import com.Application.Model.inventory.ItemImpl;
+import com.Application.Model.store.Account;
+import com.Application.Model.store.AccountImpl;
+import com.Application.Model.store.ItemizedSaleImpl;
+import com.Application.Model.store.Sale;
+import com.Application.Model.store.SaleImpl;
 import com.Application.Model.store.SalesApplication;
+import com.Application.Model.store.SalesLog;
+import com.Application.Model.store.SalesLogImpl;
+import com.Application.Model.users.Admin;
+import com.Application.Model.users.Customer;
+import com.Application.Model.users.Employee;
+import com.Application.Model.users.Roles;
+import com.Application.Model.users.User;
 import com.Application.Model.validator.AccountSummaryValidator;
 import com.Application.Model.validator.AccountValidator;
 import com.Application.Model.validator.InventoryValidator;
@@ -18,14 +36,18 @@ import com.Application.Model.validator.UsersValidator;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     public DatabaseDriverAndroidHelper(Context context) {
         super(context);
     }
 
-    public long insertRoleV(String name) throws DatabaseInsertException {
+    public long insertRoleH(String name) throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && RolesValidator.validateName(name);
@@ -38,7 +60,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return roleId;
     }
 
-    public long insertNewUserV(String name, int age, String address, String password)
+    public long insertNewUserH(String name, int age, String address, String password)
             throws DatabaseInsertException {
 
         boolean val_success = true;
@@ -55,7 +77,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return userId;
     }
 
-    public long insertUserRoleV(int userId, int roleId)
+    public long insertUserRoleH(int userId, int roleId)
             throws DatabaseInsertException, SQLException {
 
         boolean val_success = true;
@@ -70,7 +92,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return userRoleId;
     }
 
-    public long insertItemV(String name, BigDecimal price)
+    public long insertItemH(String name, BigDecimal price)
             throws DatabaseInsertException, SQLException {
 
         boolean val_success = true;
@@ -85,7 +107,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return itemId;
     }
 
-    public long insertInventoryV(int itemId, int quantity)
+    public long insertInventoryH(int itemId, int quantity)
             throws DatabaseInsertException, SQLException {
 
         boolean val_success = true;
@@ -100,7 +122,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return inventoryId;
     }
 
-    public long insertSaleV(int userId, BigDecimal totalPrice)
+    public long insertSaleH(int userId, BigDecimal totalPrice)
             throws DatabaseInsertException, SQLException {
 
         boolean val_success = true;
@@ -115,7 +137,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return saleId;
     }
 
-    public long insertItemizedSaleV(int saleId, int itemId, int quantity)
+    public long insertItemizedSaleH(int saleId, int itemId, int quantity)
             throws DatabaseInsertException, SQLException {
 
         // Note: sale been inserted into sales already
@@ -135,7 +157,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return itemizedId;
     }
 
-    public long insertAccountV(int userId)
+    public long insertAccountH(int userId)
             throws DatabaseInsertException, SQLException {
 
         boolean val_success = true;
@@ -149,7 +171,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return accountId;
     }
 
-    public long insertAccountSummaryV(int acctId, int itemId, int quantity)
+    public long insertAccountSummaryH(int acctId, int itemId, int quantity)
             throws DatabaseInsertException, SQLException {
 
         boolean val_success = true;
@@ -163,6 +185,223 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
 
         long accountSummaryId = insertAccountLine(acctId, itemId, quantity);
         return accountSummaryId;
+    }
+
+    public List<Integer> getRoleIdsH() {
+        Cursor results = getRoles();
+        List<Integer> ids = new ArrayList<>();
+        while (results.moveToNext()) {
+            ids.add(results.getInt(results.getColumnIndex("ID")));
+        }
+        results.close();
+        return ids;
+    }
+
+    public String getRoleNameH(int roleId) {
+        String role = getRole(roleId);
+        return role;
+    }
+
+    public int getUserRoleIdH(int userId) {
+        int roleId = getUserRole(userId);
+        return roleId;
+    }
+
+    public List<Integer> getUsersByRoleH(int roleId)  {
+        Cursor results = getUsersByRole(roleId);
+        List<Integer> userIds = new ArrayList<>();
+        while (results.moveToNext()) {
+            userIds.add(results.getInt(results.getColumnIndex("USERID")));
+        }
+        results.close();
+        return userIds;
+    }
+
+    public List<User> getUsersDetailsH() {
+        Cursor results = getUsersDetails();
+        int roleId;
+        String role;
+
+        List<User> users = new ArrayList<>();
+        User user;
+        while (results.moveToNext()) {
+            roleId = getUserRole(results.getInt(results.getColumnIndex("ID")));
+            role = getRole(roleId);
+            user = createUser(results.getInt(results.getColumnIndex("ID")), results.getString(results.getColumnIndex("NAME")), results.getInt(results.getColumnIndex("AGE")),
+                    results.getString(results.getColumnIndex("ADDRESS")), role, roleId);
+            users.add(user);
+        }
+        results.close();
+        return users;
+    }
+
+    public User getUserDetailsH(int userId)  {
+        Cursor results = getUserDetails(userId);
+        int roleId;
+        String role;
+
+        User user = null;
+        while (results.moveToNext()) {
+            roleId = getUserRole(results.getInt(results.getColumnIndex("ID")));
+            role = getRole(roleId);
+            user = createUser(results.getInt(results.getColumnIndex("ID")), results.getString(results.getColumnIndex("NAME")), results.getInt(results.getColumnIndex("AGE")),
+                    results.getString(results.getColumnIndex("ADDRESS")), role, roleId);
+        }
+        results.close();
+        return user;
+    }
+
+    private User createUser(int id, String name, int age, String address, String role, int roleId) {
+        if ("ADMIN".equals(Roles.valueOf(role))) {
+            return new Admin(id, name, age, address, roleId);
+        } else if ("EMPLOYEE".equals(Roles.valueOf(role))) {
+            return new Employee(id, name, age, address, roleId);
+        } else {
+            return new Customer(id, name, age, address, roleId);
+        }
+    }
+
+    public String getPasswordH(int userId) {
+        String password = getPassword(userId);
+        return password;
+    }
+
+    public List<Item> getAllItemsH()  {
+        Cursor results = getAllItems();
+        List<Item> items = new ArrayList<>();
+        Item item;
+        while (results.moveToNext()) {
+            item = new ItemImpl(results.getInt(results.getColumnIndex("ID")), results.getString(results.getColumnIndex("NAME")),
+                    new BigDecimal(results.getString(results.getColumnIndex("PRICE"))));
+            items.add(item);
+        }
+        results.close();
+        return items;
+    }
+
+    public Item getItemH(int itemId)  {
+        Cursor results = getItem(itemId);
+
+        Item item = null;
+        while (results.moveToNext()) {
+            item = new ItemImpl(results.getInt(results.getColumnIndex("ID")), results.getString(results.getColumnIndex("NAME")),
+                    new BigDecimal(results.getString(results.getColumnIndex("PRICE"))));
+        }
+        results.close();
+        return item;
+    }
+
+    public  Inventory getInventoryH()  {
+        Cursor results = getInventory();
+        Item item;
+        Inventory inventory = new InventoryImpl();
+        while (results.moveToNext()) {
+            item = getItemH(results.getInt(results.getColumnIndex("ITEMID")));
+            inventory.updateMap(item, results.getInt(results.getColumnIndex("QUANTITY")));
+        }
+        results.close();
+        return inventory;
+    }
+
+    public int getInventoryQuantityH(int itemId) {
+        int quantity = getInventoryQuantity(itemId);
+        return quantity;
+    }
+
+    public SalesLog getSalesH()  {
+        Cursor results = getSales();
+
+        SalesLog salesLog = new SalesLogImpl();
+        while (results.moveToNext()) {
+            salesLog.addSale(new SaleImpl(results.getInt(results.getColumnIndex("ID")),
+                    getUserDetailsH(results.getInt(results.getColumnIndex("USERID"))),
+                    new BigDecimal(results.getString(results.getColumnIndex("TOTALPRICE")))));
+        }
+        results.close();
+        return salesLog;
+    }
+
+    public Sale getSaleByIdH(int saleId)  {
+        Cursor results = getSaleById(saleId);
+        Sale sale = null;
+        while (results.moveToNext()) {
+            User user = getUserDetailsH(results.getInt(results.getColumnIndex("USERID")));
+            sale = new SaleImpl(results.getInt(results.getColumnIndex("ID")), user, new BigDecimal(results.getString(results.getColumnIndex("TOTALPRICE"))));
+        }
+        results.close();
+        return sale;
+    }
+
+    public List<Sale> getSalesToUserH(int userId)  {
+        Cursor results = getSalesToUser(userId);
+        List<Sale> sales = new ArrayList<>();
+        while (results.moveToNext()) {
+            User user = getUserDetailsH(results.getInt(results.getColumnIndex("USERID")));
+            sales.add(new SaleImpl(results.getInt(results.getColumnIndex("ID")), user, new BigDecimal(results.getString(results.getColumnIndex("TOTALPRICE")))));
+        }
+        results.close();
+        return sales;
+    }
+
+    public Sale getItemizedSaleByIdH(int saleId) {
+        Cursor results = getItemizedSaleById(saleId);
+
+        Sale sale = new ItemizedSaleImpl(results.getInt(results.getColumnIndex("SALEID")));
+        while (results.moveToNext()) {
+            Item item = getItemH(results.getInt(results.getColumnIndex("ITEMID")));
+            sale.getItemMap().put(item, results.getInt(results.getColumnIndex("QUANTITY")));
+        }
+        results.close();
+        return sale;
+    }
+
+    public SalesLog getItemizedSalesH() {
+        Cursor results = getItemizedSales();
+        SalesLog salesLog = new SalesLogImpl();
+
+
+        while (results.moveToNext()) {
+            Sale sale = salesLog.getSale(results.getInt(results.getColumnIndex("SALEID")));
+            if (sale == null) {
+                HashMap<Item, Integer> itemMap = new HashMap<>();
+                itemMap.put(getItemH(results.getInt(results.getColumnIndex("ITEMID"))), results.getInt(results.getColumnIndex("QUANTITY")));
+                salesLog.addSale(new ItemizedSaleImpl(results.getInt(results.getColumnIndex("SALEID")), itemMap));
+            } else {
+                sale.getItemMap().put(getItemH(results.getInt(results.getColumnIndex("ITEMID"))),
+                        results.getInt(results.getColumnIndex("QUANTITY")));
+            }
+        }
+        results.close();
+        return salesLog;
+    }
+
+    public  boolean userIdExists(int userId) {
+        Cursor results = getUserDetails(userId);
+        boolean exists = false;
+        while (results.moveToNext()) {
+            exists = true;
+        }
+        results.close();
+        return exists;
+    }
+
+    public ArrayList<Account> getUserAccountsH(int userId) {
+        Cursor results = getUserAccounts(userId);
+        Cursor accountDetailsResult = null;
+        User user = getUserDetailsH(userId);
+        Account currentAccount = null;
+        ArrayList<Account> accounts = new ArrayList<>();
+        while (results.moveToNext()) {
+            accountDetailsResult = getAccountDetails(results.getInt(results.getColumnIndex("ID")));
+            currentAccount = new AccountImpl(results.getInt(results.getColumnIndex("ID")), user);
+            while (accountDetailsResult.moveToNext()) {
+                currentAccount.addItem(getItemH(accountDetailsResult.getInt(results.getColumnIndex("ITEMID"))),
+                        accountDetailsResult.getInt(results.getColumnIndex("QUANTITY")));
+            }
+            accounts.add(currentAccount);
+        }
+        results.close();
+        return accounts;
     }
 
 
