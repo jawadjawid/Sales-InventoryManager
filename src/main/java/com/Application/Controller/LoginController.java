@@ -13,6 +13,7 @@ import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.database.helper.DatabaseSelectHelper;
 import com.Application.Model.users.Employee;
 import com.Application.Model.users.User;
+import com.Application.View.Customer.CustomerHomeView;
 import com.Application.View.Employee.EmployeeOptionsView;
 import com.Application.View.Employee.MainActivity;
 import com.Application.View.LoginView;
@@ -46,11 +47,17 @@ public class LoginController implements View.OnClickListener {
 
                 Log.d("hehe", "abt to authentiate pass");
                 if (user.authenticate(password, dbPass)) {
-
                     Log.d("hehe", "apparentyl it worked!!!");
-                    Intent intent = new Intent(this.appContext, EmployeeOptionsView.class);
-                    intent.putExtra("user", user);
-                    appContext.startActivity(intent);
+                    if(user.getRoleId() == 2){
+                        Intent intent = new Intent(this.appContext, EmployeeOptionsView.class);
+                        intent.putExtra("user", user);
+                        appContext.startActivity(intent);
+                    } else if(user.getRoleId() == 3){
+                        Intent intent = new Intent(this.appContext, CustomerHomeView.class);
+                        intent.putExtra("user", user);
+                        appContext.startActivity(intent);
+                    }
+
                 }
 
             } catch (NullPointerException | NumberFormatException e) {

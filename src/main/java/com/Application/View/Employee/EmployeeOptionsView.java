@@ -25,20 +25,20 @@ public class EmployeeOptionsView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employee_options);
 
+        controller = new EmployeeOptionsController(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home,
                 R.id.nav_authenticate_new_employee, R.id.nav_make_new_user, R.id.nav_make_new_account, R.id.nav_restock_inventory)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        controller = new EmployeeOptionsController(this);
     }
 
     @Override

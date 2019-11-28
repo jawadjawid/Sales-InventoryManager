@@ -2,7 +2,6 @@ package com.Application.Controller;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 

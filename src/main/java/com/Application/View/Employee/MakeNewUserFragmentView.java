@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,8 +21,8 @@ public class MakeNewUserFragmentView extends Fragment {
         View root = inflater.inflate(R.layout.fragment_make_new_user, container, false);
 
         controller = new MakeNewUserFragmentController(root);
-      //  Button authenticateNewEmployeeButton = root.findViewById(R.id.authenticateNewEmployeeButton);
-       // authenticateNewEmployeeButton.setOnClickListener(controller);
+        Button createNewUserButton = root.findViewById(R.id.createNewUserButton);
+        createNewUserButton.setOnClickListener(controller);
         return root;
     }
 }

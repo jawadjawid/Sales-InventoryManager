@@ -13,11 +13,11 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/createNewUserTextView"
+            android:id="@+id/welcomeTextView"
             android:layout_width="wrap_content"
             android:layout_height="51dp"
             android:layout_marginTop="30dp"
-            android:text="@string/make_new_user"
+            android:text="Welcome"
             android:textAlignment="center"
             android:textColor="#FCFAFA"
             android:textSize="24sp" />
@@ -28,37 +28,7 @@
             android:layout_height="112dp"
             app:srcCompat="@drawable/user" />
 
-        <include layout="@layout/content_user_signup_fields"></include>
 
-
-
-            <RadioGroup
-                android:id="@+id/roleRadioGroup"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="17dp"
-                android:layout_marginTop="-10dp"
-                android:orientation="vertical">
-
-                <RadioButton
-                    android:id="@+id/employeeRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:paddingRight="10dp"
-                    android:text="Employee"
-                    android:textColor="#FCFAFA" />
-
-                <RadioButton
-                    android:id="@+id/customerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Customer"
-                    android:layout_marginLeft="120dp"
-                    android:layout_marginTop="-32dp"
-                    android:textColor="#FCFAFA" />
-
-            </RadioGroup>
 
     </LinearLayout>
 
@@ -69,13 +39,13 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/createNewUserButton"
+            android:id="@+id/logOutButton"
             android:layout_width="@dimen/user_info_field_width"
             android:layout_height="@dimen/button_height_standard"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:background="#E6F0F0"
-            android:text="@string/make_new_user"
+            android:text="Log Out"
             android:textColor="#020202"
             android:visibility="visible" />
     </LinearLayout>
