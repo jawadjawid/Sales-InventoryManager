@@ -44,6 +44,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
+
     public DatabaseDriverAndroidHelper(Context context) {
         super(context);
     }
@@ -577,6 +578,8 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         boolean complete = updateAccountStatus(accountId, active);
         return complete;
     }
+
+
 
 
 
