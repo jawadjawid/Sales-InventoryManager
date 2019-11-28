@@ -6,13 +6,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.Application.Model.users.Employee;
 import com.Application.Model.users.User;
 import com.Application.View.Customer.CustomerCartView;
 import com.Application.View.Customer.CustomerHomeView;
 import com.Application.View.Customer.CustomerShoppingView;
-import com.Application.View.Employee.MainActivity;
-import com.Application.View.LoginView;
+import com.Application.View.MainLoginView;
 import com.example.Application.R;
 
 public class CustomerHomeController implements View.OnClickListener{
@@ -36,7 +34,7 @@ public class CustomerHomeController implements View.OnClickListener{
             view.startActivity(intent);
         }
         else if(v.getId() == R.id.LogOutBtn){
-            Intent intent = new Intent(appContext, LoginView.class);
+            Intent intent = new Intent(appContext, MainLoginView.class);
             view.startActivity(intent);
         }
     }
