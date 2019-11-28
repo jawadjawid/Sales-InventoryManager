@@ -30,11 +30,10 @@
     <Button
         android:id="@+id/authenticateNewEmployeeButton"
         android:layout_width="@dimen/user_info_field_width"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/button_height_standard"
         android:background="#E6F0F0"
         android:text="Authenticate"
         android:textColor="#020202"
-        android:textSize="18sp"
         android:visibility="visible"
         android:layout_gravity="center"/>
 </LinearLayout>

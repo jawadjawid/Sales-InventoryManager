@@ -35,7 +35,6 @@
         android:background="#E6F0F0"
         android:text="Login"
         android:textColor="#020202"
-        android:textSize="18sp"
         android:visibility="visible"
         android:layout_gravity="center"/>
 
