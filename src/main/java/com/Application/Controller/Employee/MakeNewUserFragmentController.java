@@ -45,9 +45,9 @@ public class MakeNewUserFragmentController extends SignUpController implements V
         int radioButtonId = roleRadioGroup.getCheckedRadioButtonId();
 
         if (radioButtonId == R.id.employeeRadioButton) {
-            return 1;
-        } else {
             return 2;
+        } else {
+            return 3;
         }
     }
 

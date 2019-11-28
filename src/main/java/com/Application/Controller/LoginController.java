@@ -42,12 +42,12 @@ public class LoginController implements View.OnClickListener {
 
                 EditText passwordEditText = view.findViewById(R.id.passwordEditText);
                 String password = passwordEditText.getText().toString();
-
                 String dbPass = mydb.getPasswordH(userId);
 
                 Log.d("hehe", "abt to authentiate pass");
                 if (user.authenticate(password, dbPass)) {
                     Log.d("hehe", "apparentyl it worked!!!");
+                    Log.d("id", "after" + user.getRoleId());
                     if(user.getRoleId() == 2){
                         Intent intent = new Intent(this.appContext, EmployeeOptionsView.class);
                         intent.putExtra("user", user);

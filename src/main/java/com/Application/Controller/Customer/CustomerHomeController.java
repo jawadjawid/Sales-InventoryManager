@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.Application.Model.users.Employee;
 import com.Application.Model.users.User;
@@ -21,6 +22,7 @@ public class CustomerHomeController implements View.OnClickListener{
     public CustomerHomeController(Context context) {
         appContext = context;
         view = (CustomerHomeView) appContext;
+        setUserName();
     }
 
     @Override
@@ -37,5 +39,12 @@ public class CustomerHomeController implements View.OnClickListener{
             Intent intent = new Intent(appContext, LoginView.class);
             view.startActivity(intent);
         }
+    }
+
+    public void setUserName(){
+        Intent intent = view.getIntent();
+        User user = (User) intent.getSerializableExtra("user");
+        TextView usernameTextView = view.findViewById(R.id.customerName);
+        usernameTextView.setText(user.getName());
     }
 }
