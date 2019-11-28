@@ -17,16 +17,19 @@ public class CustomerShoppingView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_shopping);
         controller = new CustomerShoppingController(this);
+
         Button addFishingRod = findViewById(R.id.addRodBtn);
         Button addHockeyStick =  findViewById(R.id.addStickBtn);
         Button addSkates = findViewById(R.id.addSkatesBtn);
         Button addRunningShoes = findViewById(R.id.addShoesBtn);
         Button addBar =  findViewById(R.id.addBarBtn);
+        Button addToCartBtn = findViewById(R.id.addCartBtn);
 
         addFishingRod.setOnClickListener(controller);
         addHockeyStick.setOnClickListener(controller);
         addSkates.setOnClickListener(controller);
         addRunningShoes.setOnClickListener(controller);
         addBar.setOnClickListener(controller);
+        addToCartBtn.setOnClickListener(controller);
     }
 }
