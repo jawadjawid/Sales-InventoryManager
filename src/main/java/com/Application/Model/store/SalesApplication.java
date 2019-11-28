@@ -32,7 +32,7 @@ public class SalesApplication {
 	private static HashMap<String, Integer> rolesToId;
 
 	// think about prices, remove it before submitting
-	private static void insertIntoItemsTable() throws SQLException, DatabaseInsertException {
+	public static void insertIntoItemsTable() throws SQLException, DatabaseInsertException {
 		ItemTypes[] values = ItemTypes.values();
 		BigDecimal price;
 		for (int i = 0; i < values.length; i++) {
@@ -51,14 +51,14 @@ public class SalesApplication {
 	}
 
 	// need
-	private static void insertIntoRolesTable() throws DatabaseInsertException, SQLException {
+	public static void insertIntoRolesTable() throws DatabaseInsertException, SQLException {
 		rolesToId = new HashMap<>();
 		for (Roles role : Roles.values()) {
 			rolesToId.put(role.name(), DatabaseInsertHelper.insertRole(role.name()));
 		}
 	}
 
-	private static void initializeRolesToId() {
+	public static void initializeRolesToId() {
 		try {
 			rolesToId = new HashMap<>();
 			int id = 0;
