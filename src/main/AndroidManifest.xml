@@ -9,17 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name="com.Application.View.Employee.EmployeeOptionsView"
-            android:label="@string/title_activity_employee_options"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name="com.Application.View.IntialPage" />
         <activity android:name="com.Application.View.Customer.CustomerCartView" />
         <activity android:name="com.Application.View.Customer.CustomerShoppingView" />
         <activity android:name="com.Application.View.Customer.CustomerHomeView" />
         <activity android:name="com.Application.View.Employee.MainActivity" />
+         <activity
+            android:name="com.Application.View.Employee.EmployeeOptionsView"
+            android:label="@string/title_activity_employee_options"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name="com.Application.View.LoginView" />
         <activity android:name="com.Application.View.Admin.Admin" />
-        <activity android:name="com.Application.View.LoginView">
+        <activity android:name="com.Application.View.InitialEmployeeSignupView"/>
+        <activity android:name="com.Application.View.InitialAdminSignupView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
