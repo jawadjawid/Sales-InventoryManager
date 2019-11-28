@@ -6,6 +6,7 @@ import android.database.Cursor;
 import com.Application.Model.database.DatabaseDriverAndroid;
 import com.Application.Model.database.DatabaseInserter;
 import com.Application.Model.database.DatabaseSelector;
+import com.Application.Model.database.DatabaseUpdater;
 import com.Application.Model.exceptions.DatabaseInsertException;
 import com.Application.Model.inventory.Inventory;
 import com.Application.Model.inventory.InventoryImpl;
@@ -403,6 +404,180 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         results.close();
         return accounts;
     }
+
+    public ArrayList<Account> getUserActiveAccountsH(int userId) {
+        Cursor results = getUserActiveAccounts(userId);
+        Cursor accountDetailsResult = null;
+        User user = getUserDetailsH(userId);
+        Account currentAccount = null;
+        ArrayList<Account> accounts = new ArrayList<>();
+        while (results.moveToNext()) {
+            accountDetailsResult = getAccountDetails(results.getInt(results.getColumnIndex("ID")));
+            currentAccount = new AccountImpl(results.getInt(results.getColumnIndex("ID")), user);
+            while (accountDetailsResult.moveToNext()) {
+                currentAccount.addItem(getItemH(accountDetailsResult.getInt(results.getColumnIndex("ITEMID"))),
+                        accountDetailsResult.getInt(results.getColumnIndex("QUANTITY")));
+            }
+            accounts.add(currentAccount);
+        }
+        results.close();
+        return accounts;
+    }
+
+    public ArrayList<Account> getUserInactiveAccountsH(int userId) {
+        Cursor results = getUserInactiveAccounts(userId);
+        Cursor accountDetailsResult = null;
+        User user = getUserDetailsH(userId);
+        Account currentAccount = null;
+        ArrayList<Account> accounts = new ArrayList<>();
+        while (results.moveToNext()) {
+            accountDetailsResult = getAccountDetails(results.getInt(results.getColumnIndex("ID")));
+            currentAccount = new AccountImpl(results.getInt(results.getColumnIndex("ID")), user);
+            while (accountDetailsResult.moveToNext()) {
+                currentAccount.addItem(getItemH(accountDetailsResult.getInt(results.getColumnIndex("ITEMID"))),
+                        accountDetailsResult.getInt(results.getColumnIndex("QUANTITY")));
+            }
+            accounts.add(currentAccount);
+        }
+        results.close();
+        return accounts;
+    }
+
+    public boolean updateRoleNameH(String name, int id)
+            throws DatabaseInsertException {
+
+        boolean val_success = true;
+        val_success = val_success && RolesValidator.validateName(name);
+        val_success = val_success && RolesValidator.validateId(id);
+
+        if (!val_success) {
+            throw new DatabaseInsertException();
+        }
+
+        boolean complete = updateRoleName(name, id);
+        return complete;
+    }
+
+    public boolean updateUserNameH(String name, int userId)
+            throws  DatabaseInsertException {
+
+        boolean val_success = true;
+        val_success = val_success && UsersValidator.validateName(name);
+        val_success = val_success && UsersValidator.validateId(userId);
+
+        if (!val_success) {
+            throw new DatabaseInsertException();
+        }
+
+        boolean complete = updateUserName(name, userId);
+        return complete;
+    }
+
+    public boolean updateUserAgeH(int age, int userId)
+            throws DatabaseInsertException {
+
+        boolean val_success = true;
+        val_success = val_success && UsersValidator.validateId(userId);
+        val_success = val_success && UsersValidator.validateAge(age);
+
+        if (!val_success) {
+            throw new DatabaseInsertException();
+        }
+
+        boolean complete = updateUserAge(age, userId);
+        return complete;
+    }
+
+    public  boolean updateUserAddressH(String address, int userId)
+            throws  DatabaseInsertException {
+
+        boolean val_success = true;
+        val_success = val_success && UsersValidator.validateId(userId);
+        val_success = val_success && UsersValidator.validateAddress(address);
+
+        if (!val_success) {
+            throw new DatabaseInsertException();
+        }
+
+        boolean complete = updateUserAddress(address, userId);
+        return complete;
+    }
+
+    public boolean updateUserRoleH(int roleId, int userId)
+            throws DatabaseInsertException {
+
+        boolean val_success = true;
+        val_success = val_success && UserRoleValidator.validateUserId(userId);
+        val_success = val_success && UserRoleValidator.validateRoleId(roleId);
+
+        if (!val_success) {
+            throw new DatabaseInsertException();
+        }
+
+        boolean complete = updateUserRole(roleId, userId);
+        return complete;
+    }
+
+    public  boolean updateItemNameH(String name, int itemId)
+            throws  DatabaseInsertException {
+
+        boolean val_success = true;
+        val_success = val_success && ItemsValidator.validateName(name);
+        val_success = val_success && ItemsValidator.validateId(itemId);
+
+        if (!val_success) {
+            throw new DatabaseInsertException();
+        }
+
+        boolean complete = updateItemName(name, itemId);
+        return complete;
+
+    }
+
+    public boolean updateItemPriceH(BigDecimal price, int itemId)
+            throws  DatabaseInsertException {
+
+        boolean val_success = true;
+        val_success = val_success && ItemsValidator.validatePrice(price);
+        val_success = val_success && ItemsValidator.validateId(itemId);
+
+        if (!val_success) {
+            throw new DatabaseInsertException();
+        }
+
+        boolean complete = updateItemPrice(price, itemId);
+        return complete;
+    }
+
+    public boolean updateInventoryQuantityH(int quantity, int itemId)
+            throws  DatabaseInsertException {
+
+        boolean val_success = true;
+        val_success = val_success && InventoryValidator.validateQuantity(quantity);
+        val_success = val_success && InventoryValidator.validateItemId(itemId);
+
+        if (!val_success) {
+            throw new DatabaseInsertException();
+        }
+
+        boolean complete = updateInventoryQuantity(quantity, itemId);
+        return complete;
+    }
+
+    public boolean updateAccountStatusH(int accountId, boolean active)
+            throws  DatabaseInsertException {
+
+        boolean val_success = true;
+      val_success = val_success && AccountSummaryValidator.validateAccountId(accountId);
+
+        if (!val_success) {
+            throw new DatabaseInsertException();
+        }
+
+        boolean complete = updateAccountStatus(accountId, active);
+        return complete;
+    }
+
 
 
 }
