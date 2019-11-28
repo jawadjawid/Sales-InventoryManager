@@ -89,7 +89,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public long insertUserRoleH(int userId, int roleId)
-            throws DatabaseInsertException, SQLException {
+            throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && UserRoleValidator.validateRoleId(roleId);
@@ -104,7 +104,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public long insertItemH(String name, BigDecimal price)
-            throws DatabaseInsertException, SQLException {
+            throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && ItemsValidator.validateName(name);
@@ -119,7 +119,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public long insertInventoryH(int itemId, int quantity)
-            throws DatabaseInsertException, SQLException {
+            throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && InventoryValidator.validateItemId(itemId);
@@ -134,7 +134,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public long insertSaleH(int userId, BigDecimal totalPrice)
-            throws DatabaseInsertException, SQLException {
+            throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && SalesValidator.validateUserId(userId);
@@ -149,7 +149,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public long insertItemizedSaleH(int saleId, int itemId, int quantity)
-            throws DatabaseInsertException, SQLException {
+            throws DatabaseInsertException {
 
         // Note: sale been inserted into sales already
 
@@ -169,7 +169,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public long insertAccountH(int userId)
-            throws DatabaseInsertException, SQLException {
+            throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && AccountValidator.validateUserId(userId);
@@ -183,7 +183,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public long insertAccountSummaryH(int acctId, int itemId, int quantity)
-            throws DatabaseInsertException, SQLException {
+            throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && AccountSummaryValidator.validateAccountId(acctId);

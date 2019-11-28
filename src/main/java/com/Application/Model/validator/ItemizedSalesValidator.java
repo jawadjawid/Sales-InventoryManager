@@ -38,7 +38,7 @@ public class ItemizedSalesValidator {
         return true;
     }
 
-    public static boolean validateUniqueComb(int saleId, int itemId) throws SQLException {
+    public static boolean validateUniqueComb(int saleId, int itemId) {
         SalesLog saleslog = mydb.getItemizedSalesH();
         int count = 0;
         for (Sale sale : saleslog.getSales()) {
