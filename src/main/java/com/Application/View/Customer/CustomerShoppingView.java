@@ -30,6 +30,6 @@ public class CustomerShoppingView extends AppCompatActivity {
         addSkates.setOnClickListener(controller);
         addRunningShoes.setOnClickListener(controller);
         addBar.setOnClickListener(controller);
-       goToCartBtn.setOnClickListener(controller);
+        goToCartBtn.setOnClickListener(controller);
     }
 }

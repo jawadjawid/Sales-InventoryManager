@@ -16,19 +16,21 @@ import com.example.Application.R;
 public class CustomerHomeController implements View.OnClickListener{
     private CustomerHomeView view;
     private Context appContext;
+    private User recievedUser;
 
     public CustomerHomeController(Context context) {
         appContext = context;
         view = (CustomerHomeView) appContext;
         setUserName();
+        TextView usernameTextView = view.findViewById(R.id.customerName);
+        usernameTextView.setText(recievedUser.getName());
     }
 
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.shopBtn){
             Intent intent = new Intent(appContext, CustomerShoppingView.class);
-            User user = (User) intent.getSerializableExtra("user");
-            intent.putExtra("user", user);
+            intent.putExtra("user", recievedUser);
             view.startActivity(intent);
         }
         else if(v.getId() == R.id.cartBtn){
@@ -44,7 +46,6 @@ public class CustomerHomeController implements View.OnClickListener{
     public void setUserName(){
         Intent intent = view.getIntent();
         User user = (User) intent.getSerializableExtra("user");
-        TextView usernameTextView = view.findViewById(R.id.customerName);
-        usernameTextView.setText(user.getName());
+        this.recievedUser = user;
     }
 }
