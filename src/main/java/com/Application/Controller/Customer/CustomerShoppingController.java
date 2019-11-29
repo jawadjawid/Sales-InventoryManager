@@ -1,11 +1,16 @@
 package com.Application.Controller.Customer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.Application.Model.store.ShoppingCart;
+import com.Application.Model.users.Customer;
+import com.Application.Model.users.User;
+import com.Application.View.Customer.CustomerCartView;
 import com.Application.View.Customer.CustomerShoppingView;
 import com.example.Application.R;
 
@@ -102,8 +107,17 @@ public class CustomerShoppingController implements View.OnClickListener {
                     Toast.makeText(appContext, "Please Enter appropriate quantity!", Toast.LENGTH_SHORT).show();
                 }
             }
-        } else if (v.getId() == R.id.addCartBtn) {
+        } else if (v.getId() == R.id.goCartBtn) {
+            Intent intent = view.getIntent();
+            User user = (User) intent.getSerializableExtra("user");
 
+            Customer c = new Customer(user.getId(), user.getName(), user.getAge(), user.getAddress());
+            ShoppingCart cart = new ShoppingCart(c);
+            Toast.makeText(appContext, "customer name" + c.getName(), Toast.LENGTH_SHORT).show();
+            intent = new Intent(appContext, CustomerCartView.class);
+            intent.putExtra("cart", cart);
+            view.startActivity(intent);
+            Toast.makeText(appContext, "All items have been added to the cart!", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -23,13 +23,13 @@ public class CustomerShoppingView extends AppCompatActivity {
         Button addSkates = findViewById(R.id.addSkatesBtn);
         Button addRunningShoes = findViewById(R.id.addShoesBtn);
         Button addBar =  findViewById(R.id.addBarBtn);
-        Button addToCartBtn = findViewById(R.id.addCartBtn);
+        Button goToCartBtn = findViewById(R.id.addCartBtn);
 
         addFishingRod.setOnClickListener(controller);
         addHockeyStick.setOnClickListener(controller);
         addSkates.setOnClickListener(controller);
         addRunningShoes.setOnClickListener(controller);
         addBar.setOnClickListener(controller);
-        addToCartBtn.setOnClickListener(controller);
+        goToCartBtn.setOnClickListener(controller);
     }
 }

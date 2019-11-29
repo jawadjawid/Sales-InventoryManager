@@ -27,6 +27,8 @@ public class CustomerHomeController implements View.OnClickListener{
     public void onClick(View v) {
         if(v.getId() == R.id.shopBtn){
             Intent intent = new Intent(appContext, CustomerShoppingView.class);
+            User user = (User) intent.getSerializableExtra("user");
+            intent.putExtra("user", user);
             view.startActivity(intent);
         }
         else if(v.getId() == R.id.cartBtn){

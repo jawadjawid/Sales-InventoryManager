@@ -264,7 +264,7 @@
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/addCartBtn"
+        android:id="@+id/goCartBtn"
         android:layout_width="210dp"
         android:layout_height="45dp"
         android:layout_alignParentEnd="true"
@@ -273,7 +273,7 @@
         android:layout_marginEnd="84dp"
         android:layout_marginBottom="5dp"
         android:background="#2196F3"
-        android:text="Add To Cart"
+        android:text="Go to Cart"
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
