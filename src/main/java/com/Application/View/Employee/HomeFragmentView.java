@@ -21,9 +21,8 @@ public class HomeFragmentView extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        Bundle bundle = getArguments();
-        Log.d("hehe", "aa");
-        controller = new HomeFragmentController(root, this);
+
+        controller = new HomeFragmentController(root);
         Button logOutButton = root.findViewById(R.id.logOutButton);
         logOutButton.setOnClickListener(controller);
         return root;

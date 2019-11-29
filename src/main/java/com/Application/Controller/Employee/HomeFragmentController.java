@@ -3,20 +3,26 @@ package com.Application.Controller.Employee;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.widget.TextView;
 
 import com.Application.View.Employee.HomeFragmentView;
 import com.Application.View.MainLoginView;
+import com.example.Application.R;
+import com.google.android.material.navigation.NavigationView;
+
+import org.w3c.dom.Text;
 
 
 public class HomeFragmentController implements View.OnClickListener {
-    private View view;
+    private static View view;
     private Context appContext;
-    private HomeFragmentView homeFragmentView;
+    private static TextView welcomeTextView;
 
-    public HomeFragmentController(View view, HomeFragmentView homeFragmentView) {
+    public HomeFragmentController(View view) {
         this.view = view;
         appContext = view.getContext();
-        this.homeFragmentView = homeFragmentView;
+        welcomeTextView = view.findViewById(R.id.welcomeTextView);
+        setUsername(EmployeeOptionsController.getUser().getName());
     }
 
 
@@ -25,6 +31,11 @@ public class HomeFragmentController implements View.OnClickListener {
     public void onClick(View v) {
         Intent intent = new Intent(this.appContext, MainLoginView.class);
         appContext.startActivity(intent);
+    }
+
+    public static void setUsername(String username) {
+        welcomeTextView.setText("Welcome " + username + "!");
+
     }
 
 

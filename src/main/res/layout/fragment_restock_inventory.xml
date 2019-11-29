@@ -16,14 +16,13 @@
         android:text="Products"
         android:textAlignment="center"
         android:textColor="#FAF5F5"
-        android:textSize="30sp"
-        android:layout_marginTop="10dp"/>
+        android:textSize="30sp"/>
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnCount="2"
-        android:layout_margin="40dp">
+        android:layout_margin="35dp">
 
         <TextView
             android:id="@+id/fishingRodLabelTextView"
@@ -126,7 +125,20 @@
             android:textSize="24sp"
             android:layout_marginLeft="@dimen/product_add_button_margin_left"
             android:layout_marginBottom="@dimen/product_add_button_margin_bottom"/>
+
+
     </GridLayout>
+
+    <Button
+        android:layout_columnSpan="2"
+        android:id="@+id/saveChangesButton"
+        android:layout_width="@dimen/user_info_field_width"
+        android:layout_height="@dimen/button_height_standard"
+        android:background="#F3F5F5"
+        android:text="Save Changes"
+        android:textColor="#050505"
+        android:textSize="24sp"
+        android:layout_marginTop="-50dp"/>
 
 
 </LinearLayout>

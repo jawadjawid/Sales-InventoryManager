@@ -1,5 +1,6 @@
 package com.Application.Model.store;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import com.Application.Model.inventory.Item;
 import com.Application.Model.exceptions.DatabaseInsertException;
 import com.Application.Model.users.Customer;
 
-public class ShoppingCart {
+public class ShoppingCart implements Serializable {
 
 	private final BigDecimal TAXRATE = new BigDecimal("1.13");
 	private HashMap<Item, Integer> items;

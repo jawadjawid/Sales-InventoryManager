@@ -46,11 +46,18 @@ public class InitialAdminSignupController extends SignupController implements Vi
         mydb.insertRoleH("EMPLOYEE");
         mydb.insertRoleH("CUSTOMER");
 
+        mydb.insertItemH("FISHING_ROD", new BigDecimal("12.00").setScale(2));
+        mydb.insertItemH("HOCKEY_STICK", new BigDecimal("10.00").setScale(2));
         mydb.insertItemH("SKATES", new BigDecimal("9.00").setScale(2));
         mydb.insertItemH("RUNNING_SHOES", new BigDecimal("15.00").setScale(2));
         mydb.insertItemH("PROTEIN_BAR", new BigDecimal("5.00").setScale(2));
-        mydb.insertItemH("HOCKEY_STICK", new BigDecimal("10.00").setScale(2));
-        mydb.insertItemH("FISHING_ROD", new BigDecimal("12.00").setScale(2));
+
+        mydb.insertInventoryH(1,0);
+        mydb.insertInventoryH(2,0);
+        mydb.insertInventoryH(3,0);
+        mydb.insertInventoryH(4,0);
+        mydb.insertInventoryH(5,0);
+
     }
 
 

@@ -14,32 +14,37 @@ import com.google.android.material.navigation.NavigationView;
 
 
 public class EmployeeOptionsController implements View.OnClickListener {
-    private EmployeeOptionsView view;
-    private static Context appContext;
+    private static EmployeeOptionsView view;
+    private  Context appContext;
+    private static User user;
 
     public EmployeeOptionsController(Context context) {
         appContext = context;
         view = (EmployeeOptionsView) appContext;
-        setUsername();
+        Intent intent = view.getIntent();
+        user = (User) intent.getSerializableExtra("user");
+
+        setUsername(user.getName());
     }
 
     @Override
     public void onClick(View v) {
     }
 
-    private void setUsername() {
+    public static void setUsername(String username) {
         NavigationView navigationView = view.findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
 
-        Intent intent = view.getIntent();
-        User user = (User) intent.getSerializableExtra("user");
         TextView usernameTextView = headerView.findViewById(R.id.usernameTextView);
-        usernameTextView.setText(user.getName());
+        usernameTextView.setText(username);
     }
 
-    public static Context getContext(){
-        return appContext;
+    public static User getUser(){
+        return user;
     }
 
+    public static  void setUser(User user){
+
+    }
 
 }

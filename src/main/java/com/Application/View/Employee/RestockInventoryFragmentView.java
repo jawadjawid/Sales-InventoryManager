@@ -21,8 +21,21 @@ public class RestockInventoryFragmentView extends Fragment {
         View root = inflater.inflate(R.layout.fragment_restock_inventory, container, false);
 
         controller = new RestockInventoryFragmentController(root);
-     //   Button authenticateNewEmployeeButton = root.findViewById(R.id.authenticateNewEmployeeButton);
-     //   authenticateNewEmployeeButton.setOnClickListener(controller);
+        Button addFishingRodButton = root.findViewById(R.id.addFishingRodButton);
+        Button addHockeyStickButton = root.findViewById(R.id.addHockeyStickButton);
+        Button addSkatesButton = root.findViewById(R.id.addSkatesButton);
+        Button addRunningShoesButton = root.findViewById(R.id.addRunningShoesButton);
+        Button addProteinBarButton = root.findViewById(R.id.addProteinBarButton);
+        Button saveChangesButton = root.findViewById(R.id.saveChangesButton);
+
+        addFishingRodButton.setOnClickListener(controller);
+        addHockeyStickButton.setOnClickListener(controller);
+        addSkatesButton.setOnClickListener(controller);
+        addRunningShoesButton.setOnClickListener(controller);
+        addProteinBarButton.setOnClickListener(controller);
+        saveChangesButton.setOnClickListener(controller);
+
+
         return root;
     }
 }
