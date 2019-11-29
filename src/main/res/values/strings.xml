@@ -21,4 +21,8 @@
     <string name="restock_inventory">Restock Inventory</string>
     <string name="title_activity_employee_options">EmployeeOptionsView</string>
     <string name="make_new_admin">Create New Admin</string>
+    <string name="title_activity_admin_options_view">AdminOptionsView</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
