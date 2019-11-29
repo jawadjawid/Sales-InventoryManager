@@ -23,6 +23,25 @@
                     }
                 },
                 {
+                    "source": "/Users/Pujan/.gradle/caches/transforms-2/files-2.1/2946ca0ea6c89dab7d7d9fbc18e54292/material-1.0.0/res/values-v21/values-v21.xml",
+                    "from": {
+                        "startLines": "2,10,18,26",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,484,910,1333",
+                        "endLines": "9,17,25,33",
+                        "endColumns": "10,10,10,10",
+                        "endOffsets": "479,905,1328,1763"
+                    },
+                    "to": {
+                        "startLines": "272,280,288,296",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "19986,20415,20841,21264",
+                        "endLines": "279,287,295,303",
+                        "endColumns": "10,10,10,10",
+                        "endOffsets": "20410,20836,21259,21694"
+                    }
+                },
+                {
                     "source": "/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/res/values-v21/styles.xml",
                     "from": {
                         "startLines": "2",
@@ -42,7 +61,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Pujan/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/res/values-v21/values-v21.xml",
+                    "source": "/Users/Pujan/.gradle/caches/transforms-2/files-2.1/f01b27bb220ecb79298884ef36a7a2fb/core-1.1.0/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -52,12 +71,12 @@
                         "endOffsets": "154,218,285,349,465,591,717,845,1017,1355"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,268,269,270,271,272,275",
+                        "startLines": "2,3,4,5,268,269,270,271,304,307",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,159,223,290,19490,19606,19732,19858,19986,20158",
-                        "endLines": "2,3,4,5,268,269,270,271,274,279",
+                        "startOffsets": "55,159,223,290,19490,19606,19732,19858,21699,21871",
+                        "endLines": "2,3,4,5,268,269,270,271,306,311",
                         "endColumns": "103,63,66,63,115,125,125,127,12,12",
-                        "endOffsets": "154,218,285,349,19601,19727,19853,19981,20153,20491"
+                        "endOffsets": "154,218,285,349,19601,19727,19853,19981,21866,22204"
                     }
                 }
             ]

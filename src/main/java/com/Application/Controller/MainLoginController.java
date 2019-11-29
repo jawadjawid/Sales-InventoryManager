@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.users.User;
+import com.Application.View.Admin.AdminOptionsView;
 import com.Application.View.Customer.CustomerHomeView;
 import com.Application.View.Employee.EmployeeOptionsView;
 import com.Application.View.MainLoginView;
@@ -36,6 +37,9 @@ public class MainLoginController extends LoginController implements View.OnClick
 
                     case 1:
                         // admin login
+                        intent = new Intent(this.appContext, AdminOptionsView.class);
+                        intent.putExtra("user", user);
+                        appContext.startActivity(intent);
                         break;
                     case 2:
                         // employee login

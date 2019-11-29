@@ -18,7 +18,7 @@ public class MakeNewUserFragmentView extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_make_new_user, container, false);
+        View root = inflater.inflate(R.layout.fragment_employee_make_new_user, container, false);
 
         controller = new MakeNewUserFragmentController(root);
         Button createNewUserButton = root.findViewById(R.id.createNewUserButton);

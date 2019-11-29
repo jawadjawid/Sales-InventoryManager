@@ -18,7 +18,7 @@ public class AuthenticateNewEmployeeFragmentView extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_authenticate_new_employee, container, false);
+        View root = inflater.inflate(R.layout.fragment_employee_authenticate_new_employee, container, false);
 
         controller = new AuthenticateNewEmployeeFragmentController(root);
         Button authenticateNewEmployeeButton = root.findViewById(R.id.authenticateNewEmployeeButton);

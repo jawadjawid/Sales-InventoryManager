@@ -17,9 +17,10 @@
         android:label="Inventory and Sales Manager"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.salesapplication.AdminOptionsView"
+            android:name="com.Application.View.Admin.AdminOptionsView"
             android:label="@string/title_activity_admin_options_view" />
         <activity android:name="com.Application.View.Customer.CustomerCartView" />
         <activity android:name="com.Application.View.Customer.CustomerShoppingView" />
@@ -30,7 +31,6 @@
             android:label="@string/title_activity_employee_options"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.Application.View.MainLoginView" />
-        <activity android:name="com.Application.View.Admin.Admin" />
         <activity android:name="com.Application.View.InitialEmployeeSignupView" />
         <activity android:name="com.Application.View.InitialAdminSignupView" >
             <intent-filter>
