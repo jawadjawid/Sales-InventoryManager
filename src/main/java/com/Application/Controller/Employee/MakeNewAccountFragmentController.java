@@ -3,6 +3,7 @@ package com.Application.Controller.Employee;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import java.util.List;
 public class MakeNewAccountFragmentController implements View.OnClickListener {
     private View view;
     private Context appContext;
+    private String[] customerIds;
 
     public MakeNewAccountFragmentController(View view) {
         this.view = view;
@@ -29,13 +31,13 @@ public class MakeNewAccountFragmentController implements View.OnClickListener {
         try {
             DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
             NumberPicker customerIdNumberPicker = view.findViewById(R.id.customerIdNumberPicker);
-            int customerId = customerIdNumberPicker.getValue();
+            int customerId = Integer.parseInt(customerIds[customerIdNumberPicker.getValue()]);
 
             int accountId = Math.toIntExact(mydb.insertAccountH(customerId));
             Toast.makeText(appContext, "Account successfully created with id " + accountId, Toast.LENGTH_SHORT).show();
 
         } catch (DatabaseInsertException e) {
-    e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -43,11 +45,17 @@ public class MakeNewAccountFragmentController implements View.OnClickListener {
 
         DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
         List<Integer> customerIdsInt = mydb.getUsersByRoleH(3);
+        if (customerIdsInt.size() == 0) {
+            customerIds = new String[1];
+            customerIds[0] = "No customers exist.";
+            Button selectCustomerIdButton = view.findViewById(R.id.selectCustomerIdButton);
+            selectCustomerIdButton.setEnabled(false);
+        } else {
 
-        String[] customerIds = new String[customerIdsInt.size()];
-
-        for (int i = 0; i < customerIds.length; i++) {
-            customerIds[i] = "" + customerIdsInt.get(i);
+            customerIds = new String[customerIdsInt.size()];
+            for (int i = 0; i < customerIds.length; i++) {
+                customerIds[i] = "" + customerIdsInt.get(i);
+            }
         }
 
         NumberPicker customerIdNumberPicker = view.findViewById(R.id.customerIdNumberPicker);
