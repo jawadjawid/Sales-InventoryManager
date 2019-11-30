@@ -21,18 +21,23 @@ import com.example.Application.R;
 public class CustomerHomeController implements View.OnClickListener {
     private CustomerHomeView view;
     private Context appContext;
-    private User recievedUser;
+    private static User recievedUser;
+    private static int numHomePageVisits = 0;
 
     public CustomerHomeController(Context context) {
         appContext = context;
         view = (CustomerHomeView) appContext;
+        if (numHomePageVisits == 0) {
+            setUserName();
+            displayRestoreAlert();
+            numHomePageVisits = 1;
+        }
+        displayUserName();
+    }
 
-        setUserName();
+    private void displayUserName() {
         TextView usernameTextView = view.findViewById(R.id.customerName);
         usernameTextView.setText(recievedUser.getName());
-        displayRestoreAlert();
-
-
     }
 
     @Override

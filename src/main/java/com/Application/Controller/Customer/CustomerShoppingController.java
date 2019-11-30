@@ -3,16 +3,12 @@ package com.Application.Controller.Customer;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Application.Model.inventory.Item;
 import com.Application.Model.inventory.ItemImpl;
-import com.Application.Model.store.ShoppingCart;
-import com.Application.Model.users.Customer;
-import com.Application.Model.users.User;
-import com.Application.View.Customer.CustomerCartView;
+import com.Application.View.Customer.CustomerHomeView;
 import com.Application.View.Customer.CustomerShoppingView;
 import com.example.Application.R;
 
@@ -58,8 +54,8 @@ public class CustomerShoppingController implements View.OnClickListener {
             updateQuantity(4, 0, R.id.BarCurrentQuantity, R.id.BarQuantity);
         } else if (v.getId() == R.id.BarRemoveBtn) {
             updateQuantity(4, 1, R.id.BarCurrentQuantity, R.id.BarQuantity);
-        }else if(v.getId() == R.id.ResetAllBtn){
-            for(int i = 0; i < 5; i++){
+        } else if (v.getId() == R.id.ResetAllBtn) {
+            for (int i = 0; i < 5; i++) {
                 recievedQuantities[i] = 0;
             }
             displayQuantity(R.id.RodCurrentQuantity, 0);
@@ -68,51 +64,27 @@ public class CustomerShoppingController implements View.OnClickListener {
             displayQuantity(R.id.ShoesCurrentQuantity, 3);
             displayQuantity(R.id.BarCurrentQuantity, 4);
         } else if (v.getId() == R.id.GoHomeBtn) {
-
-            /*Customer c = new Customer(recievedUser.getId(), recievedUser.getName(), recievedUser.getAge(), recievedUser.getAddress(), recievedUser.getRoleId());
-            ShoppingCart cart = new ShoppingCart(c);
-            HashMap<Item, Integer> allItems = new HashMap<>();
-
-            TextView shoesQuantity = view.findViewById(R.id.runningShoesQuantity);
-            TextView stickQuantity = view.findViewById(R.id.hockeyQuantity);
-            TextView barQuantity = view.findViewById(R.id.proteinBarQuantity);
-            TextView skatesQuantity = view.findViewById(R.id.skatesQuantity);
-            TextView rodQuantity = view.findViewById(R.id.fishingRodQuantity);
-
-            int totalShoesQuantity = Integer.parseInt(shoesQuantity.getText().toString());
-            int totalStickQuantity = Integer.parseInt(stickQuantity.getText().toString());
-            int totalBarQuantity = Integer.parseInt(barQuantity.getText().toString());
-            int totalSkateQuantity = Integer.parseInt(skatesQuantity.getText().toString());
-            int totalRodQuantity = Integer.parseInt(rodQuantity.getText().toString());
-
-            if (totalShoesQuantity >= 1) {
-                Item shoes = new ItemImpl(1, "Running Shoes", new BigDecimal("15.00"));
-                allItems.put(shoes, totalShoesQuantity);
-            }
-            if (totalStickQuantity >= 1) {
-                Item stick = new ItemImpl(2, "Hockey Stick", new BigDecimal("8.50"));
-                allItems.put(stick, totalStickQuantity);
-            }
-            if (totalBarQuantity >= 1) {
-                Item bar = new ItemImpl(3, "Protein Bar", new BigDecimal("3.00"));
-                allItems.put(bar, totalBarQuantity);
-            }
-            if (totalSkateQuantity >= 1) {
-                Item skate = new ItemImpl(4, "Skates", new BigDecimal("10.00"));
-                allItems.put(skate, totalSkateQuantity);
-            }
-            if (totalRodQuantity >= 1) {
-                Item rod = new ItemImpl(5, "Fishing Rod", new BigDecimal("12.00"));
-                allItems.put(rod, totalRodQuantity);
-            }
-
-            cart.setItemMap(allItems);
-            Intent intent = new Intent(appContext, CustomerCartView.class);
-            Toast.makeText(appContext, "All items have been added to the cart!", Toast.LENGTH_SHORT).show();
-            intent.putExtra("cart", cart);
-            view.startActivity(intent);*/
+            sendItemMap();
         }
     }
+
+    private void sendItemMap() {
+        HashMap<Item, Integer> allItems = new HashMap<>();
+        Item rod = new ItemImpl(1, "Fishing Rod", new BigDecimal("12.00"));
+        Item stick = new ItemImpl(2, "Hockey Stick", new BigDecimal("8.50"));
+        Item skate = new ItemImpl(3, "Skates", new BigDecimal("10.00"));
+        Item shoes = new ItemImpl(4, "Running Shoes", new BigDecimal("15.00"));
+        Item bar = new ItemImpl(5, "Protein Bar", new BigDecimal("3.00"));
+        allItems.put(rod, recievedQuantities[0]);
+        allItems.put(stick, recievedQuantities[1]);
+        allItems.put(skate, recievedQuantities[2]);
+        allItems.put(shoes, recievedQuantities[3]);
+        allItems.put(bar, recievedQuantities[4]);
+        Intent intent = new Intent(appContext, CustomerHomeView.class);
+        intent.putExtra("ItemMap", allItems);
+        view.startActivity(intent);
+    }
+
 
     private void setQuantities() {
         Intent intent = view.getIntent();
