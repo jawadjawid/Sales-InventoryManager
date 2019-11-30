@@ -58,10 +58,18 @@ public class CustomerShoppingController implements View.OnClickListener {
             updateQuantity(4, 0, R.id.BarCurrentQuantity, R.id.BarQuantity);
         } else if (v.getId() == R.id.BarRemoveBtn) {
             updateQuantity(4, 1, R.id.BarCurrentQuantity, R.id.BarQuantity);
-        }
-            /*else if (v.getId() == R.id.Skates) {
+        }else if(v.getId() == R.id.ResetAllBtn){
+            for(int i = 0; i < 5; i++){
+                recievedQuantities[i] = 0;
+            }
+            displayQuantity(R.id.RodCurrentQuantity, 0);
+            displayQuantity(R.id.StickCurrentQuantity, 1);
+            displayQuantity(R.id.SkatesCurrentQuantity, 2);
+            displayQuantity(R.id.ShoesCurrentQuantity, 3);
+            displayQuantity(R.id.BarCurrentQuantity, 4);
+        } else if (v.getId() == R.id.GoHomeBtn) {
 
-            Customer c = new Customer(recievedUser.getId(), recievedUser.getName(), recievedUser.getAge(), recievedUser.getAddress(), recievedUser.getRoleId());
+            /*Customer c = new Customer(recievedUser.getId(), recievedUser.getName(), recievedUser.getAge(), recievedUser.getAddress(), recievedUser.getRoleId());
             ShoppingCart cart = new ShoppingCart(c);
             HashMap<Item, Integer> allItems = new HashMap<>();
 
@@ -102,8 +110,8 @@ public class CustomerShoppingController implements View.OnClickListener {
             Intent intent = new Intent(appContext, CustomerCartView.class);
             Toast.makeText(appContext, "All items have been added to the cart!", Toast.LENGTH_SHORT).show();
             intent.putExtra("cart", cart);
-            view.startActivity(intent);
-        }*/
+            view.startActivity(intent);*/
+        }
     }
 
     private void setQuantities() {
