@@ -2,8 +2,11 @@ package com.Application.View.Customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.Application.Controller.Customer.CustomerHomeController;
 import com.example.Application.R;
@@ -23,5 +26,6 @@ public class CustomerHomeView extends AppCompatActivity {
         shopButton.setOnClickListener(controller);
         cartButton.setOnClickListener(controller);
         logoutButton.setOnClickListener(controller);
+
     }
 }
