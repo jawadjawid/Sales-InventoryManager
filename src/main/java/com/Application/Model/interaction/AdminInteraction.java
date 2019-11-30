@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 
+import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.database.helper.DatabaseSelectHelper;
 import com.Application.Model.exceptions.DatabaseInsertException;
 import com.Application.Model.inventory.Item;
@@ -59,13 +60,15 @@ public class AdminInteraction extends UserInteraction {
 		if (adminChoice.equals("1")) {
 			promoteEmployee(bufferedReader, rolesToId, preUser);
 		} else{
-			viewBooks();
+			//viewBooks();
 		} 
 	}
 
-	public static void viewBooks() throws SQLException {
-		SalesLog withPrice = DatabaseSelectHelper.getSales();
-		SalesLog withHashMap = DatabaseSelectHelper.getItemizedSales();
+	public static String viewBooks(DatabaseDriverAndroidHelper mydb) throws SQLException {
+		StringBuilder books = new StringBuilder();
+
+		SalesLog withPrice = mydb.getSalesH();
+		SalesLog withHashMap =mydb.getItemizedSalesH();
 		ArrayList<Sale> salesWithPrice = withPrice.getSales();
 		ArrayList<Sale> salesWithHashMap = withHashMap.getSales();
 		sortSalesList(salesWithPrice);
@@ -75,35 +78,36 @@ public class AdminInteraction extends UserInteraction {
 		HashMap<Item, Integer> totalItems = new HashMap<Item, Integer>();
 
 		for (int i = 0; i < salesWithPrice.size(); i++) {
-			if (DatabaseSelectHelper.getRoleName(salesWithPrice.get(i).getUser().getRoleId())
+			if (mydb.getRoleNameH(salesWithPrice.get(i).getUser().getRoleId())
 					.equals(Roles.CUSTOMER.toString())) {
 				String name = salesWithPrice.get(i).getUser().getName();
 				int saleId = salesWithPrice.get(i).getId();
 				BigDecimal totalPrice = salesWithPrice.get(i).getTotalPrice();
-				System.out.println("Customer: " + name);
-				System.out.println("Purchase Number: " + saleId);
-				System.out.println("Total Purchase Price: " + totalPrice);
+				books.append("Customer: " + name);
+				books.append("Purchase Number: " + saleId);
+				books.append("Total Purchase Price: " + totalPrice);
 				allSalesTotal = allSalesTotal.add(totalPrice);
-				System.out.println("Itemized Breakdown: ");
+				books.append("Itemized Breakdown: ");
 				HashMap<Item, Integer> items = salesWithHashMap.get(i).getItemMap();
 				for (Item e : items.keySet()) {
 					int quantity = items.get(e);
-					System.out.println(e + ": " + quantity);
+					books.append(e + ": " + quantity);
 					if (exists(totalItems, e)) {
 						totalItems.put(e, totalItems.get(e) + quantity);
 					} else {
 						totalItems.put(e, quantity);
 					}
 				}
-				System.out.println("----------------------------------------------------------------");
+				books.append("----------------------------------------------------------------");
 			}
 		}
 
 		for (Item i : totalItems.keySet()) {
-			System.out.println("Number of " + i.getName() + " Sold: " + totalItems.get(i));
+			books.append("Number of " + i.getName() + " Sold: " + totalItems.get(i));
 		}
-		System.out.println("TOTAL SALES: " + allSalesTotal);
+		books.append("TOTAL SALES: " + allSalesTotal);
 
+		return books.toString();
 	}
 
 	private static boolean exists(HashMap<Item, Integer> items, Item i) {

@@ -1,7 +1,9 @@
 package com.Application.View.Admin;
 
 import android.os.Bundle;
+import android.widget.Button;
 
+import com.Application.Controller.Admin.AdminOptionsController;
 import com.example.Application.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -13,10 +15,14 @@ import androidx.navigation.ui.NavigationUI;
 
 public class AdminOptionsView extends AppCompatActivity {
 
+    AdminOptionsController controller;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
+        controller = new AdminOptionsController(this);
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -26,6 +32,7 @@ public class AdminOptionsView extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
     }
 
 }
