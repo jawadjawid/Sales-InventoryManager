@@ -1,86 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#383A3A"
-    tools:context="com.Application.View.Customer.CustomerHomeView">
-
-    <Button
-        android:id="@+id/LogOutBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="255dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="58dp"
-        android:background="#DF051F"
-        android:text="logout"
-        android:textColor="#090808"
-        android:textSize="24sp" />
-
-    <Button
-        android:id="@+id/cartBtn"
-        android:layout_width="315dp"
-        android:layout_height="74dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="195dp"
-        android:background="#2196F3"
-        android:text="Shopping Cart"
-        android:textColor="#090808"
-        android:textSize="24sp" />
-
-    <Button
-        android:id="@+id/shopBtn"
-        android:layout_width="319dp"
-        android:layout_height="69dp"
-        android:layout_above="@+id/cartBtn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="76dp"
-        android:background="#2196F3"
-        android:text="Shop"
-        android:textColor="#090808"
-        android:textSize="24sp" />
+    tools:context="com.Application.View.Customer.CustomerHomeView"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/Welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="73dp"
+        android:id="@+id/welcomeTextView"
+        android:layout_width="360dp"
+        android:layout_height="76dp"
+        android:layout_above="@+id/shopBtn"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="66dp"
-        android:layout_marginEnd="47dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="29dp"
         android:text="Welcome"
         android:textAlignment="center"
-        android:textColor="#FCF8F8"
-        android:textSize="36sp"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
         android:visibility="visible" />
 
     <TextView
         android:id="@+id/customerName"
-        android:layout_width="338dp"
-        android:layout_height="66dp"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
         android:layout_above="@+id/shopBtn"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="17dp"
         android:layout_marginEnd="39dp"
         android:layout_marginBottom="29dp"
+        android:layout_marginTop="30dp"
         android:hint="Customer's Name"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="36sp"
+        android:textSize="40sp"
         android:visibility="visible" />
-</RelativeLayout>
+
+    <Button
+        android:id="@+id/shopBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/cartBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="65dp"
+        android:layout_marginTop="30dp"
+        android:background="#2196F3"
+        android:text="Go Shopping"
+        android:textColor="#090808"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/cartBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="65dp"
+        android:background="#2196F3"
+        android:text="Shopping Cart"
+        android:textColor="#090808"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/LogOutBtn"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="115dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="58dp"
+        android:layout_marginTop="30dp"
+        android:background="#DF051F"
+        android:text="logout"
+        android:textColor="#090808"
+        android:textSize="24sp" />
+
+
+</LinearLayout>
