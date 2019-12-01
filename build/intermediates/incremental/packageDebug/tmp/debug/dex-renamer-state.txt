@@ -1,7 +1,7 @@
-#Fri Nov 29 15:06:41 EST 2019
-base.0=/Users/Pujan/AndroidStudioProjects/SalesApplication/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
+#Sun Dec 01 12:50:40 EST 2019
+base.0=/Users/kshitij314/AndroidStudioProjects/SalesApp/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=/Users/Pujan/AndroidStudioProjects/SalesApplication/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex
+base.1=/Users/kshitij314/AndroidStudioProjects/SalesApp/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex

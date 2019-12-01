@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.salesapplication"
+    package="com.example.salesapp"
     android:targetSandboxVersion="2"
     android:versionCode="1"
     android:versionName="1.0" >
@@ -25,7 +25,6 @@
         <activity android:name="com.Application.View.Customer.CustomerCartView" />
         <activity android:name="com.Application.View.Customer.CustomerShoppingView" />
         <activity android:name="com.Application.View.Customer.CustomerHomeView" />
-        <activity android:name="com.Application.View.Employee.MainActivity" />
         <activity
             android:name="com.Application.View.Employee.EmployeeOptionsView"
             android:label="@string/title_activity_employee_options"
@@ -42,7 +41,7 @@
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-            android:authorities="com.example.salesapplication.lifecycle-process"
+            android:authorities="com.example.salesapp.lifecycle-process"
             android:exported="false"
             android:multiprocess="true" />
     </application>

@@ -1,90 +1,87 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.example.salesapplication"
+3    package="com.example.salesapp"
 4    android:versionCode="1"
 5    android:versionName="1.0" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="25"
-8-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml
+8-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml
+9-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:5:5-32:19
+11-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:5:5-31:19
 12        android:allowBackup="true"
-12-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:6:9-35
+12-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.1.0] /Users/Pujan/.gradle/caches/transforms-2/files-2.1/f01b27bb220ecb79298884ef36a7a2fb/core-1.1.0/AndroidManifest.xml:24:18-86
+13-->[androidx.core:core:1.0.1] /Users/kshitij314/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/AndroidManifest.xml:22:18-86
 14        android:debuggable="true"
 15        android:icon="@mipmap/ic_launcher"
-15-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:7:9-43
+15-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:7:9-43
 16        android:label="Inventory and Sales Manager"
-16-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:8:9-52
+16-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:8:9-52
 17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:9:9-54
+17-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
-18-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:10:9-35
+18-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:10:9-35
 19        android:testOnly="true"
 20        android:theme="@style/AppTheme" >
-20-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:11:9-40
+20-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:11:9-40
 21        <activity
-21-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:12:9-14:82
+21-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:12:9-14:82
 22            android:name="com.Application.View.Admin.AdminOptionsView"
-22-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:13:13-71
+22-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:13:13-71
 23            android:label="@string/title_activity_admin_options_view" />
-23-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:14:13-70
+23-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:14:13-70
 24        <activity android:name="com.Application.View.Customer.CustomerCartView" />
-24-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:15:9-83
-24-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:15:19-80
+24-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:15:9-83
+24-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:15:19-80
 25        <activity android:name="com.Application.View.Customer.CustomerShoppingView" />
-25-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:16:9-87
-25-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:16:19-84
+25-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:16:9-87
+25-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:16:19-84
 26        <activity android:name="com.Application.View.Customer.CustomerHomeView" />
-26-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:17:9-83
-26-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:17:19-80
-27        <activity android:name="com.Application.View.Employee.MainActivity" />
-27-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:18:9-79
-27-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:18:19-76
-28        <activity
-28-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:19:9-22:59
-29            android:name="com.Application.View.Employee.EmployeeOptionsView"
-29-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:20:13-77
-30            android:label="@string/title_activity_employee_options"
-30-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:21:13-68
-31            android:theme="@style/AppTheme.NoActionBar" />
-31-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:22:13-56
-32        <activity android:name="com.Application.View.MainLoginView" />
-32-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:23:9-71
-32-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:23:19-68
-33        <activity android:name="com.Application.View.InitialEmployeeSignupView" />
-33-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:24:9-83
-33-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:24:19-80
-34        <activity android:name="com.Application.View.InitialAdminSignupView" >
-34-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:25:9-31:20
-34-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:25:19-77
-35            <intent-filter>
-35-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:26:13-30:29
-36                <action android:name="android.intent.action.MAIN" />
-36-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:27:17-69
-36-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:27:25-66
-37
-38                <category android:name="android.intent.category.LAUNCHER" />
-38-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:29:17-77
-38-->/Users/Pujan/AndroidStudioProjects/SalesApplication/app/src/main/AndroidManifest.xml:29:27-74
-39            </intent-filter>
-40        </activity>
-41
-42        <provider
-42-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Pujan/.gradle/caches/transforms-2/files-2.1/55580b0ab45b69249933074462ab11c2/lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
-43            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-43-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Pujan/.gradle/caches/transforms-2/files-2.1/55580b0ab45b69249933074462ab11c2/lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
-44            android:authorities="com.example.salesapplication.lifecycle-process"
-44-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Pujan/.gradle/caches/transforms-2/files-2.1/55580b0ab45b69249933074462ab11c2/lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
-45            android:exported="false"
-45-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Pujan/.gradle/caches/transforms-2/files-2.1/55580b0ab45b69249933074462ab11c2/lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
-46            android:multiprocess="true" />
-46-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/Pujan/.gradle/caches/transforms-2/files-2.1/55580b0ab45b69249933074462ab11c2/lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
-47    </application>
-48
-49</manifest>
+26-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:17:9-83
+26-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:17:19-80
+27        <activity
+27-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:18:9-21:59
+28            android:name="com.Application.View.Employee.EmployeeOptionsView"
+28-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:19:13-77
+29            android:label="@string/title_activity_employee_options"
+29-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:20:13-68
+30            android:theme="@style/AppTheme.NoActionBar" />
+30-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:21:13-56
+31        <activity android:name="com.Application.View.MainLoginView" />
+31-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:22:9-71
+31-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:22:19-68
+32        <activity android:name="com.Application.View.InitialEmployeeSignupView" />
+32-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:23:9-83
+32-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:23:19-80
+33        <activity android:name="com.Application.View.InitialAdminSignupView" >
+33-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:24:9-30:20
+33-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:24:19-77
+34            <intent-filter>
+34-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:25:13-29:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:26:17-69
+35-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:26:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:28:17-77
+37-->/Users/kshitij314/AndroidStudioProjects/SalesApp/app/src/main/AndroidManifest.xml:28:27-74
+38            </intent-filter>
+39        </activity>
+40
+41        <provider
+41-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/kshitij314/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
+42            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+42-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/kshitij314/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
+43            android:authorities="com.example.salesapp.lifecycle-process"
+43-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/kshitij314/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
+44            android:exported="false"
+44-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/kshitij314/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
+45            android:multiprocess="true" />
+45-->[androidx.lifecycle:lifecycle-process:2.0.0] /Users/kshitij314/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
+46    </application>
+47
+48</manifest>

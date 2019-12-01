@@ -25,7 +25,7 @@ public class UsersValidator {
     }
 
     public static boolean validatePassword(String password) {
-        if (password == null) {
+        if (password == null || password.equals("")) {
             return false;
         }
         return true;

@@ -1,4 +1,4 @@
-com.example.salesapplication
+com.example.salesapp
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -509,7 +509,6 @@ attr tabStyle
 attr tabTextAppearance
 attr tabTextColor
 attr tabUnboundedRipple
-attr targetPackage
 attr textAllCaps
 attr textAppearanceBody1
 attr textAppearanceBody2
@@ -629,8 +628,9 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color colorAccent
-color colorPrimary
-color colorPrimaryDark
+color colorDark
+color colorGrey
+color colorLight
 color design_bottom_navigation_shadow_color
 color design_default_color_primary
 color design_default_color_primary_dark
@@ -694,6 +694,7 @@ color mtrl_textinput_filled_box_default_background_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color notification_material_background_media_default_color
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -931,6 +932,12 @@ dimen notification_top_pad
 dimen notification_top_pad_large_text
 dimen product_add_button_margin_bottom
 dimen product_add_button_margin_left
+dimen subtitle_corner_radius
+dimen subtitle_outline_width
+dimen subtitle_shadow_offset
+dimen subtitle_shadow_radius
+dimen text_size_large
+dimen text_size_medium
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -1066,49 +1073,47 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable user
 id ALT
+id BarAddBtn
+id BarCurrentQuantity
+id BarLabel
+id BarQuantity
+id BarRemoveBtn
 id CTRL
-id Continue
 id DoNotHaveAccountTextView
+id EnterQuantity
 id FUNCTION
-id Layout
+id GoHomeBtn
+id ItemHeading
+id ItemsHeading
 id LogOutBtn
 id META
+id OptionHeading
+id QuantityHeading
+id ResetAllBtn
+id RodAddBtn
+id RodCurrentQuantity
+id RodLabel
+id RodQuantity
+id RodRemoveBtn
 id SHIFT
 id SYM
-id Welcome
-id accessibility_action_clickable_span
-id accessibility_custom_action_0
-id accessibility_custom_action_1
-id accessibility_custom_action_10
-id accessibility_custom_action_11
-id accessibility_custom_action_12
-id accessibility_custom_action_13
-id accessibility_custom_action_14
-id accessibility_custom_action_15
-id accessibility_custom_action_16
-id accessibility_custom_action_17
-id accessibility_custom_action_18
-id accessibility_custom_action_19
-id accessibility_custom_action_2
-id accessibility_custom_action_20
-id accessibility_custom_action_21
-id accessibility_custom_action_22
-id accessibility_custom_action_23
-id accessibility_custom_action_24
-id accessibility_custom_action_25
-id accessibility_custom_action_26
-id accessibility_custom_action_27
-id accessibility_custom_action_28
-id accessibility_custom_action_29
-id accessibility_custom_action_3
-id accessibility_custom_action_30
-id accessibility_custom_action_31
-id accessibility_custom_action_4
-id accessibility_custom_action_5
-id accessibility_custom_action_6
-id accessibility_custom_action_7
-id accessibility_custom_action_8
-id accessibility_custom_action_9
+id ShoesAddBtn
+id ShoesCurrentQuantity
+id ShoesLabel
+id ShoesQuantity
+id ShoesRemoveBtn
+id SkatesAddBtn
+id SkatesCurrentQuantity
+id SkatesLabel
+id SkatesQuantity
+id SkatesRemoveBtn
+id StickAddBtn
+id StickCurrentQuantity
+id StickLabel
+id StickQuantity
+id StickRemoveBtn
+id accountsList
+id action0
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1131,31 +1136,26 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id addBarBtn
 id addFishingRodButton
 id addHockeyStickButton
 id addProteinBarButton
-id addRodBtn
 id addRunningShoesButton
-id addShoesBtn
-id addSkatesBtn
 id addSkatesButton
-id addStickBtn
-id adminSetup
-id adminSignupButton
+id admin_mobile_navigation
 id alertTitle
 id all
 id always
 id async
-id authenticate
 id authenticateNewEmployeeButton
 id auto
-id barEnterQuan
+id barLabel
 id barrier
 id beginning
 id blocking
+id booksTextView
 id bottom
 id buttonPanel
+id cancel_action
 id cartBtn
 id center
 id center_horizontal
@@ -1188,16 +1188,15 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
-id dialog_button
 id dimensions
 id direct
 id disableHome
 id drawer_layout
 id edit_query
+id employeeIdNumberPicker
 id employeeRadioButton
-id employeeSetup
-id employeeSignupButton
 id end
+id end_padder
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
@@ -1207,18 +1206,13 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
-id fishingRodLabel
 id fishingRodLabelTextView
-id fishingRodQuantity
 id fixed
 id forever
 id ghost_view
-id goCartBtn
 id gone
 id group_divider
 id groups
-id hockeyQuantity
-id hockeyStickLabel
 id hockeyStickLabelTextView
 id home
 id homeAsUp
@@ -1232,20 +1226,18 @@ id initializationLabelTextView
 id invisible
 id italic
 id item_touch_helper_previous_elevation
-id itemsHeading
-id itemsTextArea
+id label
 id labeled
 id largeLabel
 id left
 id line1
 id line3
-id list5
 id listMode
 id list_item
-id logOut
 id logOutButton
 id loginButton
 id masked
+id media_actions
 id message
 id middle
 id mini
@@ -1266,9 +1258,6 @@ id navigation_header_container
 id navigation_home
 id navigation_notifications
 id never
-id newAccount
-id newEmployee
-id newUser
 id none
 id normal
 id notification_background
@@ -1286,19 +1275,15 @@ id pin
 id productsLabelTextView
 id progress_circular
 id progress_horizontal
-id proteinBarLabel
 id proteinBarLabelTextView
-id proteinBarQuantity
 id radio
-id restockInventory
 id right
 id right_icon
 id right_side
-id rodEnterQuan
+id rodLabel
 id roleRadioGroup
-id runningShoesLabel
 id runningShoesLabelTextView
-id runningShoesQuantity
+id saveCartBtn
 id saveChangesButton
 id save_image_matrix
 id save_non_transition_alpha
@@ -1320,21 +1305,21 @@ id search_plate
 id search_src_text
 id search_voice_btn
 id selectCustomerIdButton
+id selectCustomerIdForAccountsButton
 id selectCustomerIdTextView
+id selectEmployeeIdButton
+id selectEmployeeIdTextView
 id select_dialog_listview
 id selected
-id shoesEnterQuan
+id shoesLabel
 id shopBtn
-id shoppingCartHeading
 id shortcut
 id showCustom
 id showHome
 id showTitle
 id signUpButton
-id skatesEnterQuan
 id skatesLabel
 id skatesLabelTextView
-id skatesQuantity
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1349,16 +1334,13 @@ id src_in
 id src_over
 id standard
 id start
-id stickEnterQuan
+id status_bar_latest_event_content
+id stickLabel
 id stretch
 id submenuarrow
 id submit_area
+id tabLayout
 id tabMode
-id tag_accessibility_actions
-id tag_accessibility_clickable_spans
-id tag_accessibility_heading
-id tag_accessibility_pane_title
-id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
@@ -1367,11 +1349,8 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id text_dashboard
-id text_home
 id text_input_password_toggle
 id text_make_new_account
-id text_notifications
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -1397,9 +1376,11 @@ id useLogo
 id userAddressEditText
 id userAgeEditText
 id userIconImageView
+id userIdEditText
 id userSubtitleTextView
 id usernameEditText
 id usernameTextView
+id viewPager
 id view_offset_helper
 id visible
 id welcomeTextView
@@ -1411,7 +1392,6 @@ integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
 integer bottom_sheet_slide_duration
 integer cancel_button_image_alpha
-integer config_navAnimTime
 integer config_tooltipAnimTime
 integer design_snackbar_text_max_lines
 integer design_tab_indicator_anim_duration_ms
@@ -1455,20 +1435,17 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_admin_home
-layout activity_app_initialization
 layout activity_customer_cart
 layout activity_customer_home
 layout activity_customer_shopping
 layout activity_initial_admin_signup
 layout activity_initial_employee_signup
-layout activity_intial_page
-layout activity_main
-layout activitylogin
+layout activity_main_login
 layout app_bar_employee_options
 layout content_employee_options
+layout content_listview
 layout content_user_login_fields
 layout content_user_signup_fields
-layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1485,8 +1462,10 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout employee_options
 layout fragment_admin_accounts
+layout fragment_admin_active_accounts
 layout fragment_admin_books
 layout fragment_admin_employees
+layout fragment_admin_inactive_accounts
 layout fragment_employee_authenticate_new_employee
 layout fragment_employee_home
 layout fragment_employee_make_new_account
@@ -1497,21 +1476,31 @@ layout mtrl_layout_snackbar_include
 layout nav_header_employee_options
 layout notification_action
 layout notification_action_tombstone
+layout notification_media_action
+layout notification_media_cancel_action
+layout notification_template_big_media
+layout notification_template_big_media_custom
+layout notification_template_big_media_narrow
+layout notification_template_big_media_narrow_custom
 layout notification_template_custom_big
 layout notification_template_icon_group
+layout notification_template_lines_media
+layout notification_template_media
+layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu admin_options
 menu bottom_nav_menu
 menu employee_options
 menu employee_options_drawer
 mipmap ic_launcher
 mipmap ic_launcher_round
+navigation admin_mobile_navigation
 navigation employee_mobile_navigation
-navigation mobile_navigation
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -1558,9 +1547,14 @@ string authenticate_new_employee
 string bottom_sheet_behavior
 string character_counter_content_description
 string character_counter_pattern
+string create_an_admin
+string create_an_employee
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hide_bottom_view_on_scroll_behavior
+string initialization
+string login
+string login_page
 string make_new_account
 string make_new_admin
 string make_new_employee
@@ -1602,6 +1596,7 @@ style Animation_Design_BottomSheetDialog
 style AppTheme
 style AppTheme_AppBarOverlay
 style AppTheme_NoActionBar
+style AppTheme_NumberPicker
 style AppTheme_PopupOverlay
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
@@ -1875,9 +1870,14 @@ style TextAppearance_AppCompat_Widget_Switch
 style TextAppearance_AppCompat_Widget_TextView_SpinnerItem
 style TextAppearance_Compat_Notification
 style TextAppearance_Compat_Notification_Info
+style TextAppearance_Compat_Notification_Info_Media
 style TextAppearance_Compat_Notification_Line2
+style TextAppearance_Compat_Notification_Line2_Media
+style TextAppearance_Compat_Notification_Media
 style TextAppearance_Compat_Notification_Time
+style TextAppearance_Compat_Notification_Time_Media
 style TextAppearance_Compat_Notification_Title
+style TextAppearance_Compat_Notification_Title_Media
 style TextAppearance_Design_CollapsingToolbar_Expanded
 style TextAppearance_Design_Counter
 style TextAppearance_Design_Counter_Overflow
@@ -2098,7 +2098,7 @@ styleable ActionMenuItemView android_minWidth
 styleable ActionMenuView
 styleable ActionMode background backgroundSplit closeItemLayout height subtitleTextStyle titleTextStyle
 styleable ActivityChooserView expandActivityOverflowButtonDrawable initialActivityCount
-styleable ActivityNavigator android_name action data dataPattern targetPackage
+styleable ActivityNavigator android_name action data dataPattern
 styleable AlertDialog android_layout buttonIconDimen buttonPanelSideLayout listItemLayout listLayout multiChoiceItemLayout showTitle singleChoiceItemLayout
 styleable AnimatedStateListDrawableCompat android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable AnimatedStateListDrawableItem android_id android_drawable
@@ -2128,7 +2128,6 @@ styleable ConstraintSet android_orientation android_id android_visibility androi
 styleable CoordinatorLayout keylines statusBarBackground
 styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_anchorGravity layout_behavior layout_dodgeInsetEdges layout_insetEdge layout_keyline
 styleable DesignTheme bottomSheetDialogTheme bottomSheetStyle
-styleable DialogFragmentNavigator android_name
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
 styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor showMotionSpec useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide
@@ -2153,8 +2152,7 @@ styleable NavAction android_id destination enterAnim exitAnim launchSingleTop po
 styleable NavArgument android_name android_defaultValue argType nullable
 styleable NavDeepLink android_autoVerify uri
 styleable NavGraphNavigator startDestination
-styleable NavHost navGraph
-styleable NavHostFragment defaultNavHost
+styleable NavHostFragment defaultNavHost navGraph
 styleable NavInclude graph
 styleable NavigationView android_background android_fitsSystemWindows android_maxWidth elevation headerLayout itemBackground itemHorizontalPadding itemIconPadding itemIconTint itemTextAppearance itemTextColor menu
 styleable Navigator android_label android_id
