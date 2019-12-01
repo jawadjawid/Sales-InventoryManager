@@ -61,7 +61,9 @@ public class CustomerHomeController implements View.OnClickListener {
         Intent intent = view.getIntent();
         HashMap<Item, Integer> allItems = (HashMap<Item, Integer>) intent.getSerializableExtra("ItemMap");
         if (allItems != null) {
+
             this.cart.setItemMap(allItems);
+            Toast.makeText(appContext, "total Price" + cart.getTotal(), Toast.LENGTH_SHORT).show();
         }
     }
 

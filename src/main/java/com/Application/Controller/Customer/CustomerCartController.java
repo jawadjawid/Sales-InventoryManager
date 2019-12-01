@@ -17,13 +17,13 @@ public class CustomerCartController implements View.OnClickListener {
 
     private CustomerCartView view;
     private Context appContext;
-    private ShoppingCart recievedCart = null;
+    private static ShoppingCart recievedCart;
 
     public CustomerCartController(Context context) {
         appContext = context;
         view = (CustomerCartView) appContext;
         setShoppingCart();
-        displayItems();
+        displayCartItems();
     }
 
     @Override
@@ -39,24 +39,39 @@ public class CustomerCartController implements View.OnClickListener {
         this.recievedCart = cart;
     }
 
-    public void displayItems() {
-        String itemsOutput = "";
-        if(recievedCart == null){
-            itemsOutput = "Please add Items to the Cart";
-        }else{
+    public void displayCartItems() {
+        if (recievedCart.getItemMap().size() != 0) {
+            Toast.makeText(appContext, "HashMap Size" + recievedCart.getItemMap().size() , Toast.LENGTH_SHORT).show();
+            String itemsLabel;
             for (Item i : recievedCart.getItemMap().keySet()) {
-                itemsOutput += i.getName() + "    " + recievedCart.getItemMap().get(i) + "     $" + i.getPrice() + " each\n\n";
+                if (recievedCart.getItemMap().get(i) != 0) {
+                    itemsLabel = i.getName() + " ($" + i.getPrice() + ")";
+                    if (i.getName().equals("Fishing Rod")) {
+                        displayItemDetail(R.id.rodLabel, itemsLabel);
+                    } else if (i.getName().equals("Hockey Stick")) {
+                        displayItemDetail(R.id.stickLabel, itemsLabel);
+                    } else if (i.getName().equals("Skates")) {
+                        displayItemDetail(R.id.skatesLabel, itemsLabel);
+                    } else if (i.getName().equals("Running Shoes")) {
+                        displayItemDetail(R.id.shoesLabel, itemsLabel);
+                    } else if (i.getName().equals("Protein Bar")) {
+                        displayItemDetail(R.id.barLabel, itemsLabel);
+                    }
+                }
             }
+            displayTotal();
+        } else {
+            Toast.makeText(appContext, "No Items to see here!", Toast.LENGTH_SHORT).show();
         }
-        TextView allItems = view.findViewById(R.id.itemsTextArea);
-        allItems.setText(itemsOutput);
-        displayTotal();
     }
 
-    public void displayTotal(){
-        if(recievedCart != null){
-            TextView totalPrice = view.findViewById(R.id.totalPriceText);
-            totalPrice.setText("$ " + recievedCart.getTotal().toString());
-        }
+    public void displayTotal() {
+        TextView totalPrice = view.findViewById(R.id.totalPriceText);
+        totalPrice.setText("$ " + recievedCart.getTotal().toString());
+    }
+
+    public void displayItemDetail(int textViewId, String itemLabel) {
+        TextView item = view.findViewById(textViewId);
+        item.setText(itemLabel);
     }
 }

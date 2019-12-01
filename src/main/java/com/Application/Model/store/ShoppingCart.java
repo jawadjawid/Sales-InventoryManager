@@ -86,6 +86,7 @@ public class ShoppingCart implements Serializable {
 
 	public void setItemMap(HashMap<Item, Integer> itemMap) {
 		items = itemMap;
+		total = new BigDecimal("0.00");
 		for (Item item : itemMap.keySet()) {
 			total = total.add(item.getPrice().multiply(new BigDecimal(itemMap.get(item))));
 		}

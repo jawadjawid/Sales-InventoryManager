@@ -126,7 +126,7 @@ public class CustomerShoppingController implements View.OnClickListener {
             } else {
                 newQuantity = recievedQuantities[updateIndex] - enteredQuantity;
                 if (newQuantity >= 0) {
-                    recievedQuantities[updateIndex] -= enteredQuantity;
+                    recievedQuantities[updateIndex] = newQuantity;
                 }
             }
             displayQuantity(idCurrentQuantity, updateIndex);
