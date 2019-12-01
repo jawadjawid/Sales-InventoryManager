@@ -406,8 +406,8 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
             accountDetailsResult = getAccountDetails(results.getInt(results.getColumnIndex("ID")));
             currentAccount = new AccountImpl(results.getInt(results.getColumnIndex("ID")), user);
             while (accountDetailsResult.moveToNext()) {
-                currentAccount.addItem(getItemH(accountDetailsResult.getInt(results.getColumnIndex("ITEMID"))),
-                        accountDetailsResult.getInt(results.getColumnIndex("QUANTITY")));
+                currentAccount.addItem(getItemH(accountDetailsResult.getInt(accountDetailsResult.getColumnIndex("ITEMID"))),
+                        accountDetailsResult.getInt(accountDetailsResult.getColumnIndex("QUANTITY")));
             }
             accounts.add(currentAccount);
         }
@@ -425,8 +425,8 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
             accountDetailsResult = getAccountDetails(results.getInt(results.getColumnIndex("ID")));
             currentAccount = new AccountImpl(results.getInt(results.getColumnIndex("ID")), user);
             while (accountDetailsResult.moveToNext()) {
-                currentAccount.addItem(getItemH(accountDetailsResult.getInt(results.getColumnIndex("ITEMID"))),
-                        accountDetailsResult.getInt(results.getColumnIndex("QUANTITY")));
+                currentAccount.addItem(getItemH(accountDetailsResult.getInt(accountDetailsResult.getColumnIndex("ITEMID"))),
+                        accountDetailsResult.getInt(accountDetailsResult.getColumnIndex("QUANTITY")));
             }
             accounts.add(currentAccount);
         }
@@ -444,8 +444,8 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
             accountDetailsResult = getAccountDetails(results.getInt(results.getColumnIndex("ID")));
             currentAccount = new AccountImpl(results.getInt(results.getColumnIndex("ID")), user);
             while (accountDetailsResult.moveToNext()) {
-                currentAccount.addItem(getItemH(accountDetailsResult.getInt(results.getColumnIndex("ITEMID"))),
-                        accountDetailsResult.getInt(results.getColumnIndex("QUANTITY")));
+                currentAccount.addItem(getItemH(accountDetailsResult.getInt(accountDetailsResult.getColumnIndex("ITEMID"))),
+                        accountDetailsResult.getInt(accountDetailsResult.getColumnIndex("QUANTITY")));
             }
             accounts.add(currentAccount);
         }
