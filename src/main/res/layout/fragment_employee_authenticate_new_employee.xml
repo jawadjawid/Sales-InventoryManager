@@ -13,8 +13,8 @@
         android:layout_height="51dp"
         android:text="Authenticate New Employee"
         android:textAlignment="center"
-        android:textColor="#FCFAFA"
-        android:textSize="24sp"
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/text_size_medium"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"/>
 
@@ -31,9 +31,9 @@
         android:id="@+id/authenticateNewEmployeeButton"
         android:layout_width="@dimen/user_info_field_width"
         android:layout_height="@dimen/button_height_standard"
-        android:background="#E6F0F0"
+        android:background="@color/colorLight"
         android:text="Authenticate"
-        android:textColor="#020202"
+        android:textColor="@color/colorGrey"
         android:visibility="visible"
         android:layout_gravity="center"/>
 </LinearLayout>

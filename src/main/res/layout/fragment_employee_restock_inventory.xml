@@ -15,7 +15,7 @@
         android:layout_height="46dp"
         android:text="Products"
         android:textAlignment="center"
-        android:textColor="#FAF5F5"
+        android:textColor="@color/colorLight"
         android:textSize="30sp"/>
 
     <GridLayout
@@ -30,18 +30,18 @@
             android:layout_height="57dp"
             android:text="Fishing Rod"
             android:textAlignment="center"
-            android:textColor="#FCF9F9"
-            android:textSize="24sp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/addFishingRodButton"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
-            android:background="#F3F5F5"
+            android:background="@color/colorLight"
             android:text="+"
             android:textAlignment="center"
-            android:textColor="#050505"
-            android:textSize="24sp"
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/text_size_medium"
             android:layout_marginLeft="@dimen/product_add_button_margin_left"
             android:layout_marginBottom="@dimen/product_add_button_margin_bottom"/>
 
@@ -50,18 +50,18 @@
             android:layout_width="wrap_content"
             android:layout_height="58dp"
             android:text="Hockey Stick"
-            android:textColor="#FAF7F7"
-            android:textSize="24sp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/addHockeyStickButton"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
-            android:background="#F3F5F5"
+            android:background="@color/colorLight"
             android:text="+"
             android:textAlignment="center"
-            android:textColor="#050505"
-            android:textSize="24sp"
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/text_size_medium"
             android:layout_marginLeft="@dimen/product_add_button_margin_left"
             android:layout_marginBottom="@dimen/product_add_button_margin_bottom"/>
 
@@ -71,18 +71,18 @@
             android:layout_width="wrap_content"
             android:layout_height="65dp"
             android:text="Skates"
-            android:textColor="#FAF7F7"
-            android:textSize="24sp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/addSkatesButton"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
-            android:background="#F3F5F5"
+            android:background="@color/colorLight"
             android:text="+"
             android:textAlignment="center"
-            android:textColor="#050505"
-            android:textSize="24sp"
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/text_size_medium"
             android:layout_marginLeft="@dimen/product_add_button_margin_left"
             android:layout_marginBottom="@dimen/product_add_button_margin_bottom"/>
 
@@ -91,18 +91,18 @@
             android:layout_width="wrap_content"
             android:layout_height="63dp"
             android:text="Running Shoes"
-            android:textColor="#FAF7F7"
-            android:textSize="24sp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/addRunningShoesButton"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
-            android:background="#F3F5F5"
+            android:background="@color/colorLight"
             android:text="+"
             android:textAlignment="center"
-            android:textColor="#050505"
-            android:textSize="24sp"
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/text_size_medium"
             android:layout_marginLeft="@dimen/product_add_button_margin_left"
             android:layout_marginBottom="@dimen/product_add_button_margin_bottom"/>
 
@@ -111,18 +111,18 @@
             android:layout_width="wrap_content"
             android:layout_height="71dp"
             android:text="Protein Bar"
-            android:textColor="#FAF7F7"
-            android:textSize="24sp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
         <Button
             android:id="@+id/addProteinBarButton"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
-            android:background="#F3F5F5"
+            android:background="@color/colorLight"
             android:text="+"
             android:textAlignment="center"
-            android:textColor="#050505"
-            android:textSize="24sp"
+            android:textColor="@color/colorGrey"
+            android:textSize="@dimen/text_size_medium"
             android:layout_marginLeft="@dimen/product_add_button_margin_left"
             android:layout_marginBottom="@dimen/product_add_button_margin_bottom"/>
 
@@ -134,10 +134,10 @@
         android:id="@+id/saveChangesButton"
         android:layout_width="@dimen/user_info_field_width"
         android:layout_height="@dimen/button_height_standard"
-        android:background="#F3F5F5"
+        android:background="@color/colorLight"
         android:text="Save Changes"
-        android:textColor="#050505"
-        android:textSize="24sp"
+        android:textColor="@color/colorGrey"
+        android:textSize="@dimen/text_size_medium"
         android:layout_marginTop="-50dp"/>
 
 

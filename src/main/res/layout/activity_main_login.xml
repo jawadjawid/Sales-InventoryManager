@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#383A3A"
+    android:background="@color/colorGrey"
     android:orientation="vertical"
     tools:context="com.Application.View.MainLoginView">
 
@@ -12,10 +12,10 @@
         android:id="@+id/createNewUserTextView"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
-        android:text="Login Page"
+        android:text="@string/login_page"
         android:textAlignment="center"
-        android:textColor="#FCFAFA"
-        android:textSize="24sp"
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/text_size_large"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"/>
 
@@ -32,9 +32,9 @@
         android:id="@+id/loginButton"
         android:layout_width="@dimen/user_info_field_width"
         android:layout_height="40dp"
-        android:background="#E6F0F0"
-        android:text="Login"
-        android:textColor="#020202"
+        android:background="@color/colorLight"
+        android:text="@string/login"
+        android:textColor="@color/colorGrey"
         android:visibility="visible"
         android:layout_gravity="center"/>
 
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:text="Do not have an account?"
-            android:textColor="#FCF8F8"
+            android:textColor="@color/colorLight"
             android:textSize="18sp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="10dp"/>
@@ -61,10 +61,10 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="29dp"
-            android:background="#383A3A"
-            android:text="SignUp"
+            android:background="@color/colorGrey"
+            android:text="Too Bad!"
             android:textAlignment="viewStart"
-            android:textColor="#FCFAFA" />
+            android:textColor="@color/colorLight" />
 
     </LinearLayout>
 

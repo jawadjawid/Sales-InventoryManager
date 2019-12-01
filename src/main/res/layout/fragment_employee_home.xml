@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#383A3A"
+    android:background="@color/colorGrey"
     android:orientation="vertical">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_marginTop="30dp"
             android:text="Welcome"
             android:textAlignment="center"
-            android:textColor="#FCFAFA"
+            android:textColor="@color/colorLight"
             android:textSize="24sp" />
 
         <ImageView
@@ -27,7 +27,6 @@
             android:layout_width="115dp"
             android:layout_height="112dp"
             app:srcCompat="@drawable/user" />
-
 
 
     </LinearLayout>
@@ -44,9 +43,9 @@
             android:layout_height="@dimen/button_height_standard"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:background="#E6F0F0"
+            android:background="@color/colorLight"
             android:text="Log Out"
-            android:textColor="#020202"
+            android:textColor="@color/colorGrey"
             android:visibility="visible" />
     </LinearLayout>
 

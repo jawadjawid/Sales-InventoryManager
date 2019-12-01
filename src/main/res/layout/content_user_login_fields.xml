@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="#383A3A"
+    android:background="@color/colorGrey"
     android:gravity="center">
 
     <EditText
@@ -12,7 +12,7 @@
         android:ems="10"
         android:hint="UserId"
         android:inputType="number"
-        android:textColor="#F7F4F4"
+        android:textColor="@color/colorLight"
         android:textColorHint="#F3EFEF" />
 
     <EditText
@@ -22,6 +22,7 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:textColor="@color/colorLight"
         android:textColorHint="#F3EFEF" />
 
 </LinearLayout>

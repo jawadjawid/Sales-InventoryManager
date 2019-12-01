@@ -15,7 +15,6 @@
         <activity android:name="com.Application.View.Customer.CustomerCartView" />
         <activity android:name="com.Application.View.Customer.CustomerShoppingView" />
         <activity android:name="com.Application.View.Customer.CustomerHomeView" />
-        <activity android:name="com.Application.View.Employee.MainActivity" />
         <activity
             android:name="com.Application.View.Employee.EmployeeOptionsView"
             android:label="@string/title_activity_employee_options"

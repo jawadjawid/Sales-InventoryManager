@@ -33,6 +33,7 @@ public class AccountsFragmentView extends Fragment {
         //  });
         controller = new AccountsFragmentController(root,this);
 
+
         Button selectCustomerIdButton = root.findViewById(R.id.selectCustomerIdForAccountsButton);
         selectCustomerIdButton.setOnClickListener(controller);
         return root ;

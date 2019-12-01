@@ -15,7 +15,7 @@ public class MainLoginView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activitylogin);
+        setContentView(R.layout.activity_main_login);
 
         controller = new MainLoginController(this);
         Button loginButton = findViewById(R.id.loginButton);

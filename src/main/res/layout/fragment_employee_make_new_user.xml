@@ -19,7 +19,7 @@
             android:layout_marginTop="30dp"
             android:text="@string/make_new_user"
             android:textAlignment="center"
-            android:textColor="#FCFAFA"
+            android:textColor="@color/colorLight"
             android:textSize="24sp" />
 
         <ImageView
@@ -47,7 +47,7 @@
                     android:checked="true"
                     android:paddingRight="10dp"
                     android:text="Employee"
-                    android:textColor="#FCFAFA" />
+                    android:textColor="@color/colorLight" />
 
                 <RadioButton
                     android:id="@+id/customerRadioButton"
@@ -56,7 +56,7 @@
                     android:text="Customer"
                     android:layout_marginLeft="120dp"
                     android:layout_marginTop="-32dp"
-                    android:textColor="#FCFAFA" />
+                    android:textColor="@color/colorLight" />
 
             </RadioGroup>
 
@@ -74,9 +74,9 @@
             android:layout_height="@dimen/button_height_standard"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:background="#E6F0F0"
+            android:background="@color/colorLight"
             android:text="@string/make_new_user"
-            android:textColor="#020202"
+            android:textColor="@color/colorGrey"
             android:visibility="visible" />
     </LinearLayout>
 

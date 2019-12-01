@@ -25,4 +25,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="initialization">INITIALIZATION</string>
+    <string name="create_an_admin">Create an Admin</string>
+    <string name="create_an_employee">Create An Employee</string>
+    <string name="login_page">Login Page</string>
+    <string name="login">Login</string>
 </resources>

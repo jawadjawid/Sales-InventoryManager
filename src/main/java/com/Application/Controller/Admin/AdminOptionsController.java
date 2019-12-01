@@ -2,15 +2,11 @@ package com.Application.Controller.Admin;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 
 import com.Application.Model.users.User;
-import com.Application.View.Admin.AccountsFragmentView;
 import com.Application.View.Admin.AdminOptionsView;
-import com.Application.View.Employee.EmployeeOptionsView;
-import com.example.Application.R;
+import com.Application.View.MainLoginView;
 
 public class AdminOptionsController implements View.OnClickListener{
 
@@ -35,5 +31,7 @@ public class AdminOptionsController implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        Intent intent = new Intent(this.appContext, MainLoginView.class);
+        appContext.startActivity(intent);
     }
 }
