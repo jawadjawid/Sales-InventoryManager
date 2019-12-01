@@ -61,9 +61,7 @@ public class CustomerHomeController implements View.OnClickListener {
         Intent intent = view.getIntent();
         HashMap<Item, Integer> allItems = (HashMap<Item, Integer>) intent.getSerializableExtra("ItemMap");
         if (allItems != null) {
-
             this.cart.setItemMap(allItems);
-            Toast.makeText(appContext, "total Price" + cart.getTotal(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -81,6 +79,7 @@ public class CustomerHomeController implements View.OnClickListener {
             view.startActivity(intent);
         } else if (v.getId() == R.id.LogOutBtn) {
             this.numHomePageVisits = 0;
+            this.cart.setItemMap(new HashMap<Item, Integer>());
             Intent intent = new Intent(appContext, MainLoginView.class);
             view.startActivity(intent);
         }

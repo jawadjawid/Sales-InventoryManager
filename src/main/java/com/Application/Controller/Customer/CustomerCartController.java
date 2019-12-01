@@ -41,21 +41,20 @@ public class CustomerCartController implements View.OnClickListener {
 
     public void displayCartItems() {
         if (recievedCart.getItemMap().size() != 0) {
-            Toast.makeText(appContext, "HashMap Size" + recievedCart.getItemMap().size() , Toast.LENGTH_SHORT).show();
             String itemsLabel;
             for (Item i : recievedCart.getItemMap().keySet()) {
                 if (recievedCart.getItemMap().get(i) != 0) {
                     itemsLabel = i.getName() + " ($" + i.getPrice() + ")";
                     if (i.getName().equals("Fishing Rod")) {
-                        displayItemDetail(R.id.rodLabel, itemsLabel);
+                        displayItemDetail(R.id.rodLabel, itemsLabel, R.id.RodQuantity, recievedCart.getItemMap().get(i));
                     } else if (i.getName().equals("Hockey Stick")) {
-                        displayItemDetail(R.id.stickLabel, itemsLabel);
+                        displayItemDetail(R.id.stickLabel, itemsLabel, R.id.StickQuantity, recievedCart.getItemMap().get(i));
                     } else if (i.getName().equals("Skates")) {
-                        displayItemDetail(R.id.skatesLabel, itemsLabel);
+                        displayItemDetail(R.id.skatesLabel, itemsLabel, R.id.SkatesQuantity, recievedCart.getItemMap().get(i));
                     } else if (i.getName().equals("Running Shoes")) {
-                        displayItemDetail(R.id.shoesLabel, itemsLabel);
+                        displayItemDetail(R.id.shoesLabel, itemsLabel, R.id.ShoesQuantity, recievedCart.getItemMap().get(i));
                     } else if (i.getName().equals("Protein Bar")) {
-                        displayItemDetail(R.id.barLabel, itemsLabel);
+                        displayItemDetail(R.id.barLabel, itemsLabel, R.id.BarQuantity, recievedCart.getItemMap().get(i));
                     }
                 }
             }
@@ -70,8 +69,10 @@ public class CustomerCartController implements View.OnClickListener {
         totalPrice.setText("$ " + recievedCart.getTotal().toString());
     }
 
-    public void displayItemDetail(int textViewId, String itemLabel) {
-        TextView item = view.findViewById(textViewId);
+    public void displayItemDetail(int textViewIdLabel, String itemLabel, int textViewIdQuantity, int totalQuantity) {
+        TextView item = view.findViewById(textViewIdLabel);
+        TextView quantity = view.findViewById(textViewIdQuantity);
         item.setText(itemLabel);
+        quantity.setText(totalQuantity + "");
     }
 }
