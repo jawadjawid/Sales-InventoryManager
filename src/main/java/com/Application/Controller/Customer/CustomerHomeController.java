@@ -38,6 +38,7 @@ public class CustomerHomeController implements View.OnClickListener {
     private static ShoppingCart cart;
     private static int allQuantities[] = null;
     private static Account restoringAccount = null;
+    private static int accountId = -1;
 
     public CustomerHomeController(Context context) {
         appContext = context;
@@ -59,7 +60,7 @@ public class CustomerHomeController implements View.OnClickListener {
     private void updateCart() {
         Intent intent = view.getIntent();
         HashMap<Item, Integer> allItems = (HashMap<Item, Integer>) intent.getSerializableExtra("ItemMap");
-        if(allItems != null){
+        if (allItems != null) {
             this.cart.setItemMap(allItems);
         }
     }
@@ -68,12 +69,13 @@ public class CustomerHomeController implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.shopBtn) {
             Intent intent = new Intent(appContext, CustomerShoppingView.class);
-            if (allQuantities != null) {
-                intent.putExtra("quantities", allQuantities);
-            }
+            filterQuantities();
+            intent.putExtra("quantities", allQuantities);
             view.startActivity(intent);
         } else if (v.getId() == R.id.cartBtn) {
             Intent intent = new Intent(appContext, CustomerCartView.class);
+            intent.putExtra("cart", cart);
+            intent.putExtra("account id", accountId);
             view.startActivity(intent);
         } else if (v.getId() == R.id.LogOutBtn) {
             this.numHomePageVisits = 0;
@@ -141,6 +143,7 @@ public class CustomerHomeController implements View.OnClickListener {
         for (Account i : activeAccounts) {
             if (i.getId() == id) {
                 this.restoringAccount = i;
+                this.accountId = id;
                 return true;
             }
         }
@@ -149,7 +152,7 @@ public class CustomerHomeController implements View.OnClickListener {
 
     private void filterQuantities() {
         if (cart.getItemMap().size() != 0) {
-            allQuantities = new int[5];
+            this.allQuantities = new int[5];
             for (Item i : cart.getItemMap().keySet()) {
                 if (i.getName().equals("Fishing Rod")) {
                     allQuantities[0] = cart.getItemMap().get(i);
