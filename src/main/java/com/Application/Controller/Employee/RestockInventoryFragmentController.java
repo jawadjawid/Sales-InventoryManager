@@ -21,7 +21,7 @@ public class RestockInventoryFragmentController implements View.OnClickListener 
     private View view;
     private Context appContext;
     private int index = -1;
-   private Inventory inventory;
+    private Inventory inventory;
 
     private Item[] items;
 
@@ -31,8 +31,8 @@ public class RestockInventoryFragmentController implements View.OnClickListener 
         DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
         inventory = mydb.getInventoryH();
         items = new Item[5];
-        for(Item item: inventory.getItemMap().keySet()){
-            items[item.getId()-1] = item;
+        for (Item item : inventory.getItemMap().keySet()) {
+            items[item.getId() - 1] = item;
         }
     }
 
@@ -94,10 +94,12 @@ public class RestockInventoryFragmentController implements View.OnClickListener 
         builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                int quantity = Integer.parseInt(input.getText().toString());
-                Log.d("invent", "onClick: quantity entered is " + quantity);
-                Log.d("invent", "onClick: already in inventory is " + inventory.getItemMap().get(items[index]));
-                inventory.updateMap(items[index], quantity);
+                if (input.getText().toString().equals("")) {
+                    Toast.makeText(appContext, "Please Enter a quantity before adding to stock", Toast.LENGTH_SHORT).show();
+                } else {
+                    int quantity = Integer.parseInt(input.getText().toString());
+                    inventory.updateMap(items[index], quantity);
+                }
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
