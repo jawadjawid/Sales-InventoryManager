@@ -70,6 +70,17 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         long roleId = insertRole(name);
         return roleId;
     }
+    
+    public void insertPasswordH(String password, int userId) throws SQLException {
+    	insertPasswordUnhashed(password, userId);
+            
+          }
+    
+    public void insertNewUserNoPasswordH(String name, Integer age, String address){
+    	insertNewUserNoPassword(name, age, address);
+    	
+    }
+
 
     public long insertNewUserH(String name, int age, String address, String password)
             throws DatabaseInsertException {

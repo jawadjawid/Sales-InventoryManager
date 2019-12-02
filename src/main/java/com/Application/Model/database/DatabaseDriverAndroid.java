@@ -199,6 +199,20 @@ public class DatabaseDriverAndroid extends SQLiteOpenHelper {
     sqLiteDatabase.close();
     return id;
   }
+  
+  protected long insertNewUserNoPassword(String name, int age, String address) {
+	  insertUser(name, age, address);
+  }
+  
+  protected void insertPasswordUnhashed(String password, int userId) {
+	    SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+	    ContentValues contentValues = new ContentValues();
+
+	    contentValues.put("USERID", userId);
+	    contentValues.put("PASSWORD", password);
+	    sqLiteDatabase.insert("USERPW", null, contentValues);
+	    sqLiteDatabase.close();
+	  }
 
   private long insertUser(String name, int age, String address) {
     SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -211,7 +225,7 @@ public class DatabaseDriverAndroid extends SQLiteOpenHelper {
     sqLiteDatabase.close();
 
     return id;
-  }
+  } 
 
   private void insertPassword(String password, int userId) {
     SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
