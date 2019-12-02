@@ -10,200 +10,194 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="345dp">
+        android:layout_height="375dp">
 
         <TextView
             android:id="@+id/ItemHeading"
-            android:layout_width="220dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/cart_item_label_width"
+            android:layout_height="@dimen/cart_item_label_height"
             android:layout_row="0"
             android:layout_column="0"
-            android:layout_marginTop="15dp"
-            android:text="Items"
+            android:layout_marginTop="@dimen/cart_heading_margin_top"
+            android:text="@string/item_heading"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="20dp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
         <TextView
             android:id="@+id/QuantityHeading"
             android:layout_width="142dp"
-            android:layout_height="50dp"
+            android:layout_height="72dp"
             android:layout_row="0"
             android:layout_column="1"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:text="Total Quantity"
+            android:layout_marginTop="@dimen/cart_heading_margin_top"
+            android:text="@string/quantity_heading"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="20dp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
         <TextView
             android:id="@+id/RodQuantity"
-            android:layout_width="142dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/cart_quantity_width"
+            android:layout_height="@dimen/cart_quantity_height"
             android:layout_row="1"
             android:layout_column="1"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="@dimen/cart_quantity_margin_left"
+            android:layout_marginTop="@dimen/cart_quantity_margin_top"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="25dp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_large" />
 
         <TextView
             android:id="@+id/rodLabel"
-            android:layout_width="220dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/cart_item_label_width"
+            android:layout_height="@dimen/cart_item_label_height"
             android:layout_row="1"
             android:layout_column="0"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/cart_item_label_margin_top"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="20dp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
         <TextView
             android:id="@+id/StickQuantity"
-            android:layout_width="142dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/cart_quantity_width"
+            android:layout_height="@dimen/cart_quantity_height"
             android:layout_row="2"
             android:layout_column="1"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="@dimen/cart_quantity_margin_left"
+            android:layout_marginTop="@dimen/cart_quantity_margin_top"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="25dp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_large" />
 
         <TextView
             android:id="@+id/stickLabel"
-            android:layout_width="220dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/cart_item_label_width"
+            android:layout_height="@dimen/cart_item_label_height"
             android:layout_row="2"
             android:layout_column="0"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/cart_item_label_margin_top"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="20dp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
 
         <TextView
             android:id="@+id/SkatesQuantity"
-            android:layout_width="142dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/cart_quantity_width"
+            android:layout_height="@dimen/cart_quantity_height"
             android:layout_row="3"
             android:layout_column="1"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="@dimen/cart_quantity_margin_left"
+            android:layout_marginTop="@dimen/cart_quantity_margin_top"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="25dp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_large" />
 
         <TextView
             android:id="@+id/skatesLabel"
-            android:layout_width="220dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/cart_item_label_width"
+            android:layout_height="@dimen/cart_item_label_height"
             android:layout_row="3"
             android:layout_column="0"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/cart_item_label_margin_top"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="20dp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
         <TextView
             android:id="@+id/ShoesQuantity"
-            android:layout_width="142dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/cart_quantity_width"
+            android:layout_height="@dimen/cart_quantity_height"
             android:layout_row="4"
             android:layout_column="1"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="@dimen/cart_quantity_margin_left"
+            android:layout_marginTop="@dimen/cart_quantity_margin_top"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="25dp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_large" />
 
         <TextView
             android:id="@+id/shoesLabel"
-            android:layout_width="220dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/cart_item_label_width"
+            android:layout_height="@dimen/cart_item_label_height"
             android:layout_row="4"
             android:layout_column="0"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/cart_item_label_margin_top"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="20dp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
 
         <TextView
             android:id="@+id/BarQuantity"
-            android:layout_width="142dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/cart_quantity_width"
+            android:layout_height="@dimen/cart_quantity_height"
             android:layout_row="5"
             android:layout_column="1"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="@dimen/cart_quantity_margin_left"
+            android:layout_marginTop="@dimen/cart_quantity_margin_top"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="25dp" />
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_large" />
 
         <TextView
             android:id="@+id/barLabel"
-            android:layout_width="220dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/cart_item_label_width"
+            android:layout_height="@dimen/cart_item_label_height"
             android:layout_row="5"
             android:layout_column="0"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/cart_item_label_margin_top"
             android:textAlignment="center"
-            android:textColor="#FFFF"
-            android:textSize="20dp" />
-
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/text_size_medium" />
 
     </GridLayout>
 
     <TextView
         android:id="@+id/totalPriceLabel"
-        android:layout_width="332dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="22dp"
-        android:text="   Total: "
+        android:layout_width="@dimen/cart_button_width"
+        android:layout_height="@dimen/button_height_standard"
+        android:layout_marginStart="@dimen/cart_button_margin_left"
+        android:layout_marginTop="@dimen/cart_button_margin_top"
+        android:text="@string/total_price_label"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp" />
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/text_size_large" />
 
     <TextView
         android:id="@+id/totalPriceText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="22dp"
-        android:text="$0.00"
+        android:layout_width="@dimen/cart_button_width"
+        android:layout_height="@dimen/button_height_standard"
+        android:layout_marginStart="@dimen/cart_button_margin_left"
+        android:layout_marginTop="@dimen/cart_button_margin_top"
+        android:text="@string/initial_total"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="30sp" />
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/text_size_large" />
 
     <Button
         android:id="@+id/checkOutBtn"
-        android:layout_width="344dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="22dp"
-        android:background="#2196F3"
-        android:text="Check Out"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp" />
+        android:layout_width="@dimen/cart_button_width"
+        android:layout_height="@dimen/button_height_standard"
+        android:layout_marginStart="@dimen/cart_button_margin_left"
+        android:layout_marginTop="@dimen/cart_button_margin_top"
+        android:background="@color/colorGrey"
+        android:text="@string/check_out"
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/text_size_large" />
 
     <Button
         android:id="@+id/saveCartBtn"
-        android:layout_width="344dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="22dp"
-        android:background="#4CAF50"
-        android:text="Save Cart"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp" />
+        android:layout_width="@dimen/cart_button_width"
+        android:layout_height="@dimen/button_height_standard"
+        android:layout_marginStart="@dimen/cart_button_margin_left"
+        android:layout_marginTop="@dimen/cart_button_margin_top"
+        android:background="@color/colorGrey"
+        android:text="@string/save_cart"
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/text_size_large" />
 
 </LinearLayout>

@@ -30,4 +30,11 @@
     <string name="create_an_employee">Create An Employee</string>
     <string name="login_page">Login Page</string>
     <string name="login">Login</string>
+
+    <string name="item_heading">Items</string>
+    <string name="quantity_heading">Total Quantity</string>
+    <string name="total_price_label">   Total: </string>
+    <string name="initial_total">$0.00</string>
+    <string name="check_out">Check Out</string>
+    <string name="save_cart">Save Cart</string>
 </resources>
