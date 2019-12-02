@@ -190,7 +190,7 @@ public class CustomerCartController implements View.OnClickListener {
 
     public void displayTotal() {
         TextView totalPrice = view.findViewById(R.id.totalPriceText);
-        totalPrice.setText("$ " + recievedCart.getTotal().toString());
+        totalPrice.setText("$ " + recievedCart.getTotal().multiply(recievedCart.getTaxRate()).setScale(2));
     }
 
     public void displayItemDetail(int textViewIdLabel, String itemLabel, int textViewIdQuantity, int totalQuantity) {
