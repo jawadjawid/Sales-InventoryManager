@@ -1,8 +1,9 @@
-package com.Application.Model.inventory;
+package com.b07.inventory;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public interface Inventory {
+public interface Inventory extends Serializable {
 
   public HashMap<Item, Integer> getItemMap();
 

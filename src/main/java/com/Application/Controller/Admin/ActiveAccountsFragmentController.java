@@ -7,14 +7,10 @@ import android.widget.ListView;
 
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.store.Account;
-import com.Application.Model.users.User;
 import com.Application.View.Admin.ActiveAccountsFragmentView;
 import com.example.Application.R;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 
 public class ActiveAccountsFragmentController {
 

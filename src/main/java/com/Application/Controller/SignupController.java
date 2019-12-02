@@ -18,6 +18,9 @@ public class SignupController {
         EditText passwordEditText = view.findViewById(R.id.passwordEditText);
 
         String name = usernameEditText.getText().toString();
+        if(userAgeEditText.getText().toString().length() == 0){
+            throw new DatabaseInsertException();
+        }
         int age = Integer.parseInt(userAgeEditText.getText().toString());
         String address = userAddressEditText.getText().toString();
         String password = passwordEditText.getText().toString();
@@ -34,6 +37,9 @@ public class SignupController {
         EditText passwordEditText = view.findViewById(R.id.passwordEditText);
 
         String name = usernameEditText.getText().toString();
+        if(userAgeEditText.getText().toString().length() == 0){
+            throw new DatabaseInsertException();
+        }
         int age = Integer.parseInt(userAgeEditText.getText().toString());
         String address = userAddressEditText.getText().toString();
         String password = passwordEditText.getText().toString();

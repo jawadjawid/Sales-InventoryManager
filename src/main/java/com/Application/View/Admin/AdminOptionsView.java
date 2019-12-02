@@ -48,16 +48,7 @@ public class AdminOptionsView extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                return true;
-            case R.id.action_logout:
-                Intent intent = new Intent(this, MainLoginView.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+       controller.onOptionsItemSelected(item);
+       return true;
     }
 }

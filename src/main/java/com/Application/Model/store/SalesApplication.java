@@ -30,6 +30,10 @@ public class SalesApplication {
 
 	private static BufferedReader bufferedReader;
 	private static HashMap<String, Integer> rolesToId;
+	public static final int ADMIN_ID = 1;
+	public static final int EMPLOYEE_ID = 2;
+	public static final int CUSTOMER_ID = 3;
+
 
 	// think about prices, remove it before submitting
 	public static void insertIntoItemsTable() throws SQLException, DatabaseInsertException {

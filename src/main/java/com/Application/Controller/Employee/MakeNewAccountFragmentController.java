@@ -1,7 +1,6 @@
 package com.Application.Controller.Employee;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
@@ -11,7 +10,6 @@ import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.exceptions.DatabaseInsertException;
 import com.example.Application.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,7 +21,7 @@ public class MakeNewAccountFragmentController implements View.OnClickListener {
     public MakeNewAccountFragmentController(View view) {
         this.view = view;
         appContext = view.getContext();
-        setNumberPickerValues(); // THIS WORKS NOW JUST MAKE IT LOOK COOL
+        setNumberPickerValues();
     }
 
     @Override
@@ -34,15 +32,15 @@ public class MakeNewAccountFragmentController implements View.OnClickListener {
             int customerId = Integer.parseInt(customerIds[customerIdNumberPicker.getValue()]);
 
             int accountId = Math.toIntExact(mydb.insertAccountH(customerId));
-            Toast.makeText(appContext, "Account successfully created with id " + accountId, Toast.LENGTH_SHORT).show();
+            Toast.makeText(appContext, "Account successfully created with id " + accountId + " for customer with id " + customerId, Toast.LENGTH_SHORT).show();
 
         } catch (DatabaseInsertException e) {
-            e.printStackTrace();
+            Toast.makeText(appContext, "Database Error. Account Not Created.", Toast.LENGTH_SHORT).show();
+
         }
     }
 
     private void setNumberPickerValues() {
-
         DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
         List<Integer> customerIdsInt = mydb.getUsersByRoleH(3);
         if (customerIdsInt.size() == 0) {

@@ -1,23 +1,14 @@
 package com.Application.Controller.Admin;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 import androidx.viewpager.widget.ViewPager;
 
-import com.Application.Model.users.User;
 import com.Application.View.Admin.AccountsFragmentView;
-import com.Application.View.Admin.ActiveAccountsFragmentView;
-import com.Application.View.Admin.InactiveAccountsFragmentView;
 import com.example.Application.R;
 import com.google.android.material.tabs.TabLayout;
-
-import java.io.Serializable;
 
 public class AccountsFragmentController implements View.OnClickListener {
 

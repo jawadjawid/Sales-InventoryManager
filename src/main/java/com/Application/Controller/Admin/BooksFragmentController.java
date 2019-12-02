@@ -4,10 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
-
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.interaction.AdminInteraction;
 import com.example.Application.R;

@@ -1,8 +1,9 @@
 package com.Application.Model.inventory;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class ItemImpl implements Item {
+public class ItemImpl implements Item, Serializable {
 
   private int id;
   private String name;

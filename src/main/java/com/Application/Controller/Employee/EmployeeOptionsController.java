@@ -2,7 +2,6 @@ package com.Application.Controller.Employee;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,7 +14,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class EmployeeOptionsController implements View.OnClickListener {
     private static EmployeeOptionsView view;
-    private  Context appContext;
+    private Context appContext;
     private static User user;
 
     public EmployeeOptionsController(Context context) {
@@ -39,11 +38,12 @@ public class EmployeeOptionsController implements View.OnClickListener {
         usernameTextView.setText(username);
     }
 
-    public static User getUser(){
+    public static User getUser() {
         return user;
     }
 
-    public static  void setUser(User user){
+    public static void setUser(User user1) {
+        user = user1;
 
     }
 

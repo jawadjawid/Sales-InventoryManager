@@ -9,8 +9,6 @@ import android.widget.Toast;
 
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.exceptions.DatabaseInsertException;
-import com.Application.Model.users.Employee;
-import com.Application.Model.users.EmployeeInterface;
 import com.example.Application.R;
 
 import java.util.List;

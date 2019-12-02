@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/welcomeTextView"
+            android:id="@+id/welcomeEmployeeTextView"
             android:layout_width="wrap_content"
             android:layout_height="51dp"
             android:layout_marginTop="30dp"

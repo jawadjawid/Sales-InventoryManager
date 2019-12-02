@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.text.Editable;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
@@ -23,8 +22,6 @@ import com.Application.View.Customer.CustomerHomeView;
 import com.Application.View.Customer.CustomerShoppingView;
 import com.Application.View.MainLoginView;
 import com.example.Application.R;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;

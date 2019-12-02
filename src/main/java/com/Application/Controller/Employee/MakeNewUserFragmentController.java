@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import com.Application.Controller.SignupController;
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
+import com.Application.Model.exceptions.DatabaseInsertException;
+import com.Application.Model.store.SalesApplication;
 import com.example.Application.R;
 
 
@@ -29,8 +31,8 @@ public class MakeNewUserFragmentController extends SignupController implements V
 
             Toast.makeText(appContext, "User with id " + userId + " created.", Toast.LENGTH_SHORT).show();
 
-        } catch (Exception e) {
-            Toast.makeText(appContext, "Please ensure that all fields are completed.", Toast.LENGTH_SHORT).show();
+        } catch (DatabaseInsertException e) {
+            Toast.makeText(appContext, "Please ensure that all fields are completed & length of address is less than 100 characters.", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
@@ -40,9 +42,9 @@ public class MakeNewUserFragmentController extends SignupController implements V
         int radioButtonId = roleRadioGroup.getCheckedRadioButtonId();
 
         if (radioButtonId == R.id.employeeRadioButton) {
-            return 2;
+            return SalesApplication.EMPLOYEE_ID;
         } else {
-            return 3;
+            return SalesApplication.CUSTOMER_ID;
         }
     }
 
