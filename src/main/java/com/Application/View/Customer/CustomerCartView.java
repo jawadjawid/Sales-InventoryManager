@@ -19,5 +19,7 @@ public class CustomerCartView extends AppCompatActivity {
         controller = new CustomerCartController(this);
         Button checkOutBtn = findViewById(R.id.checkOutBtn);
         checkOutBtn.setOnClickListener(controller);
+        Button saveCartBtn = findViewById(R.id.saveCartBtn);
+        saveCartBtn.setOnClickListener(controller);
     }
 }

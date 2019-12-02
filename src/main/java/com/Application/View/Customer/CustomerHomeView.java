@@ -26,6 +26,5 @@ public class CustomerHomeView extends AppCompatActivity {
         shopButton.setOnClickListener(controller);
         cartButton.setOnClickListener(controller);
         logoutButton.setOnClickListener(controller);
-
     }
 }

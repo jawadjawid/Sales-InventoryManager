@@ -12,7 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
+import com.Application.Model.exceptions.DatabaseInsertException;
 import com.Application.Model.inventory.Item;
+import com.Application.Model.inventory.ItemImpl;
 import com.Application.Model.store.Account;
 import com.Application.Model.store.ShoppingCart;
 import com.Application.View.Customer.CustomerCartView;
@@ -40,12 +42,16 @@ public class CustomerCartController implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.checkOutBtn) {
             //recievedCart.checkOut();
+            //check if accountId != -1 before considering what account to set inactive after checkout
         } else {
-            // save cart
-            // ask which account to store to
             displayStoreAlert();
-
         }
+    }
+
+    private void setRestoredAccountId(){
+        Intent intent = view.getIntent();
+        int accId = (int) intent.getSerializableExtra("account id");
+        this.accountId = accId;
     }
 
     private void displayStoreAlert() {
@@ -59,11 +65,11 @@ public class CustomerCartController implements View.OnClickListener {
         alert.setTitle("Store Shopping Cart ?");
         alert.setView(edittext);
 
-        alert.setNegativeButton("Do not Store", new DialogInterface.OnClickListener() {
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
             }
         });
-        alert.setPositiveButton("Restore", new DialogInterface.OnClickListener() {
+        alert.setPositiveButton("Save Cart", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 if (edittext.getText().length() == 0) {
                     Toast.makeText(appContext, "Cannot restore as no Account ID was entered", Toast.LENGTH_SHORT).show();
@@ -82,8 +88,18 @@ public class CustomerCartController implements View.OnClickListener {
         alert.show();
     }
 
-    private void storeCart(){
-
+    private void storeCart() {
+        try {
+            DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
+            for (Item i : recievedCart.getItemMap().keySet()) {
+                if (recievedCart.getItemMap().get(i) != 0) {
+                    Item itemToSave = new ItemImpl(i.getId(), i.getName(), i.getPrice());
+                    mydb.insertAccountSummaryH(storingAccount.getId(), i.getId(), recievedCart.getItemMap().get(i));
+                }
+            }
+        } catch (DatabaseInsertException e) {
+            Toast.makeText(appContext, "Error with saving cart, please try again later", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private boolean validAccountId(int id) {
@@ -92,7 +108,6 @@ public class CustomerCartController implements View.OnClickListener {
         for (Account i : activeAccounts) {
             if (i.getId() == id) {
                 this.storingAccount = i;
-                this.accountId = id;
                 return true;
             }
         }
