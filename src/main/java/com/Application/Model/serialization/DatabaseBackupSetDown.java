@@ -36,9 +36,7 @@ public class DatabaseBackupSetDown {
 
   private static void SetDownSales(DatabaseBackup databasebackup)
       throws DatabaseInsertException {
-    SalesLog salesLogImpl = new SalesLogImpl();
-    salesLogImpl = databasebackup.getSales();
-    ArrayList<Sale> Sales = salesLogImpl.getSales();
+	List<Sale> Sales = databasebackup.getSales();
     for (Sale sale : Sales) {
     	mydb.insertSaleH((sale.getUser()).getId(), sale.getTotalPrice());
     }
@@ -114,9 +112,9 @@ public class DatabaseBackupSetDown {
 
   private static void SetDownAccount(DatabaseBackup databasebackup)
       throws DatabaseInsertException {
-    List<Integer> userIds = databasebackup.getAccount();
-    for (Integer userId : userIds) {
-      mydb.insertAccountH(userId);
+    List<Account> accounts = databasebackup.getAccount();
+    for (Account account : accounts) {
+      mydb.insertAccountH1(account.getUser().getId(), account.getActive());
     }
   }
 
@@ -153,10 +151,10 @@ public class DatabaseBackupSetDown {
 	  
 	mydb = mydb1;  
     SetDownUsers(databasebackup);
-    SetDownSales(databasebackup);
-    SetDownRoles(databasebackup);
     SetDownUserPw(databasebackup);
+    SetDownRoles(databasebackup);
     SetDownUserRole(databasebackup);
+    SetDownSales(databasebackup);
     SetDownItimizedSales(databasebackup);
     SetDownItems(databasebackup);
     SetDownAccount(databasebackup);

@@ -197,6 +197,20 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         long accountId = insertAccount(userId,true);
         return accountId;
     }
+    
+    public long insertAccountH1(int userId, boolean active)
+            throws DatabaseInsertException {
+
+        boolean val_success = true;
+        val_success = val_success && AccountValidator.validateUserId(userId);
+
+        if (!val_success) {
+            throw new DatabaseInsertException();
+        }
+
+        long accountId = insertAccount(userId, active);
+        return accountId;
+    }
 
     public long insertAccountSummaryH(int acctId, int itemId, int quantity)
             throws DatabaseInsertException {

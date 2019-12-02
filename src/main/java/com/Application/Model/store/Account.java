@@ -18,5 +18,9 @@ public interface Account {
 	public void addItem(Item item, int quantity);
 	
 	public void removeItem(Item item, int quantity);
+	
+	public void setActive(boolean active);
+	
+	public boolean getActive();
 
 }

@@ -9,12 +9,19 @@ public class AccountImpl implements Account {
 	private int id;
 	private User user;
 	private HashMap<Item, Integer> itemMap;
+	private boolean active;
 
-	public AccountImpl(int id, User user) {
-		this.id = id;
-		itemMap = new HashMap<>();
-		this.user = user;
-	}
+  public AccountImpl(int id, User user) {
+      this.id = id;
+      itemMap = new HashMap<>();
+	  this.user = user;
+  }
+
+   public AccountImpl(User user, boolean active) {   
+	 this.user = user;
+	 this.active = active;
+   }
+		  
 
 	public int getId() {
 		return id;
@@ -40,5 +47,13 @@ public class AccountImpl implements Account {
 	public void removeItem(Item item, int quantity) {
 		itemMap.remove(item);
 	}
+	
+	 public boolean getActive() {
+		  return active;
+	 }
+
+	public void setActive(boolean active) {
+		   this.active = active;
+	 }
 
 }

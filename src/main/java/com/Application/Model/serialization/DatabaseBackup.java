@@ -11,6 +11,7 @@ import com.Application.Model.store.SalesLog;
 import com.Application.Model.store.SalesLogImpl;
 import com.Application.Model.users.User;
 import com.Application.Model.store.Account;
+import com.Application.Model.store.Sale;
 
 
 public class DatabaseBackup implements Serializable {
@@ -19,14 +20,14 @@ public class DatabaseBackup implements Serializable {
    */
   private static final long serialVersionUID = -5906534830386784100L;
   private LinkedHashMap<Integer, String> UserPw = new LinkedHashMap<Integer, String>();
-  private SalesLog Sales = new SalesLogImpl();
+  private List<Sale> Sales = new ArrayList<Sale>();
   private List<User> Users = new ArrayList<User>();
   private LinkedHashMap<Integer, Integer> UserRole = new LinkedHashMap<Integer, Integer>();
   private SalesLog ItimizedSales = new SalesLogImpl();
   private List<Item> Items = new ArrayList<Item>();
   private LinkedHashMap<Integer, List<Account>> AccountSummary =
       new LinkedHashMap<Integer, List<Account>>();
-  private List<Integer> Account = new ArrayList<Integer>();
+  private List<Account> Account = new ArrayList<Account>();
   private List<String> Roles = new ArrayList<String>();
   private LinkedHashMap<Integer, Integer> Inventory = new LinkedHashMap<Integer, Integer>();
 
@@ -38,11 +39,11 @@ public class DatabaseBackup implements Serializable {
     return UserPw;
   }
 
-  public void setSales(SalesLog Sales) {
+  public void setSales(List<Sale> Sales) {
     this.Sales = Sales;
   }
 
-  public SalesLog getSales() {
+  public List<Sale> getSales() {
     return Sales;
   }
 
@@ -86,11 +87,11 @@ public class DatabaseBackup implements Serializable {
     return AccountSummary;
   }
 
-  public void setAccount(List<Integer> Account) {
+  public void setAccount(List<Account> Account) {
     this.Account = Account;
   }
 
-  public List<Integer> getAccount() {
+  public List<Account> getAccount() {
     return Account;
   }
 

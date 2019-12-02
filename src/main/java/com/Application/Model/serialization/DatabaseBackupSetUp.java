@@ -16,6 +16,8 @@ import com.Application.Model.inventory.Inventory;
 import com.Application.Model.inventory.InventoryImpl;
 import com.Application.Model.inventory.Item;
 import com.Application.Model.store.Account;
+import com.Application.Model.store.AccountImpl;
+import com.Application.Model.store.Sale;
 import com.Application.Model.store.SalesLog;
 import com.Application.Model.store.SalesLogImpl;
 import com.Application.Model.users.User;
@@ -35,9 +37,10 @@ public class DatabaseBackupSetUp {
   }
 
   private static void SetUpSales(DatabaseBackup databasebackup)  {
-    SalesLog Sales = new SalesLogImpl();
-    Sales = mydb.getSalesH();
-    databasebackup.setSales(Sales);
+	SalesLog salesLog = new SalesLogImpl();
+	salesLog = mydb.getSalesH();
+	ArrayList<Sale> sales = salesLog.getSales();
+    databasebackup.setSales(sales);
   }
 
   private static void SetUpUsers(DatabaseBackup databasebackup) {
@@ -59,7 +62,7 @@ public class DatabaseBackupSetUp {
   private static void SetUpItemizedSales(DatabaseBackup databasebackup) {
     SalesLog ItemizedSales = new SalesLogImpl();
     ItemizedSales = mydb.getItemizedSalesH();
-    databasebackup.setSales(ItemizedSales);
+    databasebackup.setItimizedSales(ItemizedSales);
   }
 
 
@@ -79,24 +82,30 @@ public class DatabaseBackupSetUp {
     }
     databasebackup.setAccountSummary(AccountSummary);
   }
-
-  private static void SetUpAccount(DatabaseBackup databasebackup)  {
-    Map<String, Integer> accountTable = new LinkedHashMap<String, Integer>();
-    List<User> usersdetails = new ArrayList<User>();
-    List<Integer> userIds = new ArrayList<Integer>();
-    usersdetails = mydb.getUsersDetailsH();
-    for (User user : usersdetails) {
-      for (Account account : mydb.getUserAccountsH(user.getId())) {
-        accountTable.put(Integer.toString(account.getId()), user.getId());
-      }
-    }
-    TreeMap<String, Integer> sorted = new TreeMap<>();
-    sorted.putAll(accountTable);
-    for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
-      userIds.add(entry.getValue());
-    }
-    databasebackup.setAccount(userIds);
-  }
+    
+  public static void SetUpAccount(DatabaseBackup databasebackup) throws SQLException {
+	    Map<Integer, Account> accountTable = new LinkedHashMap<Integer, Account>();
+	    List<Account> allAccounts = new ArrayList<Account>();
+	    List<User> usersdetails = new ArrayList<User>();
+	    List<Account> activeAccounts = new ArrayList<Account>();
+	    List<Account> inactiveAccounts = new ArrayList<Account>();
+	    usersdetails = mydb.getUsersDetailsH();
+	    for (User user : usersdetails) {
+	      activeAccounts = mydb.getUserActiveAccountsH(user.getId());
+	      for (Account activeAccount : activeAccounts) {
+	        Account account = new AccountImpl(user, true);
+	        accountTable.put(activeAccount.getId(), account);
+	      }
+	      inactiveAccounts = mydb.getUserInactiveAccountsH(user.getId());
+	      for (Account inactiveAccount : inactiveAccounts) {
+	        Account account = new AccountImpl(user, false);
+	        accountTable.put(inactiveAccount.getId(), account);
+	      }
+	    }
+	    TreeMap<Integer, Account> sorted = new TreeMap<>(accountTable);
+	    sorted.forEach((key, value) -> allAccounts.add(value));
+	    databasebackup.setAccount(allAccounts);
+	  }
 
   private static void SetUpRoles(DatabaseBackup databasebackup)  {
     List<String> Roles = new ArrayList<String>();
@@ -121,7 +130,7 @@ public class DatabaseBackupSetUp {
   }
 
   public static void SetUpEverything(DatabaseBackup databasebackup,
-      DatabaseDriverAndroidHelper mydb1) {
+      DatabaseDriverAndroidHelper mydb1) throws SQLException {
     mydb = mydb1;
     SetUpUsers(databasebackup);
     SetUpUserPw(databasebackup);
@@ -133,6 +142,7 @@ public class DatabaseBackupSetUp {
     SetUpAccountSummary(databasebackup);
     SetUpRoles(databasebackup);
     SetUpInventory(databasebackup);
+
   }
 }
 
