@@ -15,9 +15,12 @@ import java.sql.SQLException;
 
 public class DatabaseSerializer {
 
+  private static String deserializeDirectory;
+  private static String serializeDirectory;
+
   public static DatabaseBackup deserialize() {
     try {
-      FileInputStream fileIn = new FileInputStream("database_copy.ser");
+      FileInputStream fileIn = new FileInputStream(deserializeDirectory + "database_copy.ser");
       ObjectInputStream in = new ObjectInputStream(fileIn);
       DatabaseBackup databasebackup = (DatabaseBackup) in.readObject();
       in.close();
@@ -35,7 +38,7 @@ public class DatabaseSerializer {
 
   public static String serialize(DatabaseBackup databasebackup) {
     try {
-      FileOutputStream fileOut = new FileOutputStream("database_copy.ser");
+      FileOutputStream fileOut = new FileOutputStream(serializeDirectory + "database_copy.ser");
       ObjectOutputStream out = new ObjectOutputStream(fileOut);
       out.writeObject(databasebackup);
       out.close();
@@ -47,18 +50,21 @@ public class DatabaseSerializer {
     return databasebackup.toString();
   }
 
-  public static void deserializeDatabase() throws SQLException, DatabaseInsertException {
-    DatabaseDriverHelper.initializeDatabase();
-    DatabaseBackup backeupversion = DatabaseSerializer.deserialize();
-    DatabaseBackupSetDown.SetDownEverything(backeupversion);
+  public static void deserializeDatabase(Context context, String directory) throws SQLException, DatabaseInsertException {
+    deserializeDirectory = directory;
+    DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(context);
+    context.deleteDatabase("inventorymgmt.db");
+    DatabaseBackup backupversion = DatabaseSerializer.deserialize();
+    DatabaseBackupSetDown.SetDownEverything(backupversion, mydb);
   }
 
-  public static void serializeDatabase(Context context) throws SQLException, DatabaseInsertException {
-    DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper();
-    DatabaseBackup databasebackup = new DatabaseBackup();
-    DatabaseBackupSetUp.SetUpEverything(databasebackup);
-    DatabaseSerializer.serialize(databasebackup);
-    DatabaseDriverHelper.clearDatabase();
+  public static void serializeDatabase(Context context, String directory) throws SQLException, DatabaseInsertException {
+    serializeDirectory = directory;
+    DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(context);
+    DatabaseBackup databaseBackup = new DatabaseBackup();
+    DatabaseBackupSetUp.SetUpEverything(databaseBackup,mydb);
+    DatabaseSerializer.serialize(databaseBackup);
+
   }
 }
 

@@ -4,15 +4,20 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import com.Application.Model.exceptions.DatabaseInsertException;
+import com.Application.Model.serialization.DatabaseSerializer;
 import com.Application.Model.users.User;
 import com.Application.View.Admin.AdminOptionsView;
 import com.Application.View.MainLoginView;
 import com.example.Application.R;
+
+import java.sql.SQLException;
 
 public class AdminOptionsController implements View.OnClickListener {
 
@@ -58,7 +63,11 @@ public class AdminOptionsController implements View.OnClickListener {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // serialize
+                        try {
+                            DatabaseSerializer.serializeDatabase(appContext, input1.getText().toString());
+                        }catch (DatabaseInsertException | SQLException e){
 
+                        }
 
                     }
                 });
@@ -84,7 +93,12 @@ public class AdminOptionsController implements View.OnClickListener {
                 builder2.setPositiveButton("Deserialize", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // serialize
+                        // deserialize
+                        try {
+                            DatabaseSerializer.deserializeDatabase(appContext, input2.getText().toString());
+                        }catch (DatabaseInsertException | SQLException e){
+
+                        }
                     }
                 });
                 builder2.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

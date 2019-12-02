@@ -24,7 +24,7 @@ public class DatabaseBackupSetUp {
 
   private static DatabaseDriverAndroidHelper mydb;
 
-  public static void SetUpUserPw(DatabaseBackup databasebackup) throws SQLException {
+  private static void SetUpUserPw(DatabaseBackup databasebackup)  {
     LinkedHashMap<Integer, String> userpw = new LinkedHashMap<Integer, String>();
     List<User> usersdetails = new ArrayList<User>();
     usersdetails = mydb.getUsersDetailsH();
@@ -34,19 +34,19 @@ public class DatabaseBackupSetUp {
     databasebackup.setUserPw(userpw);
   }
 
-  public static void SetUpSales(DatabaseBackup databasebackup) throws SQLException {
+  private static void SetUpSales(DatabaseBackup databasebackup)  {
     SalesLog Sales = new SalesLogImpl();
     Sales = mydb.getSalesH();
     databasebackup.setSales(Sales);
   }
 
-  public static void SetUpUsers(DatabaseBackup databasebackup) throws SQLException {
+  private static void SetUpUsers(DatabaseBackup databasebackup) {
     List<User> usersdetails = new ArrayList<User>();
     usersdetails = mydb.getUsersDetailsH();
     databasebackup.setUsers(usersdetails);
   }
 
-  public static void SetUpUserRole(DatabaseBackup databasebackup) throws SQLException {
+  private static void SetUpUserRole(DatabaseBackup databasebackup)  {
     LinkedHashMap<Integer, Integer> UserRole = new LinkedHashMap<Integer, Integer>();
     List<User> usersdetails = new ArrayList<User>();
     usersdetails = mydb.getUsersDetailsH();
@@ -56,37 +56,37 @@ public class DatabaseBackupSetUp {
     databasebackup.setUserRole(UserRole);
   }
 
-  public static void SetUpItimizedSales(DatabaseBackup databasebackup) throws SQLException {
-    SalesLog ItimizedSales = new SalesLogImpl();
-    ItimizedSales = DatabaseSelectHelper.getItemizedSales();
-    databasebackup.setSales(ItimizedSales);
+  private static void SetUpItemizedSales(DatabaseBackup databasebackup) {
+    SalesLog ItemizedSales = new SalesLogImpl();
+    ItemizedSales = mydb.getItemizedSalesH();
+    databasebackup.setSales(ItemizedSales);
   }
 
 
-  public static void SetUpItems(DatabaseBackup databasebackup) throws SQLException {
+  private static void SetUpItems(DatabaseBackup databasebackup)  {
     List<Item> Items = new ArrayList<>();
     Items = mydb.getAllItemsH();
     databasebackup.setItems(Items);
   }
 
-  public static void SetUpAccountSummary(DatabaseBackup databasebackup) throws SQLException {
+  private static void SetUpAccountSummary(DatabaseBackup databasebackup) {
     LinkedHashMap<Integer, List<Account>> AccountSummary =
         new LinkedHashMap<Integer, List<Account>>();
     List<User> usersdetails = new ArrayList<User>();
-    usersdetails = DatabaseSelectHelper.getUsersDetails();
+    usersdetails = mydb.getUsersDetailsH();
     for (User user : usersdetails) {
-      AccountSummary.put(user.getId(), DatabaseSelectHelper.getUserAccounts(user.getId()));
+      AccountSummary.put(user.getId(), mydb.getUserAccountsH(user.getId()));
     }
     databasebackup.setAccountSummary(AccountSummary);
   }
 
-  public static void SetUpAccount(DatabaseBackup databasebackup) throws SQLException {
+  private static void SetUpAccount(DatabaseBackup databasebackup)  {
     Map<String, Integer> accountTable = new LinkedHashMap<String, Integer>();
     List<User> usersdetails = new ArrayList<User>();
     List<Integer> userIds = new ArrayList<Integer>();
-    usersdetails = DatabaseSelectHelper.getUsersDetails();
+    usersdetails = mydb.getUsersDetailsH();
     for (User user : usersdetails) {
-      for (Account account : DatabaseSelectHelper.getUserAccounts(user.getId())) {
+      for (Account account : mydb.getUserAccountsH(user.getId())) {
         accountTable.put(Integer.toString(account.getId()), user.getId());
       }
     }
@@ -98,7 +98,7 @@ public class DatabaseBackupSetUp {
     databasebackup.setAccount(userIds);
   }
 
-  public static void SetUpRoles(DatabaseBackup databasebackup) throws SQLException {
+  private static void SetUpRoles(DatabaseBackup databasebackup)  {
     List<String> Roles = new ArrayList<String>();
     List<Integer> RoleIds = new ArrayList<Integer>();
     RoleIds = mydb.getRoleIdsH();
@@ -108,8 +108,7 @@ public class DatabaseBackupSetUp {
     databasebackup.setRoles(Roles);
   }
 
-  public static void SetUpInventory(DatabaseBackup databasebackup)
-      throws SQLException, DatabaseInsertException {
+  private static void SetUpInventory(DatabaseBackup databasebackup) {
     Inventory inventory = new InventoryImpl();
     inventory = mydb.getInventoryH();
     HashMap<Item, Integer> itemMap = inventory.getItemMap();
@@ -122,13 +121,13 @@ public class DatabaseBackupSetUp {
   }
 
   public static void SetUpEverything(DatabaseBackup databasebackup,
-      DatabaseDriverAndroidHelper mydb1) throws SQLException, DatabaseInsertException {
+      DatabaseDriverAndroidHelper mydb1) {
     mydb = mydb1;
     SetUpUsers(databasebackup);
     SetUpUserPw(databasebackup);
     SetUpSales(databasebackup);
     SetUpUserRole(databasebackup);
-    SetUpItimizedSales(databasebackup);
+    SetUpItemizedSales(databasebackup);
     SetUpItems(databasebackup);
     SetUpAccount(databasebackup);
     SetUpAccountSummary(databasebackup);
