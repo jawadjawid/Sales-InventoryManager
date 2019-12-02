@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#383A3A"
+    android:background="@color/colorDark"
     android:orientation="vertical"
     tools:context="com.Application.View.Customer.CustomerCartView">
 
@@ -184,9 +184,9 @@
         android:layout_height="@dimen/button_height_standard"
         android:layout_marginStart="@dimen/cart_button_margin_left"
         android:layout_marginTop="@dimen/cart_button_margin_top"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/check_out"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="@dimen/text_size_large" />
 
     <Button
@@ -195,9 +195,9 @@
         android:layout_height="@dimen/button_height_standard"
         android:layout_marginStart="@dimen/cart_button_margin_left"
         android:layout_marginTop="@dimen/cart_button_margin_top"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/save_cart"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="@dimen/text_size_large" />
 
 </LinearLayout>

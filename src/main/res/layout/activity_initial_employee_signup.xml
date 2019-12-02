@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 tools:context="com.Application.View.InitialEmployeeSignupView"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="@color/colorGrey">
+android:background="@color/colorDark">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -13,15 +13,6 @@ android:background="@color/colorGrey">
     android:gravity="center"
     android:orientation="vertical"
     android:layout_marginTop="-100dp">
-
-    <TextView
-        android:id="@+id/initializationLabelTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-        android:text="@string/initialization"
-        android:textColor="@color/colorLight"
-        android:textSize="@dimen/text_size_large"
-        android:layout_marginBottom="50dp"/>
 
     <TextView
         android:id="@+id/createNewAdminLabelTextView"
@@ -50,9 +41,9 @@ android:background="@color/colorGrey">
         android:layout_height="@dimen/button_height_standard"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
-        android:background="@color/colorLight"
+        android:background="@color/colorLightBlue"
         android:text="@string/make_new_employee"
-        android:textColor="@color/colorGrey"
+        android:textColor="@color/colorDark"
         android:visibility="visible" />
 </LinearLayout>
 

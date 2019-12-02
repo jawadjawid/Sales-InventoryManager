@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#383A3A"
+    android:background="@color/colorDark"
     android:orientation="vertical">
 
     <TextView
@@ -31,9 +31,9 @@
         android:id="@+id/authenticateNewEmployeeButton"
         android:layout_width="@dimen/user_info_field_width"
         android:layout_height="@dimen/button_height_standard"
-        android:background="@color/colorLight"
+        android:background="@color/colorLightBlue"
         android:text="Authenticate"
-        android:textColor="@color/colorGrey"
+        android:textColor="@color/colorDark"
         android:visibility="visible"
         android:layout_gravity="center"/>
 </LinearLayout>

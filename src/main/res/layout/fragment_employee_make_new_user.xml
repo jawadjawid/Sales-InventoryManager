@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#383A3A"
+    android:background="@color/colorDark"
     android:orientation="vertical">
 
     <LinearLayout
@@ -74,9 +74,9 @@
             android:layout_height="@dimen/button_height_standard"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:background="@color/colorLight"
+            android:background="@color/colorLightBlue"
             android:text="@string/make_new_user"
-            android:textColor="@color/colorGrey"
+            android:textColor="@color/colorDark"
             android:visibility="visible" />
     </LinearLayout>
 

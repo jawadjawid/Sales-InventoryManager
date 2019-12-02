@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#383A3A"
+    android:background="@color/colorDark"
     android:orientation="vertical"
     tools:context="com.Application.View.Customer.CustomerShoppingView">
 
@@ -85,10 +85,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/add"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="20dp" />
 
     <Button
@@ -100,10 +100,10 @@
         android:layout_marginStart="75dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/remove"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="20dp" />
 
     <EditText
@@ -114,12 +114,12 @@
         android:layout_column="3"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
+        android:background="@color/colorLightBlue"
         android:hint="@string/enter_quantity"
-
         android:inputType="number"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
-        android:textColorHint="@color/colorLight"
+        android:textColor="@color/colorDark"
+        android:textColorHint="@color/colorDark"
         android:textSize="15dp" />
 
 
@@ -160,10 +160,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/add"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="20dp" />
 
     <Button
@@ -175,10 +175,10 @@
         android:layout_marginStart="75dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/remove"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="20dp" />
 
     <EditText
@@ -189,11 +189,12 @@
         android:layout_column="3"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
+        android:background="@color/colorLightBlue"
         android:hint="@string/enter_quantity"
         android:inputType="number"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
-        android:textColorHint="@color/colorLight"
+        android:textColor="@color/colorDark"
+        android:textColorHint="@color/colorDark"
         android:textSize="15dp" />
 
     <TextView
@@ -233,10 +234,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/add"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="20dp" />
 
     <Button
@@ -248,10 +249,10 @@
         android:layout_marginStart="75dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/remove"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="20dp" />
 
     <EditText
@@ -262,12 +263,12 @@
         android:layout_column="3"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
+        android:background="@color/colorLightBlue"
         android:hint="@string/enter_quantity"
-
         android:inputType="number"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
-        android:textColorHint="@color/colorLight"
+        android:textColor="@color/colorDark"
+        android:textColorHint="@color/colorDark"
         android:textSize="15dp" />
 
 
@@ -308,10 +309,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/add"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="20dp" />
 
     <Button
@@ -323,10 +324,10 @@
         android:layout_marginStart="75dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="-"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="20dp" />
 
     <EditText
@@ -337,12 +338,12 @@
         android:layout_column="3"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
+        android:background="@color/colorLightBlue"
         android:hint="Quantity"
-
         android:inputType="number"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
-        android:textColorHint="@color/colorLight"
+        android:textColor="@color/colorDark"
+        android:textColorHint="@color/colorDark"
         android:textSize="15dp" />
 
     <TextView
@@ -382,10 +383,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/add"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="20dp" />
 
     <Button
@@ -397,10 +398,10 @@
         android:layout_marginStart="75dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/remove"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="20dp" />
 
     <EditText
@@ -411,12 +412,12 @@
         android:layout_column="3"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
+        android:background="@color/colorLightBlue"
         android:hint="@string/enter_quantity"
-
         android:inputType="number"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
-        android:textColorHint="@color/colorLight"
+        android:textColor="@color/colorDark"
+        android:textColorHint="@color/colorDark"
         android:textSize="15dp" />
 
 
@@ -428,10 +429,10 @@
         android:layout_column="2"
         android:layout_marginStart="12dp"
         android:layout_marginTop="@dimen/shopping_main_buttons_margin_top"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/reset_all"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="@dimen/shopping_item_label_size" />
 
 
@@ -444,9 +445,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="@dimen/shopping_main_buttons_margin_top"
         android:layout_marginEnd="5dp"
-        android:background="@color/colorGrey"
+        android:background="@color/colorLightBlue"
         android:text="@string/go_back_home"
         android:textAlignment="center"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorDark"
         android:textSize="@dimen/shopping_item_label_size" />
 </GridLayout>
