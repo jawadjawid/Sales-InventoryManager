@@ -4,9 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 
 import com.Application.Model.database.DatabaseDriverAndroid;
-import com.Application.Model.database.DatabaseInserter;
-import com.Application.Model.database.DatabaseSelector;
-import com.Application.Model.database.DatabaseUpdater;
 import com.Application.Model.exceptions.DatabaseInsertException;
 import com.Application.Model.inventory.Inventory;
 import com.Application.Model.inventory.InventoryImpl;
@@ -17,7 +14,6 @@ import com.Application.Model.store.AccountImpl;
 import com.Application.Model.store.ItemizedSaleImpl;
 import com.Application.Model.store.Sale;
 import com.Application.Model.store.SaleImpl;
-import com.Application.Model.store.SalesApplication;
 import com.Application.Model.store.SalesLog;
 import com.Application.Model.store.SalesLogImpl;
 import com.Application.Model.users.Admin;
@@ -36,8 +32,6 @@ import com.Application.Model.validator.UserRoleValidator;
 import com.Application.Model.validator.UsersValidator;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;

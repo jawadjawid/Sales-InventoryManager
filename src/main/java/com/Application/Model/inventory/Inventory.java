@@ -1,4 +1,4 @@
-package com.b07.inventory;
+package com.Application.Model.inventory;
 
 import java.io.Serializable;
 import java.util.HashMap;

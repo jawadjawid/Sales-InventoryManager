@@ -50,4 +50,6 @@
     <string name="reset_all">Reset All Quantities</string>
     <string name="option_heading">Options</string>
     <string name="current_quantity_heading">Current Quantity</string>
+    <string name="action_serialize">Serialize</string>
+    <string name="action_deserialize">Deserialize</string>
 </resources>

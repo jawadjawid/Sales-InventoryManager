@@ -10,6 +10,7 @@ import com.Application.Model.inventory.Item;
 import com.Application.Model.store.SalesLog;
 import com.Application.Model.store.SalesLogImpl;
 import com.Application.Model.users.User;
+import com.Application.Model.store.Account;
 
 
 public class DatabaseBackup implements Serializable {

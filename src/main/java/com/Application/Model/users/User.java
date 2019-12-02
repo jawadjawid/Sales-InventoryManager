@@ -1,9 +1,10 @@
-package com.b07.users;
+package com.Application.Model.users;
+
+import com.Application.Model.database.helper.DatabaseSelectHelper;
+import com.Application.Model.security.PasswordHelpers;
 
 import java.io.Serializable;
 import java.sql.SQLException;
-import com.b07.database.helper.DatabaseSelectHelper;
-import com.b07.security.PasswordHelpers;
 
 public abstract class User implements Serializable {
 
@@ -87,6 +88,11 @@ public abstract class User implements Serializable {
 
   public final boolean authenticate(String password) throws SQLException {
     String dbPassword = DatabaseSelectHelper.getPassword(id);
+    authenticated = PasswordHelpers.comparePassword(dbPassword, password);
+    return authenticated;
+  }
+
+  public final boolean authenticate(String password, String dbPassword) {
     authenticated = PasswordHelpers.comparePassword(dbPassword, password);
     return authenticated;
   }

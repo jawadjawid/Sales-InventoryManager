@@ -201,7 +201,7 @@ public class DatabaseDriverAndroid extends SQLiteOpenHelper {
   }
   
   protected long insertNewUserNoPassword(String name, int age, String address) {
-	  insertUser(name, age, address);
+	  return insertUser(name, age, address);
   }
   
   protected void insertPasswordUnhashed(String password, int userId) {
