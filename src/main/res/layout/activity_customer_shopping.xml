@@ -18,7 +18,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
         android:text="Items"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="20dp" />
 
     <TextView
@@ -30,10 +30,10 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:text="Current Quantity"
+        android:text="@string/current_quantity_heading"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textSize="20dp" />
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/shopping_heading_size" />
 
     <TextView
         android:id="@+id/OptionHeading"
@@ -43,25 +43,10 @@
         android:layout_column="2"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:text="Option"
+        android:text="@string/option_heading"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textSize="20dp" />
-
-    <TextView
-        android:id="@+id/EnterQuantity"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
-        android:layout_row="0"
-        android:layout_column="3"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textSize="20dp" />
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/shopping_heading_size" />
 
     <TextView
         android:id="@+id/RodLabel"
@@ -74,8 +59,8 @@
         android:layout_marginEnd="10dp"
         android:text="Fishing Rod ($12.00)"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textSize="15dp" />
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/shopping_item_label_size" />
 
     <TextView
         android:id="@+id/RodCurrentQuantity"
@@ -86,9 +71,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:text="0"
+        android:text="@string/initial_quantity"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="19dp" />
 
     <Button
@@ -100,10 +85,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="#2196F3"
-        android:text="+"
+        android:background="@color/colorGrey"
+        android:text="@string/add"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="20dp" />
 
     <Button
@@ -115,26 +100,26 @@
         android:layout_marginStart="75dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="#F32128"
-        android:text="-"
+        android:background="@color/colorGrey"
+        android:text="@string/remove"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="20dp" />
 
     <EditText
         android:id="@+id/RodQuantity"
-        android:inputType="number"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_row="1"
         android:layout_column="3"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
+        android:hint="@string/enter_quantity"
 
-        android:hint="Quantity"
+        android:inputType="number"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textColorHint="#FFFF"
+        android:textColor="@color/colorLight"
+        android:textColorHint="@color/colorLight"
         android:textSize="15dp" />
 
 
@@ -149,8 +134,8 @@
         android:layout_marginEnd="10dp"
         android:text="Hockey Stick ($8.50)"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textSize="15dp" />
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/shopping_item_label_size" />
 
     <TextView
         android:id="@+id/StickCurrentQuantity"
@@ -161,10 +146,10 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:text="0"
+        android:text="@string/initial_quantity"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textSize="19dp"  />
+        android:textColor="@color/colorLight"
+        android:textSize="19dp" />
 
     <Button
         android:id="@+id/StickAddBtn"
@@ -175,10 +160,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="#2196F3"
-        android:text="+"
+        android:background="@color/colorGrey"
+        android:text="@string/add"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="20dp" />
 
     <Button
@@ -190,26 +175,25 @@
         android:layout_marginStart="75dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="#F32128"
-        android:text="-"
+        android:background="@color/colorGrey"
+        android:text="@string/remove"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="20dp" />
 
     <EditText
         android:id="@+id/StickQuantity"
         android:layout_width="80dp"
-        android:inputType="number"
         android:layout_height="50dp"
         android:layout_row="2"
         android:layout_column="3"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
-
-        android:hint="Quantity"
+        android:hint="@string/enter_quantity"
+        android:inputType="number"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textColorHint="#FFFF"
+        android:textColor="@color/colorLight"
+        android:textColorHint="@color/colorLight"
         android:textSize="15dp" />
 
     <TextView
@@ -223,8 +207,8 @@
         android:layout_marginEnd="10dp"
         android:text="Skates ($10.00)"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textSize="15dp" />
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/shopping_item_label_size" />
 
     <TextView
         android:id="@+id/SkatesCurrentQuantity"
@@ -235,55 +219,55 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:text="0"
+        android:text="@string/initial_quantity"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="19dp" />
 
     <Button
         android:id="@+id/SkatesAddBtn"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/option_button_width"
+        android:layout_height="@dimen/option_button_height"
         android:layout_row="3"
         android:layout_column="2"
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="#2196F3"
-        android:text="+"
+        android:background="@color/colorGrey"
+        android:text="@string/add"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="20dp" />
 
     <Button
         android:id="@+id/SkatesRemoveBtn"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/option_button_width"
+        android:layout_height="@dimen/option_button_height"
         android:layout_row="3"
         android:layout_column="2"
         android:layout_marginStart="75dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="#F32128"
-        android:text="-"
+        android:background="@color/colorGrey"
+        android:text="@string/remove"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="20dp" />
 
     <EditText
         android:id="@+id/SkatesQuantity"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:inputType="number"
         android:layout_row="3"
         android:layout_column="3"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
+        android:hint="@string/enter_quantity"
 
-        android:hint="Quantity"
+        android:inputType="number"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textColorHint="#FFFF"
+        android:textColor="@color/colorLight"
+        android:textColorHint="@color/colorLight"
         android:textSize="15dp" />
 
 
@@ -298,8 +282,8 @@
         android:layout_marginEnd="10dp"
         android:text="Running Shoes ($15.00)"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textSize="15dp" />
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/shopping_item_label_size" />
 
     <TextView
         android:id="@+id/ShoesCurrentQuantity"
@@ -310,56 +294,55 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:text="0"
+        android:text="@string/initial_quantity"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="19dp" />
 
     <Button
         android:id="@+id/ShoesAddBtn"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/option_button_width"
+        android:layout_height="@dimen/option_button_height"
         android:layout_row="4"
         android:layout_column="2"
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="#2196F3"
-        android:text="+"
+        android:background="@color/colorGrey"
+        android:text="@string/add"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="20dp" />
 
     <Button
         android:id="@+id/ShoesRemoveBtn"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/option_button_width"
+        android:layout_height="@dimen/option_button_height"
         android:layout_row="4"
         android:layout_column="2"
         android:layout_marginStart="75dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="#F32128"
+        android:background="@color/colorGrey"
         android:text="-"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="20dp" />
 
     <EditText
         android:id="@+id/ShoesQuantity"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:inputType="number"
         android:layout_row="4"
         android:layout_column="3"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
-
-
         android:hint="Quantity"
+
+        android:inputType="number"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textColorHint="#FFFF"
+        android:textColor="@color/colorLight"
+        android:textColorHint="@color/colorLight"
         android:textSize="15dp" />
 
     <TextView
@@ -373,8 +356,8 @@
         android:layout_marginEnd="10dp"
         android:text="Protein Bar ($3.00)"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textSize="15dp" />
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/shopping_item_label_size" />
 
     <TextView
         android:id="@+id/BarCurrentQuantity"
@@ -385,55 +368,55 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:text="0"
+        android:text="@string/initial_quantity"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="19dp" />
 
     <Button
         android:id="@+id/BarAddBtn"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/option_button_width"
+        android:layout_height="@dimen/option_button_height"
         android:layout_row="5"
         android:layout_column="2"
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="#2196F3"
-        android:text="+"
+        android:background="@color/colorGrey"
+        android:text="@string/add"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="20dp" />
 
     <Button
         android:id="@+id/BarRemoveBtn"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/option_button_width"
+        android:layout_height="@dimen/option_button_height"
         android:layout_row="5"
         android:layout_column="2"
         android:layout_marginStart="75dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="10dp"
-        android:background="#F32128"
-        android:text="-"
+        android:background="@color/colorGrey"
+        android:text="@string/remove"
         android:textAlignment="center"
-        android:textColor="#FFFF"
+        android:textColor="@color/colorLight"
         android:textSize="20dp" />
 
     <EditText
         android:id="@+id/BarQuantity"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:inputType="number"
         android:layout_row="5"
         android:layout_column="3"
         android:layout_marginStart="4dp"
         android:layout_marginTop="35dp"
+        android:hint="@string/enter_quantity"
 
-        android:hint="Quantity"
+        android:inputType="number"
         android:textAlignment="center"
-        android:textColor="#FFFF"
-        android:textColorHint="#FFFF"
+        android:textColor="@color/colorLight"
+        android:textColorHint="@color/colorLight"
         android:textSize="15dp" />
 
 
@@ -444,13 +427,12 @@
         android:layout_row="6"
         android:layout_column="2"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="5dp"
-        android:background="#FFC107"
-        android:text="Reset All Quantites"
+        android:layout_marginTop="@dimen/shopping_main_buttons_margin_top"
+        android:background="@color/colorGrey"
+        android:text="@string/reset_all"
         android:textAlignment="center"
-        android:textColor="#0E0D0D"
-        android:textSize="15dp" />
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/shopping_item_label_size" />
 
 
     <Button
@@ -460,11 +442,11 @@
         android:layout_row="6"
         android:layout_column="1"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/shopping_main_buttons_margin_top"
         android:layout_marginEnd="5dp"
-        android:background="#3DFF07"
-        android:text="Go back to home"
+        android:background="@color/colorGrey"
+        android:text="@string/go_back_home"
         android:textAlignment="center"
-        android:textColor="#0E0D0D"
-        android:textSize="15dp" />
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/shopping_item_label_size" />
 </GridLayout>
