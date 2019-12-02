@@ -37,6 +37,7 @@ public class CustomerCartController implements View.OnClickListener {
         view = (CustomerCartView) appContext;
         setShoppingCart();
         displayCartItems();
+        setRestoredAccountId();
     }
 
     @Override
@@ -45,17 +46,21 @@ public class CustomerCartController implements View.OnClickListener {
         if (v.getId() == R.id.checkOutBtn) {
             try {
                 if(recievedCart.checkOut(mydb)){
-                    mydb.updateAccountStatusH(storingAccount.getId(),false);
-                    Toast.makeText(appContext, "success!", Toast.LENGTH_SHORT).show();
+                    if(accountId != -1){
+                        mydb.updateAccountStatusH(accountId,false);
+                        Toast.makeText(appContext, "Cart has been successfully checked out and Account with id " + accountId + " has been deactivated.", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(appContext, "Cart has been successfully checked out.", Toast.LENGTH_SHORT).show();
+                    }
                     displayContinueShoppingAlert();
-                }else {
+                } else {
+                    Toast.makeText(appContext, "Checkout failed as there is not enough items in the inventory.", Toast.LENGTH_SHORT).show();
                     throw new DatabaseInsertException();
                 }
             }catch (Exception e){
-                Toast.makeText(appContext,"fail",Toast.LENGTH_SHORT).show();
+                Toast.makeText(appContext,"",Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
-            //check if accountId != -1 before considering what account to set inactive after checkout
         } else {
             displayStoreAlert();
         }
@@ -190,7 +195,7 @@ public class CustomerCartController implements View.OnClickListener {
 
     public void displayTotal() {
         TextView totalPrice = view.findViewById(R.id.totalPriceText);
-        totalPrice.setText("$ " + recievedCart.getTotal().multiply(recievedCart.getTaxRate()).setScale(2));
+        totalPrice.setText("$ " + recievedCart.getTotal().toString());
     }
 
     public void displayItemDetail(int textViewIdLabel, String itemLabel, int textViewIdQuantity, int totalQuantity) {

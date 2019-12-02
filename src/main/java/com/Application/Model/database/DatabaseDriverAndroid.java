@@ -40,6 +40,7 @@ public class DatabaseDriverAndroid extends SQLiteOpenHelper {
             + "NAME TEXT NOT NULL,"
             + "AGE INTEGER NOT NULL,"
             + "ADDRESS CHAR(100))";
+          //  + "BALANCE TEXT NOT NULL)";
     sqLiteDatabase.execSQL(sql);
 
     sql = "CREATE TABLE USERROLE "

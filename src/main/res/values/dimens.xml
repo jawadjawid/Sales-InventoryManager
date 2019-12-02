@@ -23,7 +23,7 @@
     <dimen name="cart_quantity_margin_left">20dp</dimen>
     <dimen name="cart_quantity_margin_top">10dp</dimen>
     <dimen name="cart_item_label_margin_top">10dp</dimen>
-    <dimen name="cart_item_label_text_size">20sp</dimen>
+    <dimen name="text_size_small">20sp</dimen>
 
     <dimen name="customer_home_welcome">60dp</dimen>
     <dimen name="customer_home_button_margin_left">48dp</dimen>

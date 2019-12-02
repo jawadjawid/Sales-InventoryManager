@@ -2,6 +2,7 @@ package com.Application.Controller;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,7 +25,7 @@ public class InitialAdminSignupController extends SignupController implements Vi
         DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(view);
 
         // Uncomment below to go to admin sign up page
-        // appContext.deleteDatabase("inventorymgmt.db");
+     appContext.deleteDatabase("inventorymgmt.db");
 
 
         if(mydb.getUserDetailsH(2) == null){
@@ -56,7 +57,9 @@ public class InitialAdminSignupController extends SignupController implements Vi
 
     private void dbSetup(DatabaseDriverAndroidHelper mydb) {
         try {
-            appContext.deleteDatabase("inventorymgmt.db");
+         //   appContext.deleteDatabase("inventorymgmt.db");
+
+            Log.d("HAHA","dfsd");
 
             mydb.insertRoleH("ADMIN");
             mydb.insertRoleH("EMPLOYEE");
