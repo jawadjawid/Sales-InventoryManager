@@ -42,13 +42,22 @@ public class CustomerHomeController implements View.OnClickListener {
     public CustomerHomeController(Context context) {
         appContext = context;
         view = (CustomerHomeView) appContext;
-        if (numHomePageVisits == 0) {
-            setUserName();
-            displayRestoreAlert();
-            numHomePageVisits = 1;
+        Intent intent = view.getIntent();
+        String shopping = intent.getStringExtra("continue shopping");
+        if(shopping != null){
+            this.numHomePageVisits = 0;
+            Intent intent2 = new Intent(appContext, MainLoginView.class);
+            view.startActivity(intent2);
         }
-        displayUserName();
-        updateCart();
+        else {
+            if (numHomePageVisits == 0) {
+                setUserName();
+                displayRestoreAlert();
+                numHomePageVisits = 1;
+            }
+            displayUserName();
+            updateCart();
+        }
     }
 
     private void displayUserName() {

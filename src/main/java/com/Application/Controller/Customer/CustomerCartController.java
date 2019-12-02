@@ -18,6 +18,7 @@ import com.Application.Model.inventory.ItemImpl;
 import com.Application.Model.store.Account;
 import com.Application.Model.store.ShoppingCart;
 import com.Application.View.Customer.CustomerCartView;
+import com.Application.View.Customer.CustomerHomeView;
 import com.Application.View.InitialEmployeeSignupView;
 import com.example.Application.R;
 
@@ -58,7 +59,7 @@ public class CustomerCartController implements View.OnClickListener {
                     throw new DatabaseInsertException();
                 }
             }catch (Exception e){
-                Toast.makeText(appContext,"",Toast.LENGTH_SHORT).show();
+                Toast.makeText(appContext,"Cannot checkout Empty Cart",Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         } else {
@@ -117,8 +118,8 @@ public class CustomerCartController implements View.OnClickListener {
 
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                // go to login screen
-                Intent intent = new Intent(appContext, CustomerHomeController.class);
+                Intent intent = new Intent(appContext, CustomerHomeView.class);
+                intent.putExtra("continue shopping", "no");
                 appContext.startActivity(intent);
             }
         });
