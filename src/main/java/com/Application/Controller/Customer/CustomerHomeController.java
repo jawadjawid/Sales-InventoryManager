@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.inventory.Item;
+import com.Application.Model.inventory.ItemImpl;
 import com.Application.Model.store.Account;
 import com.Application.Model.store.ShoppingCart;
 import com.Application.Model.users.Customer;
@@ -23,6 +24,7 @@ import com.Application.View.Customer.CustomerShoppingView;
 import com.Application.View.MainLoginView;
 import com.example.Application.R;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -130,8 +132,35 @@ public class CustomerHomeController implements View.OnClickListener {
             this.cart = new ShoppingCart(c);
         } else {
             this.cart = new ShoppingCart(c);
+            filterItemMap();
             cart.setItemMap(restoringAccount.getItemMap());
             filterQuantities();
+        }
+    }
+
+    private void filterItemMap() {
+        String allItems[] = {"Fishing Rod", "Hockey Stick", "Skates", "Running Shoes", "Protein Bar"};
+        boolean itemsExist[] = {false, false, false, false, false};
+        String allPrices[] = {"12.00", "8.50", "10.00", "15.00", "3.00"};
+        for(Item i: restoringAccount.getItemMap().keySet()){
+            if(i.getName().equals(allItems[0])){
+                itemsExist[0] = true;
+            }else if(i.getName().equals(allItems[1])){
+                itemsExist[1] = true;
+            }else if(i.getName().equals(allItems[2])){
+                itemsExist[2] = true;
+            }else if(i.getName().equals(allItems[3])){
+                itemsExist[3] = true;
+            }else if(i.getName().equals(allItems[4])){
+                itemsExist[4] = true;
+            }
+        }
+
+        for(int i = 0; i< 5; i++){
+            if(!itemsExist[i]){
+                Item newItem = new ItemImpl(i+1, allItems[i], new BigDecimal(allPrices[i]));
+                restoringAccount.addItem(newItem, 0);
+            }
         }
     }
 
