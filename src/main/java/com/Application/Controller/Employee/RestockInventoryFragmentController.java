@@ -30,8 +30,6 @@ public class RestockInventoryFragmentController implements View.OnClickListener 
         appContext = view.getContext();
         DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
         inventory = mydb.getInventoryH();
-        Log.d("efefe", "RestockInventoryFragmentController: ");
-
         items = new Item[5];
         for(Item item: inventory.getItemMap().keySet()){
             items[item.getId()-1] = item;
@@ -47,23 +45,23 @@ public class RestockInventoryFragmentController implements View.OnClickListener 
             switch (id) {
                 case R.id.addFishingRodButton:
                     index = 0;
-                    restockQuantity("Input Quantity of Fishing Rods to Restock (Current Quantity: " + inventory.getItemMap().get(items[index]) + "):");
+                    restockQuantity("Current Number of Fishing Rods in stock: " + inventory.getItemMap().get(items[index]));
                     break;
                 case R.id.addHockeyStickButton:
                     index = 1;
-                    restockQuantity("Input Quantity of Hockey Sticks to Restock (Current Quantity: " + inventory.getItemMap().get(items[index]) + "):");
+                    restockQuantity("Current Number of Hockey Sticks in stock: " + inventory.getItemMap().get(items[index]));
                     break;
                 case R.id.addSkatesButton:
                     index = 2;
-                    restockQuantity("Input Quantity of Skates to Restock (Current Quantity: " + inventory.getItemMap().get(items[index]) + "):");
+                    restockQuantity("Current Number of Skates in stock: " + inventory.getItemMap().get(items[index]));
                     break;
                 case R.id.addRunningShoesButton:
                     index = 3;
-                    restockQuantity("Input Quantity of Running Shoes to Restock (Current Quantity: " + inventory.getItemMap().get(items[index]) + "):");
+                    restockQuantity("Current Number of Running Shoes in stock: " + inventory.getItemMap().get(items[index]));
                     break;
                 case R.id.addProteinBarButton:
                     index = 4;
-                    restockQuantity("Input Quantity of Protein Bars to Restock (Current Quantity: " + inventory.getItemMap().get(items[index]) + "):");
+                    restockQuantity("Current Number of Protein Bars in stock: " + inventory.getItemMap().get(items[index]));
                     break;
                 case R.id.saveChangesButton:
                     for (int i = 0; i < items.length; i++) {
@@ -85,8 +83,8 @@ public class RestockInventoryFragmentController implements View.OnClickListener 
         builder.setTitle(title);
 
         final EditText input = new EditText(appContext);
-        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setHint("    Quantity to add to stock");
         InputFilter[] filterArray = new InputFilter[1];
         filterArray[0] = new InputFilter.LengthFilter(5);
         input.setFilters(filterArray);
