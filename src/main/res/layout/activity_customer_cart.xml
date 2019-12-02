@@ -10,7 +10,7 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="375dp">
+        android:layout_height="395dp">
 
         <TextView
             android:id="@+id/ItemHeading"
@@ -58,7 +58,7 @@
             android:layout_marginTop="@dimen/cart_item_label_margin_top"
             android:textAlignment="center"
             android:textColor="@color/colorLight"
-            android:textSize="@dimen/text_size_medium" />
+            android:textSize="@dimen/cart_item_label_text_size" />
 
         <TextView
             android:id="@+id/StickQuantity"
@@ -81,7 +81,7 @@
             android:layout_marginTop="@dimen/cart_item_label_margin_top"
             android:textAlignment="center"
             android:textColor="@color/colorLight"
-            android:textSize="@dimen/text_size_medium" />
+            android:textSize="@dimen/cart_item_label_text_size" />
 
 
         <TextView
@@ -105,7 +105,7 @@
             android:layout_marginTop="@dimen/cart_item_label_margin_top"
             android:textAlignment="center"
             android:textColor="@color/colorLight"
-            android:textSize="@dimen/text_size_medium" />
+            android:textSize="@dimen/cart_item_label_text_size" />
 
         <TextView
             android:id="@+id/ShoesQuantity"
@@ -128,7 +128,7 @@
             android:layout_marginTop="@dimen/cart_item_label_margin_top"
             android:textAlignment="center"
             android:textColor="@color/colorLight"
-            android:textSize="@dimen/text_size_medium" />
+            android:textSize="@dimen/cart_item_label_text_size" />
 
 
         <TextView
@@ -152,7 +152,7 @@
             android:layout_marginTop="@dimen/cart_item_label_margin_top"
             android:textAlignment="center"
             android:textColor="@color/colorLight"
-            android:textSize="@dimen/text_size_medium" />
+            android:textSize="@dimen/cart_item_label_text_size" />
 
     </GridLayout>
 

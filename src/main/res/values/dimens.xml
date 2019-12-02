@@ -18,11 +18,12 @@
     <dimen name="cart_quantity_height">40dp</dimen>
     <dimen name="cart_button_width">300dp</dimen>
     <dimen name="cart_button_margin_left">48dp</dimen>
-    <dimen name="cart_button_margin_top">10dp</dimen>
+    <dimen name="cart_button_margin_top">20dp</dimen>
     <dimen name="cart_heading_margin_top">15dp</dimen>
     <dimen name="cart_quantity_margin_left">20dp</dimen>
     <dimen name="cart_quantity_margin_top">10dp</dimen>
     <dimen name="cart_item_label_margin_top">10dp</dimen>
+    <dimen name="cart_item_label_text_size">20sp</dimen>
 
     <dimen name="customer_home_welcome">60dp</dimen>
     <dimen name="customer_home_button_margin_left">48dp</dimen>
