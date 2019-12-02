@@ -7,7 +7,7 @@ public class Employee extends User {
   }
 
   public Employee(int id, String name, int age, String address, int roleId) {
-    super(id, name, age, address, roleId);
+    super(id, name, age, address, roleId, null);
   }
 
   public Employee(int id, String name, int age, String address, boolean authenticated, int roleId) {

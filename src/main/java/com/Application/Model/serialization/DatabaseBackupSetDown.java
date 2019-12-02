@@ -47,7 +47,7 @@ public class DatabaseBackupSetDown {
     usersdetails = databasebackup.getUsers();
     for (User user : usersdetails) {
     	mydb.insertNewUserNoPasswordH(user.getName(), user.getAge(),
-          user.getAddress());
+          user.getAddress(), user.getBalance());
     }
   }
 

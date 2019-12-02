@@ -44,8 +44,12 @@ public class DatabaseSerializer {
   }
 
   public static String serialize(DatabaseBackup databasebackup) {
-    try {
-      FileOutputStream fileOut = new FileOutputStream(serializeDirectory + "database_copy.ser");
+    try{
+      File root = new File(Environment.getDataDirectory(), serializeDirectory + "database_copy.ser");
+      if (!root.exists()) {
+        root.mkdirs();
+      }
+      FileOutputStream fileOut = new FileOutputStream(root);
       ObjectOutputStream out = new ObjectOutputStream(fileOut);
       out.writeObject(databasebackup);
       out.close();

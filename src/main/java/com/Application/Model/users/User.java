@@ -4,6 +4,7 @@ import com.Application.Model.database.helper.DatabaseSelectHelper;
 import com.Application.Model.security.PasswordHelpers;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 
 public abstract class User implements Serializable {
@@ -18,6 +19,7 @@ public abstract class User implements Serializable {
   private String address;
   private int roleId;
   private boolean authenticated;
+  private BigDecimal balance;
 
   public User(int id, String name, int age, String address) {
     this.id = id;
@@ -26,12 +28,13 @@ public abstract class User implements Serializable {
     this.address = address;
   }
 
-  public User(int id, String name, int age, String address, int roleId) {
+  public User(int id, String name, int age, String address, int roleId, BigDecimal balance) {
     this.id = id;
     this.name = name;
     this.age = age;
     this.address = address;
     this.roleId = roleId;
+    this.balance = balance;
   }
 
   public User(int id, String name, int age, String address, boolean authenticated, int roleId) {
@@ -84,6 +87,14 @@ public abstract class User implements Serializable {
 
   public int getRoleId() {
     return roleId;
+  }
+
+  public void setBalance(BigDecimal balance){
+    this.balance = balance;
+  }
+
+  public BigDecimal getBalance(){
+    return balance;
   }
 
   public final boolean authenticate(String password) throws SQLException {

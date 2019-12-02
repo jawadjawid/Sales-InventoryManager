@@ -5,6 +5,7 @@ import android.content.Context;
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.database.helper.DatabaseSelectHelper;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 
 public class UsersValidator {
@@ -47,5 +48,12 @@ public class UsersValidator {
 
     public static void setContext(DatabaseDriverAndroidHelper db) {
         mydb = db;
+    }
+
+    public static boolean validateBalance(BigDecimal balance) {
+        if (!(balance.compareTo(BigDecimal.ZERO) >= 0) || (balance.scale() != 2)) {
+            return false;
+        }
+        return true;
     }
 }

@@ -103,7 +103,9 @@ public class DatabaseBackupSetUp {
 	      }
 	    }
 	    TreeMap<Integer, Account> sorted = new TreeMap<>(accountTable);
-	    sorted.forEach((key, value) -> allAccounts.add(value));
+	    for (Map.Entry<Integer, Account> mapElement : sorted.entrySet()){
+	        allAccounts.add(mapElement.getValue());
+        }
 	    databasebackup.setAccount(allAccounts);
 	  }
 

@@ -81,13 +81,13 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
             
           }
     
-    public void insertNewUserNoPasswordH(String name, Integer age, String address){
-    	insertNewUserNoPassword(name, age, address);
+    public void insertNewUserNoPasswordH(String name, Integer age, String address, BigDecimal balance){
+    	insertNewUserNoPassword(name, age, address, balance);
     	
     }
 
 
-    public long insertNewUserH(String name, int age, String address, String password)
+    public long insertNewUserH(String name, int age, String address, String password, BigDecimal balance)
             throws DatabaseInsertException {
 
         boolean val_success = true;
@@ -100,7 +100,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
             throw new DatabaseInsertException();
         }
 
-        long userId = insertNewUser(name, age, address, password);
+        long userId = insertNewUser(name, age, address, password, balance);
         return userId;
     }
 
@@ -269,7 +269,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
             roleId = getUserRole(results.getInt(results.getColumnIndex("ID")));
             role = getRole(roleId);
             user = createUser(results.getInt(results.getColumnIndex("ID")), results.getString(results.getColumnIndex("NAME")), results.getInt(results.getColumnIndex("AGE")),
-                    results.getString(results.getColumnIndex("ADDRESS")), role, roleId);
+                    results.getString(results.getColumnIndex("ADDRESS")), role,roleId, new BigDecimal( results.getString(results.getColumnIndex("BALANCE"))));
             users.add(user);
         }
         results.close();
@@ -280,25 +280,33 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         Cursor results = getUserDetails(userId);
         int roleId;
         String role;
+        String balanceStr;
+        BigDecimal balance;
 
         User user = null;
         while (results.moveToNext()) {
             roleId = getUserRole(results.getInt(results.getColumnIndex("ID")));
             role = getRole(roleId);
+            balanceStr =  results.getString(results.getColumnIndex("BALANCE"));
+            if(balanceStr == null){
+                balance = null;
+            }else{
+                balance = new BigDecimal(balanceStr);
+            }
             user = createUser(results.getInt(results.getColumnIndex("ID")), results.getString(results.getColumnIndex("NAME")), results.getInt(results.getColumnIndex("AGE")),
-                    results.getString(results.getColumnIndex("ADDRESS")), role, roleId);
+                    results.getString(results.getColumnIndex("ADDRESS")), role,roleId, balance);
         }
         results.close();
         return user;
     }
 
-    private User createUser(int id, String name, int age, String address, String role, int roleId) {
+    private User createUser(int id, String name, int age, String address, String role, int roleId, BigDecimal balance) {
         if ("ADMIN".equals(Roles.valueOf(role))) {
             return new Admin(id, name, age, address, roleId);
         } else if ("EMPLOYEE".equals(Roles.valueOf(role))) {
             return new Employee(id, name, age, address, roleId);
         } else {
-            return new Customer(id, name, age, address, roleId);
+            return new Customer(id, name, age, address, roleId, balance);
         }
     }
 
@@ -540,6 +548,20 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         }
 
         boolean complete = updateUserAddress(address, userId);
+        return complete;
+    }
+
+    public boolean updateUserBalanceH(BigDecimal balance, int userId) throws DatabaseInsertException{
+
+        boolean val_success = true;
+        val_success = val_success && UsersValidator.validateId(userId);
+        val_success = val_success && UsersValidator.validateBalance(balance);
+
+        if (!val_success) {
+            throw new DatabaseInsertException();
+        }
+
+        boolean complete = updateUserBalance(balance, userId);
         return complete;
     }
 
