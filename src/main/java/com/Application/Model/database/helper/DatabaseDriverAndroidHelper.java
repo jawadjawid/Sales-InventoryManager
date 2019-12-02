@@ -41,6 +41,15 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
 
     public DatabaseDriverAndroidHelper(Context context) {
         super(context);
+        setValidatorContexts();
+    }
+
+    public DatabaseDriverAndroidHelper(Context context, String databaseName) {
+        super(context,databaseName);
+        setValidatorContexts();
+    }
+
+    private void setValidatorContexts(){
         AccountSummaryValidator.setContext(this);
         AccountValidator.setContext(this);
         InventoryValidator.setContext(this);
@@ -51,6 +60,8 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         UserRoleValidator.setContext(this);
         UsersValidator.setContext(this);
     }
+
+
 
     public long insertRoleH(String name) throws DatabaseInsertException {
 

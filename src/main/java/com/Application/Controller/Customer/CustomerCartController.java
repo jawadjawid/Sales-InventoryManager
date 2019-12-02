@@ -18,6 +18,7 @@ import com.Application.Model.inventory.ItemImpl;
 import com.Application.Model.store.Account;
 import com.Application.Model.store.ShoppingCart;
 import com.Application.View.Customer.CustomerCartView;
+import com.Application.View.InitialEmployeeSignupView;
 import com.example.Application.R;
 
 import java.util.ArrayList;
@@ -40,8 +41,20 @@ public class CustomerCartController implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
         if (v.getId() == R.id.checkOutBtn) {
-            //recievedCart.checkOut();
+            try {
+                if(recievedCart.checkOut(mydb)){
+                    mydb.updateAccountStatusH(storingAccount.getId(),false);
+                    Toast.makeText(appContext, "success!", Toast.LENGTH_SHORT).show();
+                    displayContinueShoppingAlert();
+                }else {
+                    throw new DatabaseInsertException();
+                }
+            }catch (Exception e){
+                Toast.makeText(appContext,"fail",Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
             //check if accountId != -1 before considering what account to set inactive after checkout
         } else {
             displayStoreAlert();
@@ -77,8 +90,7 @@ public class CustomerCartController implements View.OnClickListener {
                     int id = Integer.parseInt(edittext.getText().toString());
                     if (validAccountId(id)) {
                         storeCart();
-                        Toast.makeText(appContext, "Shopping Cart stored to account with id" + id, Toast.LENGTH_SHORT).show();
-                    } else {
+                        } else {
                         Toast.makeText(appContext, "Cannot store as Account was not found", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -88,15 +100,46 @@ public class CustomerCartController implements View.OnClickListener {
         alert.show();
     }
 
+    private void displayContinueShoppingAlert() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(appContext);
+        final EditText edittext = new EditText(appContext);
+        edittext.setHintTextColor(Color.BLACK);
+        edittext.setHint("    Y/N");
+        edittext.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+        alert.setMessage("\n\nWould you like to continue shopping?:\n");
+        alert.setTitle("Continue Shopping ?");
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // go to login screen
+                Intent intent = new Intent(appContext, CustomerHomeController.class);
+                appContext.startActivity(intent);
+            }
+        });
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // send signal to home to clear cart
+            }
+        });
+        alert.setCancelable(false);
+        alert.show();
+    }
+
     private void storeCart() {
         try {
             DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
-            for (Item i : recievedCart.getItemMap().keySet()) {
-                if (recievedCart.getItemMap().get(i) != 0) {
-                    Item itemToSave = new ItemImpl(i.getId(), i.getName(), i.getPrice());
-                    mydb.insertAccountSummaryH(storingAccount.getId(), i.getId(), recievedCart.getItemMap().get(i));
+            if(storingAccount.getItemMap().isEmpty()){
+                for (Item i : recievedCart.getItemMap().keySet()) {
+                    if (recievedCart.getItemMap().get(i) != 0) {
+                        mydb.insertAccountSummaryH(storingAccount.getId(), i.getId(), recievedCart.getItemMap().get(i));
+                    }
                 }
+                Toast.makeText(appContext, "Shopping Cart stored to account with id" + storingAccount.getId(), Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(appContext, "Cannot save to cart as the cart already has items.", Toast.LENGTH_SHORT).show();
             }
+
         } catch (DatabaseInsertException e) {
             Toast.makeText(appContext, "Error with saving cart, please try again later", Toast.LENGTH_SHORT).show();
         }

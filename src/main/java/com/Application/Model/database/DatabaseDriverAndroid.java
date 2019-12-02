@@ -19,9 +19,14 @@ public class DatabaseDriverAndroid extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "inventorymgmt.db";
 
     public DatabaseDriverAndroid(Context context) {
-
     super(context, DATABASE_NAME, null, 1);
   }
+
+  public DatabaseDriverAndroid(Context context, String databaseName) {
+    super(context, databaseName, null, 1);
+  }
+
+
 
   @Override
   public void onCreate(SQLiteDatabase sqLiteDatabase) {

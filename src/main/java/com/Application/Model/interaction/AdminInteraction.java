@@ -22,47 +22,7 @@ import com.Application.Model.users.User;
 
 public class AdminInteraction extends UserInteraction {
 
-	// promote employee in preUser to Admin
-	public static void promoteEmployee(BufferedReader bufferedReader, HashMap<String, Integer> rolesToId,
-			User preUser) {
-		try {
-			String promoteEmployeeOptions = "Enter the id of the employee to promote. Enter 0 to exit.";
-			ArrayList<String> employeeIdChoices = getAllIds(rolesToId, Roles.EMPLOYEE);
-			// to add option of exiting
-			employeeIdChoices.add("0");
-			String promoteEmployeeChoice = userOptions(bufferedReader, promoteEmployeeOptions, employeeIdChoices);
-			if (!promoteEmployeeChoice.equals("0")) {
-				User preUser2 = DatabaseSelectHelper.getUserDetails(Integer.parseInt(promoteEmployeeChoice));
-				// convert user to employee
-				Employee employee = new Employee(preUser2.getId(), preUser2.getName(), preUser2.getAge(),
-						preUser2.getAddress(), true, rolesToId.get(Roles.EMPLOYEE.name()));
 
-				// convert user to admin
-				Admin admin1 = new Admin(preUser.getId(), preUser.getName(), preUser.getAge(), preUser.getAddress(),
-						true, rolesToId.get(Roles.ADMIN.name()));
-				if (!admin1.promoteEmployee(employee)) {
-					throw new DatabaseInsertException();
-				} else {
-					System.out.println("Employee promotion successful!");
-				}
-
-			}
-		} catch (NumberFormatException | DatabaseInsertException | SQLException e) {
-			System.out.println("Database Error.");
-		}
-	}
-
-	public static void performAdminOptions(BufferedReader bufferedReader, HashMap<String, Integer> rolesToId,
-			User preUser) throws SQLException {
-		String adminOptions = "Menu\n" + "0 - Exit\n" + "1 - Promote Employee\n" + "2 - View All Sales";
-		String adminChoice = userOptions(bufferedReader, adminOptions, SalesApplication.getChoices(0, 2));
-
-		if (adminChoice.equals("1")) {
-			promoteEmployee(bufferedReader, rolesToId, preUser);
-		} else{
-			//viewBooks();
-		} 
-	}
 
 	public static String viewBooks(DatabaseDriverAndroidHelper mydb) throws SQLException {
 		StringBuilder books = new StringBuilder();

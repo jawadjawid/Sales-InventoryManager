@@ -30,7 +30,6 @@ public class DatabaseInsertHelper extends DatabaseInserter {
 
 		Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
 		int roleId = DatabaseInserter.insertRole(name, connection);
-		SalesApplication.getRolesToId().put(name, roleId);
 		connection.close();
 		return roleId;
 	}

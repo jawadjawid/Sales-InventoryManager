@@ -95,8 +95,8 @@ public class AdminOptionsController implements View.OnClickListener {
                     public void onClick(DialogInterface dialog, int which) {
                         // deserialize
                         try {
-                            DatabaseSerializer.deserializeDatabase(appContext, input2.getText().toString());
-                        }catch (DatabaseInsertException | SQLException e){
+                            DatabaseSerializer.deserializeDatabase(appContext, user, input2.getText().toString());
+                        }catch (Exception e){
 
                         }
                     }

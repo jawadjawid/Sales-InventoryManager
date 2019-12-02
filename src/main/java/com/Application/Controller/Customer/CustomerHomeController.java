@@ -103,7 +103,7 @@ public class CustomerHomeController implements View.OnClickListener {
 
         alert.setNegativeButton("Do not Restore", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                createNewCart(false, 0);
+                createNewCart(false);
             }
         });
         alert.setPositiveButton("Restore", new DialogInterface.OnClickListener() {
@@ -113,10 +113,10 @@ public class CustomerHomeController implements View.OnClickListener {
                 } else {
                     int id = Integer.parseInt(edittext.getText().toString());
                     if (validAccountId(id)) {
-                        createNewCart(true, id);
+                        createNewCart(true);
                         Toast.makeText(appContext, "Shopping Cart restored from account with id" + id, Toast.LENGTH_SHORT).show();
                     } else {
-                        createNewCart(false, id);
+                        createNewCart(false);
                         Toast.makeText(appContext, "Cannot Restore as Account was not found", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -126,43 +126,18 @@ public class CustomerHomeController implements View.OnClickListener {
         alert.show();
     }
 
-    private void createNewCart(boolean restore, int accountId) {
+    private void createNewCart(boolean restore) {
         Customer c = new Customer(recievedUser.getId(), recievedUser.getName(), recievedUser.getAge(), recievedUser.getAddress(), recievedUser.getRoleId());
         if (!restore) {
             this.cart = new ShoppingCart(c);
+            allQuantities = new int[5];
         } else {
             this.cart = new ShoppingCart(c);
-            filterItemMap();
             cart.setItemMap(restoringAccount.getItemMap());
             filterQuantities();
         }
     }
 
-    private void filterItemMap() {
-        String allItems[] = {"Fishing Rod", "Hockey Stick", "Skates", "Running Shoes", "Protein Bar"};
-        boolean itemsExist[] = {false, false, false, false, false};
-        String allPrices[] = {"12.00", "8.50", "10.00", "15.00", "3.00"};
-        for(Item i: restoringAccount.getItemMap().keySet()){
-            if(i.getName().equals(allItems[0])){
-                itemsExist[0] = true;
-            }else if(i.getName().equals(allItems[1])){
-                itemsExist[1] = true;
-            }else if(i.getName().equals(allItems[2])){
-                itemsExist[2] = true;
-            }else if(i.getName().equals(allItems[3])){
-                itemsExist[3] = true;
-            }else if(i.getName().equals(allItems[4])){
-                itemsExist[4] = true;
-            }
-        }
-
-        for(int i = 0; i< 5; i++){
-            if(!itemsExist[i]){
-                Item newItem = new ItemImpl(i+1, allItems[i], new BigDecimal(allPrices[i]));
-                restoringAccount.addItem(newItem, 0);
-            }
-        }
-    }
 
     private boolean validAccountId(int id) {
         DatabaseDriverAndroidHelper helper = new DatabaseDriverAndroidHelper(appContext);
@@ -181,17 +156,7 @@ public class CustomerHomeController implements View.OnClickListener {
         if (cart.getItemMap().size() != 0) {
             this.allQuantities = new int[5];
             for (Item i : cart.getItemMap().keySet()) {
-                if (i.getName().equals("Fishing Rod")) {
-                    allQuantities[0] = cart.getItemMap().get(i);
-                } else if (i.getName().equals("Hockey Stick")) {
-                    allQuantities[1] = cart.getItemMap().get(i);
-                } else if (i.getName().equals("Skates")) {
-                    allQuantities[2] = cart.getItemMap().get(i);
-                } else if (i.getName().equals("Running Shoes")) {
-                    allQuantities[3] = cart.getItemMap().get(i);
-                } else if (i.getName().equals("Protein Bar")) {
-                    allQuantities[4] = cart.getItemMap().get(i);
-                }
+                allQuantities[i.getId()-1] = cart.getItemMap().get(i);
             }
         }
     }

@@ -26,7 +26,6 @@ public class DatabaseUpdateHelper extends DatabaseUpdater {
       throw new DatabaseInsertException();
     }
 
-    SalesApplication.getRolesToId().put(name, id);
     Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
     boolean complete = DatabaseUpdater.updateRoleName(name, id, connection);
     connection.close();

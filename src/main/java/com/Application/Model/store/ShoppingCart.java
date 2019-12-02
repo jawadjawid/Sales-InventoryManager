@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.database.helper.DatabaseInsertHelper;
 import com.Application.Model.database.helper.DatabaseSelectHelper;
 import com.Application.Model.database.helper.DatabaseUpdateHelper;
@@ -104,12 +105,12 @@ public class ShoppingCart implements Serializable {
 		return TAXRATE;
 	}
 
-	public boolean checkOut() throws DatabaseInsertException, SQLException {
+	public boolean checkOut(DatabaseDriverAndroidHelper mydb) throws DatabaseInsertException {
 		if (customer != null) {
 			int userId = customer.getId();
-			int salesId = DatabaseInsertHelper.insertSale(userId, total);
+			int salesId = Math.toIntExact(mydb.insertSaleH(userId, total));
 
-			Inventory inventory = DatabaseSelectHelper.getInventory();
+			Inventory inventory = mydb.getInventoryH();
 			// check if there is enough of requested items in inventory
 			Map<Item, Integer> inventoryItemMap = inventory.getItemMap();
 			Item oldItem = null;
@@ -132,26 +133,29 @@ public class ShoppingCart implements Serializable {
 			}
 			// update itemized sale and inventory if enough requested items exist
 			for (Item item : items.keySet()) {
-				DatabaseInsertHelper.insertItemizedSale(salesId, item.getId(), items.get(item));
-				oldItem = null;
-				for (Item curItem : inventoryItemMap.keySet()) {
-					if (curItem.getId() == item.getId()) {
-						oldItem = curItem;
+				if(items.get(item) > 0) {
+					mydb.insertItemizedSaleH(salesId, item.getId(), items.get(item));
+					oldItem = null;
+					for (Item curItem : inventoryItemMap.keySet()) {
+						if (curItem.getId() == item.getId()) {
+							oldItem = curItem;
+						}
 					}
-				}
-				if (oldItem != null) {
-					// item exists in inventory
-					DatabaseUpdateHelper.updateInventoryQuantity(inventory.getItemMap().get(oldItem) - items.get(item),
-							item.getId());
-				} else {
-					// item does not exist in inventory
-					throw new DatabaseInsertException();
+					if (oldItem != null) {
+						// item exists in inventory
+						mydb.updateInventoryQuantityH(inventory.getItemMap().get(oldItem) - items.get(item),
+								item.getId());
+					} else {
+						// item does not exist in inventory
+						throw new DatabaseInsertException();
+					}
 				}
 			}
 			
 			
 			BigDecimal withTax = total.multiply(TAXRATE);
-			withTax.setScale(2);
+			withTax.setScale(2, BigDecimal.ROUND_HALF_DOWN);
+
 			System.out.println("Your total is: " + withTax);
 			clearCart();
 			return true;
