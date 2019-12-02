@@ -156,5 +156,6 @@ public class ShoppingCart implements Serializable {
 
     public void clearCart() {
         items.clear();
+        total = new BigDecimal("0.00");
     }
 }

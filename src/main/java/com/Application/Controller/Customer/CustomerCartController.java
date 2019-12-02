@@ -125,7 +125,9 @@ public class CustomerCartController implements View.OnClickListener {
         });
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                // send signal to home to clear cart
+                Intent intent = new Intent(appContext, CustomerHomeView.class);
+                intent.putExtra("continue shopping", "yes");
+                appContext.startActivity(intent);
             }
         });
         alert.setCancelable(false);

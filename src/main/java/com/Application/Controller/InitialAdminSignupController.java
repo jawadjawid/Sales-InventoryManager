@@ -25,7 +25,7 @@ public class InitialAdminSignupController extends SignupController implements Vi
         DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(view);
 
         // Uncomment below to go to admin sign up page
-     appContext.deleteDatabase("inventorymgmt.db");
+     //appContext.deleteDatabase("inventorymgmt.db");
 
 
         if(mydb.getUserDetailsH(2) == null){

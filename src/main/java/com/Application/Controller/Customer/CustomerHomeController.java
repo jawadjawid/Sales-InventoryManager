@@ -45,9 +45,14 @@ public class CustomerHomeController implements View.OnClickListener {
         Intent intent = view.getIntent();
         String shopping = intent.getStringExtra("continue shopping");
         if(shopping != null){
-            this.numHomePageVisits = 0;
-            Intent intent2 = new Intent(appContext, MainLoginView.class);
-            view.startActivity(intent2);
+            if(shopping.equals("yes")){
+                this.cart.clearCart();
+            }else{
+                this.numHomePageVisits = 0;
+                Intent intent2 = new Intent(appContext, MainLoginView.class);
+                view.startActivity(intent2);
+            }
+
         }
         else {
             if (numHomePageVisits == 0) {
