@@ -1,4 +1,5 @@
 package com.Application.Model.exceptions;
 
-public class DeserializationUnsuccessfulException extends Exception{
+public class DeserializationUnsuccessfulException extends Exception {
+
 }

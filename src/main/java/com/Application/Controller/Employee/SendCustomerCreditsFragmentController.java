@@ -27,63 +27,63 @@ import java.util.List;
 
 
 public class SendCustomerCreditsFragmentController implements View.OnClickListener {
-    private View view;
-    private Context appContext;
-    private String[] customerIds;
 
-    public SendCustomerCreditsFragmentController(View view) {
-        this.view = view;
-        appContext = view.getContext();
-        setNumberPickerValues();
-    }
+  private View view;
+  private Context appContext;
+  private String[] customerIds;
 
-    @Override
-    public void onClick(View v) {
-        try {
-            DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
-            NumberPicker customerIdNumberPicker = view.findViewById(R.id.customerIdNumberPicker);
-            int customerId = Integer.parseInt(customerIds[customerIdNumberPicker.getValue()]);
+  public SendCustomerCreditsFragmentController(View view) {
+    this.view = view;
+    appContext = view.getContext();
+    setNumberPickerValues();
+  }
 
-           EditText creditAmountEditText = view.findViewById(R.id.creditAmountEditText);
-           String creditAmount = creditAmountEditText.getText().toString();
+  @Override
+  public void onClick(View v) {
+    try {
+      DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
+      NumberPicker customerIdNumberPicker = view.findViewById(R.id.customerIdNumberPicker);
+      int customerId = Integer.parseInt(customerIds[customerIdNumberPicker.getValue()]);
 
-            BigDecimal newBalance = new BigDecimal(creditAmount);
+      EditText creditAmountEditText = view.findViewById(R.id.creditAmountEditText);
+      String creditAmount = creditAmountEditText.getText().toString();
 
-           User user = mydb.getUserDetailsH(customerId);
-           mydb.updateUserBalanceH(user.getBalance().add(newBalance),customerId);
-            Toast.makeText(appContext, "Success.", Toast.LENGTH_SHORT).show();
+      BigDecimal newBalance = new BigDecimal(creditAmount);
+
+      User user = mydb.getUserDetailsH(customerId);
+      mydb.updateUserBalanceH(user.getBalance().add(newBalance), customerId);
+      Toast.makeText(appContext, "Success.", Toast.LENGTH_SHORT).show();
 
 
-        } catch (DatabaseInsertException e) {
-            Toast.makeText(appContext, "Database Error. Account Not Created.", Toast.LENGTH_SHORT).show();
-
-        }
-    }
-
-    private void setNumberPickerValues() {
-        DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
-        List<Integer> customerIdsInt = mydb.getUsersByRoleH(3);
-        if (customerIdsInt.size() == 0) {
-            customerIds = new String[1];
-            customerIds[0] = "No customers exist.";
-            Button selectCustomerIdButton = view.findViewById(R.id.selectCustomerIdButton);
-            selectCustomerIdButton.setEnabled(false);
-        } else {
-
-            customerIds = new String[customerIdsInt.size()];
-            for (int i = 0; i < customerIds.length; i++) {
-                customerIds[i] = "" + customerIdsInt.get(i);
-            }
-        }
-
-        NumberPicker customerIdNumberPicker = view.findViewById(R.id.customerIdNumberPicker);
-        customerIdNumberPicker.setWrapSelectorWheel(true);
-        customerIdNumberPicker.setMinValue(0);
-        customerIdNumberPicker.setMaxValue(customerIds.length - 1);
-        customerIdNumberPicker.setDisplayedValues(customerIds);
+    } catch (DatabaseInsertException e) {
+      Toast.makeText(appContext, "Database Error. Account Not Created.", Toast.LENGTH_SHORT).show();
 
     }
+  }
 
+  private void setNumberPickerValues() {
+    DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
+    List<Integer> customerIdsInt = mydb.getUsersByRoleH(3);
+    if (customerIdsInt.size() == 0) {
+      customerIds = new String[1];
+      customerIds[0] = "No customers exist.";
+      Button selectCustomerIdButton = view.findViewById(R.id.selectCustomerIdButton);
+      selectCustomerIdButton.setEnabled(false);
+    } else {
+
+      customerIds = new String[customerIdsInt.size()];
+      for (int i = 0; i < customerIds.length; i++) {
+        customerIds[i] = "" + customerIdsInt.get(i);
+      }
+    }
+
+    NumberPicker customerIdNumberPicker = view.findViewById(R.id.customerIdNumberPicker);
+    customerIdNumberPicker.setWrapSelectorWheel(true);
+    customerIdNumberPicker.setMinValue(0);
+    customerIdNumberPicker.setMaxValue(customerIds.length - 1);
+    customerIdNumberPicker.setDisplayedValues(customerIds);
+
+  }
 
 
 }

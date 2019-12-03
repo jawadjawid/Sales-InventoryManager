@@ -15,8 +15,9 @@ import com.Application.Model.store.Sale;
 
 
 public class DatabaseBackup implements Serializable {
+
   /**
-   * 
+   *
    */
   private static final long serialVersionUID = -5906534830386784100L;
   private LinkedHashMap<Integer, String> UserPw = new LinkedHashMap<Integer, String>();

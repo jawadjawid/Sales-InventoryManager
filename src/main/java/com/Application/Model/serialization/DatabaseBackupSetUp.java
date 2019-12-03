@@ -26,7 +26,7 @@ public class DatabaseBackupSetUp {
 
   private static DatabaseDriverAndroidHelper mydb;
 
-  private static void SetUpUserPw(DatabaseBackup databasebackup)  {
+  private static void SetUpUserPw(DatabaseBackup databasebackup) {
     LinkedHashMap<Integer, String> userpw = new LinkedHashMap<Integer, String>();
     List<User> usersdetails = new ArrayList<User>();
     usersdetails = mydb.getUsersDetailsH();
@@ -36,10 +36,10 @@ public class DatabaseBackupSetUp {
     databasebackup.setUserPw(userpw);
   }
 
-  private static void SetUpSales(DatabaseBackup databasebackup)  {
-	SalesLog salesLog = new SalesLogImpl();
-	salesLog = mydb.getSalesH();
-	ArrayList<Sale> sales = salesLog.getSales();
+  private static void SetUpSales(DatabaseBackup databasebackup) {
+    SalesLog salesLog = new SalesLogImpl();
+    salesLog = mydb.getSalesH();
+    ArrayList<Sale> sales = salesLog.getSales();
     databasebackup.setSales(sales);
   }
 
@@ -49,7 +49,7 @@ public class DatabaseBackupSetUp {
     databasebackup.setUsers(usersdetails);
   }
 
-  private static void SetUpUserRole(DatabaseBackup databasebackup)  {
+  private static void SetUpUserRole(DatabaseBackup databasebackup) {
     LinkedHashMap<Integer, Integer> UserRole = new LinkedHashMap<Integer, Integer>();
     List<User> usersdetails = new ArrayList<User>();
     usersdetails = mydb.getUsersDetailsH();
@@ -66,7 +66,7 @@ public class DatabaseBackupSetUp {
   }
 
 
-  private static void SetUpItems(DatabaseBackup databasebackup)  {
+  private static void SetUpItems(DatabaseBackup databasebackup) {
     List<Item> Items = new ArrayList<>();
     Items = mydb.getAllItemsH();
     databasebackup.setItems(Items);
@@ -82,34 +82,34 @@ public class DatabaseBackupSetUp {
     }
     databasebackup.setAccountSummary(AccountSummary);
   }
-    
-  public static void SetUpAccount(DatabaseBackup databasebackup) throws SQLException {
-	    Map<Integer, Account> accountTable = new LinkedHashMap<Integer, Account>();
-	    List<Account> allAccounts = new ArrayList<Account>();
-	    List<User> usersdetails = new ArrayList<User>();
-	    List<Account> activeAccounts = new ArrayList<Account>();
-	    List<Account> inactiveAccounts = new ArrayList<Account>();
-	    usersdetails = mydb.getUsersDetailsH();
-	    for (User user : usersdetails) {
-	      activeAccounts = mydb.getUserActiveAccountsH(user.getId());
-	      for (Account activeAccount : activeAccounts) {
-	        Account account = new AccountImpl(user, true);
-	        accountTable.put(activeAccount.getId(), account);
-	      }
-	      inactiveAccounts = mydb.getUserInactiveAccountsH(user.getId());
-	      for (Account inactiveAccount : inactiveAccounts) {
-	        Account account = new AccountImpl(user, false);
-	        accountTable.put(inactiveAccount.getId(), account);
-	      }
-	    }
-	    TreeMap<Integer, Account> sorted = new TreeMap<>(accountTable);
-	    for (Map.Entry<Integer, Account> mapElement : sorted.entrySet()){
-	        allAccounts.add(mapElement.getValue());
-        }
-	    databasebackup.setAccount(allAccounts);
-	  }
 
-  private static void SetUpRoles(DatabaseBackup databasebackup)  {
+  public static void SetUpAccount(DatabaseBackup databasebackup) throws SQLException {
+    Map<Integer, Account> accountTable = new LinkedHashMap<Integer, Account>();
+    List<Account> allAccounts = new ArrayList<Account>();
+    List<User> usersdetails = new ArrayList<User>();
+    List<Account> activeAccounts = new ArrayList<Account>();
+    List<Account> inactiveAccounts = new ArrayList<Account>();
+    usersdetails = mydb.getUsersDetailsH();
+    for (User user : usersdetails) {
+      activeAccounts = mydb.getUserActiveAccountsH(user.getId());
+      for (Account activeAccount : activeAccounts) {
+        Account account = new AccountImpl(user, true);
+        accountTable.put(activeAccount.getId(), account);
+      }
+      inactiveAccounts = mydb.getUserInactiveAccountsH(user.getId());
+      for (Account inactiveAccount : inactiveAccounts) {
+        Account account = new AccountImpl(user, false);
+        accountTable.put(inactiveAccount.getId(), account);
+      }
+    }
+    TreeMap<Integer, Account> sorted = new TreeMap<>(accountTable);
+    for (Map.Entry<Integer, Account> mapElement : sorted.entrySet()) {
+      allAccounts.add(mapElement.getValue());
+    }
+    databasebackup.setAccount(allAccounts);
+  }
+
+  private static void SetUpRoles(DatabaseBackup databasebackup) {
     List<String> Roles = new ArrayList<String>();
     List<Integer> RoleIds = new ArrayList<Integer>();
     RoleIds = mydb.getRoleIdsH();

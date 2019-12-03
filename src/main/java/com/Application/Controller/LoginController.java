@@ -12,45 +12,45 @@ import com.example.Application.R;
 
 public class LoginController {
 
-    public static final String INVALID_LOGIN_MESSAGE = "Please Enter Appropriate Login Information!";
+  public static final String INVALID_LOGIN_MESSAGE = "Please Enter Appropriate Login Information!";
 
-    protected User loginUser(AppCompatActivity view, DatabaseDriverAndroidHelper mydb) {
-        EditText userIdEditText = view.findViewById(R.id.usernameEditText);
-        if(userIdEditText.getText().toString().length() == 0){
-            return null;
-        }
-        int userId = Integer.parseInt(userIdEditText.getText().toString());
-        User user = mydb.getUserDetailsH(userId);
-
-        EditText passwordEditText = view.findViewById(R.id.passwordEditText);
-        String password = passwordEditText.getText().toString();
-
-        String dbPass = mydb.getPasswordH(userId);
-
-        if (user.authenticate(password, dbPass)) {
-            return user;
-        } else {
-            return null;
-        }
+  protected User loginUser(AppCompatActivity view, DatabaseDriverAndroidHelper mydb) {
+    EditText userIdEditText = view.findViewById(R.id.usernameEditText);
+    if (userIdEditText.getText().toString().length() == 0) {
+      return null;
     }
+    int userId = Integer.parseInt(userIdEditText.getText().toString());
+    User user = mydb.getUserDetailsH(userId);
 
-    protected User loginUser(View view, DatabaseDriverAndroidHelper mydb) {
-        EditText userIdEditText = view.findViewById(R.id.usernameEditText);
-        if(userIdEditText.getText().toString().length() == 0){
-            return null;
-        }
-        int userId = Integer.parseInt(userIdEditText.getText().toString());
-        User user = mydb.getUserDetailsH(userId);
+    EditText passwordEditText = view.findViewById(R.id.passwordEditText);
+    String password = passwordEditText.getText().toString();
 
-        EditText passwordEditText = view.findViewById(R.id.passwordEditText);
-        String password = passwordEditText.getText().toString();
+    String dbPass = mydb.getPasswordH(userId);
 
-        String dbPass = mydb.getPasswordH(userId);
-
-        if (user.authenticate(password, dbPass)) {
-            return user;
-        } else {
-            return null;
-        }
+    if (user.authenticate(password, dbPass)) {
+      return user;
+    } else {
+      return null;
     }
+  }
+
+  protected User loginUser(View view, DatabaseDriverAndroidHelper mydb) {
+    EditText userIdEditText = view.findViewById(R.id.usernameEditText);
+    if (userIdEditText.getText().toString().length() == 0) {
+      return null;
+    }
+    int userId = Integer.parseInt(userIdEditText.getText().toString());
+    User user = mydb.getUserDetailsH(userId);
+
+    EditText passwordEditText = view.findViewById(R.id.passwordEditText);
+    String password = passwordEditText.getText().toString();
+
+    String dbPass = mydb.getPasswordH(userId);
+
+    if (user.authenticate(password, dbPass)) {
+      return user;
+    } else {
+      return null;
+    }
+  }
 }

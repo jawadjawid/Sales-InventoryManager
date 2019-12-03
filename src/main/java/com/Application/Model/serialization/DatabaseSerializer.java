@@ -33,7 +33,7 @@ public class DatabaseSerializer {
   public static DatabaseBackup deserialize(Context context) {
     try {
 
-      FileInputStream fileIn = context.openFileInput(  "database_copy.ser");
+      FileInputStream fileIn = context.openFileInput("database_copy.ser");
       ObjectInputStream in = new ObjectInputStream(fileIn);
       DatabaseBackup databasebackup = (DatabaseBackup) in.readObject();
       in.close();
@@ -50,10 +50,11 @@ public class DatabaseSerializer {
   }
 
   public static String serialize(DatabaseBackup databasebackup, Context context) {
-    try{
-   //   File root = new File(Environment.getDataDirectory(), serializeDirectory + "database_copy.ser");
-  //
-      FileOutputStream fileOut = context.openFileOutput(serializeDirectory + "database_copy.ser",Context.MODE_PRIVATE);
+    try {
+      //   File root = new File(Environment.getDataDirectory(), serializeDirectory + "database_copy.ser");
+      //
+      FileOutputStream fileOut = context
+          .openFileOutput(serializeDirectory + "database_copy.ser", Context.MODE_PRIVATE);
       ObjectOutputStream out = new ObjectOutputStream(fileOut);
       out.writeObject(databasebackup);
       out.close();
@@ -65,26 +66,31 @@ public class DatabaseSerializer {
     return databasebackup.toString();
   }
 
-  public static void deserializeDatabase(Context context, User user, String directory) throws SQLException, DatabaseInsertException, NoLongerAdminException , DeserializationUnsuccessfulException{
+  public static void deserializeDatabase(Context context, User user, String directory)
+      throws SQLException, DatabaseInsertException, NoLongerAdminException, DeserializationUnsuccessfulException {
     deserializeDirectory = directory;
-    DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(context);
-    context.deleteDatabase("inventorymgmt.db");
+    DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(context, "temp.db");
 
     try {
       DatabaseBackup backupversion = DatabaseSerializer.deserialize(context);
       DatabaseBackupSetDown.SetDownEverything(backupversion, mydb);
 
-    }catch (Exception e){
-        throw new DeserializationUnsuccessfulException();
+      context.deleteDatabase("inventorymgmt.db");
+      DatabaseDriverAndroidHelper mydb2 = new DatabaseDriverAndroidHelper(context);
+      DatabaseBackup backupversion2 = DatabaseSerializer.deserialize(context);
+      DatabaseBackupSetDown.SetDownEverything(backupversion2, mydb2);
+    } catch (Exception e) {
+      throw new DeserializationUnsuccessfulException();
     }
   }
 
 
-  public static void serializeDatabase(Context context, String directory) throws SQLException, DatabaseInsertException {
+  public static void serializeDatabase(Context context, String directory)
+      throws SQLException, DatabaseInsertException {
     serializeDirectory = directory;
     DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(context);
     DatabaseBackup databaseBackup = new DatabaseBackup();
-    DatabaseBackupSetUp.SetUpEverything(databaseBackup,mydb);
+    DatabaseBackupSetUp.SetUpEverything(databaseBackup, mydb);
     DatabaseSerializer.serialize(databaseBackup, context);
 
   }

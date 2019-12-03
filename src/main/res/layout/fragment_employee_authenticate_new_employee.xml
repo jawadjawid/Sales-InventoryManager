@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorDark"
-    android:orientation="vertical">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/colorDark"
+  android:orientation="vertical">
 
 
+  <ImageView
+    android:id="@+id/userIconImageView"
+    android:layout_width="115dp"
+    android:layout_height="112dp"
+    android:layout_gravity="center"
+    app:srcCompat="@drawable/user" />
 
-    <ImageView
-        android:id="@+id/userIconImageView"
-        android:layout_width="115dp"
-        android:layout_height="112dp"
-        app:srcCompat="@drawable/user"
-        android:layout_gravity="center"/>
+  <include layout="@layout/content_user_login_fields"></include>
 
-    <include layout="@layout/content_user_login_fields"></include>
-
-    <Button
-        android:id="@+id/authenticateNewEmployeeButton"
-        android:layout_width="@dimen/user_info_field_width"
-        android:layout_height="@dimen/button_height_standard"
-        android:background="@color/colorLightBlue"
-        android:text="Authenticate"
-        android:textColor="@color/colorDark"
-        android:visibility="visible"
-        android:layout_gravity="center"/>
+  <Button
+    android:id="@+id/authenticateNewEmployeeButton"
+    android:layout_width="@dimen/user_info_field_width"
+    android:layout_height="@dimen/button_height_standard"
+    android:layout_gravity="center"
+    android:background="@color/colorLightBlue"
+    android:text="Authenticate"
+    android:textColor="@color/colorDark"
+    android:visibility="visible" />
 </LinearLayout>

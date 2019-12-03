@@ -42,7 +42,7 @@ public class ItemImpl implements Item, Serializable {
   public boolean equals(Object o) {
     return this.getId() == ((Item) o).getId();
   }
-  
+
   public String toString() {
     return name + " (" + price + " ea)";
   }

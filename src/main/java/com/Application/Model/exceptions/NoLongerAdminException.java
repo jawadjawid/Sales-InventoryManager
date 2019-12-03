@@ -1,4 +1,5 @@
 package com.Application.Model.exceptions;
 
-public class NoLongerAdminException extends  Exception {
+public class NoLongerAdminException extends Exception {
+
 }

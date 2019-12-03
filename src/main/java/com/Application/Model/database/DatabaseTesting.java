@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 
 
 public class DatabaseTesting {
-  
+
   public static void main(String[] args) {
-    
+
     Connection connection = DatabaseDriver.connectOrCreateDataBase();
     try {
       //DatabaseDriver.initialize(connection);
@@ -20,7 +20,7 @@ public class DatabaseTesting {
 
       int uid = DatabaseInserter.insertNewUser("Mike", 20, "123", "1234321", connection);
       int what = DatabaseInserter.insertUserRole(uid, rid, connection);
-      int itemId = DatabaseInserter.insertItem("Hockey Stick", new BigDecimal("5023.32"), 
+      int itemId = DatabaseInserter.insertItem("Hockey Stick", new BigDecimal("5023.32"),
           connection);
       int inventoryId = DatabaseInserter.insertInventory(itemId, 320, connection);
       int saleId = DatabaseInserter.insertSale(uid, new BigDecimal("20"), connection);
@@ -36,8 +36,7 @@ public class DatabaseTesting {
       DatabaseUpdater.updateUserAge(221, uid, connection);
       DatabaseUpdater.updateUserName("ASDALA", uid, connection);
       DatabaseUpdater.updateUserRole(rid2, uid, connection);
-      
-      
+
       s(DatabaseSelector.getAccountDetails(acctId, connection));
       s(DatabaseSelector.getUserAccounts(uid, connection));
       s(DatabaseSelector.getAllItems(connection));
@@ -72,7 +71,7 @@ public class DatabaseTesting {
       s(DatabaseSelector.getUserRole(uid, connection));
       s(DatabaseSelector.getUsersByRole(rid, connection));
       s(DatabaseSelector.getUsersDetails(connection));
-           
+
       System.out.println(what);
     } catch (Exception e) {
       // TODO Auto-generated catch block
@@ -85,6 +84,7 @@ public class DatabaseTesting {
       }
     }
   }
+
   private static void s(Object o) {
     System.out.println(o);
   }

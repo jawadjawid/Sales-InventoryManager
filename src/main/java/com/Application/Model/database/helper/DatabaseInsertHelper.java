@@ -19,162 +19,163 @@ import com.Application.Model.validator.UsersValidator;
 
 public class DatabaseInsertHelper extends DatabaseInserter {
 
-	public static int insertRole(String name) throws DatabaseInsertException, SQLException {
+  public static int insertRole(String name) throws DatabaseInsertException, SQLException {
 
-		boolean val_success = true;
-		val_success = val_success && RolesValidator.validateName(name);
+    boolean val_success = true;
+    val_success = val_success && RolesValidator.validateName(name);
 
-		if (!val_success) {
-			throw new DatabaseInsertException();
-		}
+    if (!val_success) {
+      throw new DatabaseInsertException();
+    }
 
-		Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
-		int roleId = DatabaseInserter.insertRole(name, connection);
-		connection.close();
-		return roleId;
-	}
+    Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
+    int roleId = DatabaseInserter.insertRole(name, connection);
+    connection.close();
+    return roleId;
+  }
 
-	public static int insertNewUser(String name, int age, String address, String password)
-			throws DatabaseInsertException, SQLException {
+  public static int insertNewUser(String name, int age, String address, String password)
+      throws DatabaseInsertException, SQLException {
 
-		boolean val_success = true;
-		val_success = val_success && UsersValidator.validateName(name);
-		val_success = val_success && UsersValidator.validateAge(age);
-		val_success = val_success && UsersValidator.validateAddress(address);
-		val_success = val_success && UsersValidator.validatePassword(password);
+    boolean val_success = true;
+    val_success = val_success && UsersValidator.validateName(name);
+    val_success = val_success && UsersValidator.validateAge(age);
+    val_success = val_success && UsersValidator.validateAddress(address);
+    val_success = val_success && UsersValidator.validatePassword(password);
 
-		if (!val_success) {
-			throw new DatabaseInsertException();
-		}
+    if (!val_success) {
+      throw new DatabaseInsertException();
+    }
 
-		Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
-		int userId = DatabaseInserter.insertNewUser(name, age, address, password, connection);
-		connection.close();
-		return userId;
-	}
+    Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
+    int userId = DatabaseInserter.insertNewUser(name, age, address, password, connection);
+    connection.close();
+    return userId;
+  }
 
-	public static int insertUserRole(int userId, int roleId)
-			throws DatabaseInsertException, SQLException {
+  public static int insertUserRole(int userId, int roleId)
+      throws DatabaseInsertException, SQLException {
 
-		boolean val_success = true;
-		val_success = val_success && UserRoleValidator.validateRoleId(roleId);
-		val_success = val_success && UserRoleValidator.validateUserId(userId);
+    boolean val_success = true;
+    val_success = val_success && UserRoleValidator.validateRoleId(roleId);
+    val_success = val_success && UserRoleValidator.validateUserId(userId);
 
-		if (!val_success) {
-			throw new DatabaseInsertException();
-		}
+    if (!val_success) {
+      throw new DatabaseInsertException();
+    }
 
-		Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
-		int userRoleId = DatabaseInserter.insertUserRole(userId, roleId, connection);
-		connection.close();
-		return userRoleId;
-	}
+    Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
+    int userRoleId = DatabaseInserter.insertUserRole(userId, roleId, connection);
+    connection.close();
+    return userRoleId;
+  }
 
-	public static int insertItem(String name, BigDecimal price)
-			throws DatabaseInsertException, SQLException {
+  public static int insertItem(String name, BigDecimal price)
+      throws DatabaseInsertException, SQLException {
 
-		boolean val_success = true;
-		val_success = val_success && ItemsValidator.validateName(name);
-		val_success = val_success && ItemsValidator.validatePrice(price);
+    boolean val_success = true;
+    val_success = val_success && ItemsValidator.validateName(name);
+    val_success = val_success && ItemsValidator.validatePrice(price);
 
-		if (!val_success) {
-			throw new DatabaseInsertException();
-		}
+    if (!val_success) {
+      throw new DatabaseInsertException();
+    }
 
-		Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
-		int itemId = DatabaseInserter.insertItem(name, price, connection);
-		connection.close();
-		return itemId;
-	}
+    Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
+    int itemId = DatabaseInserter.insertItem(name, price, connection);
+    connection.close();
+    return itemId;
+  }
 
-	public static int insertInventory(int itemId, int quantity)
-			throws DatabaseInsertException, SQLException {
+  public static int insertInventory(int itemId, int quantity)
+      throws DatabaseInsertException, SQLException {
 
-		boolean val_success = true;
-		val_success = val_success && InventoryValidator.validateItemId(itemId);
-		val_success = val_success && InventoryValidator.validateQuantity(quantity);
+    boolean val_success = true;
+    val_success = val_success && InventoryValidator.validateItemId(itemId);
+    val_success = val_success && InventoryValidator.validateQuantity(quantity);
 
-		if (!val_success) {
-			throw new DatabaseInsertException();
-		}
+    if (!val_success) {
+      throw new DatabaseInsertException();
+    }
 
-		Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
-		int inventoryId = DatabaseInserter.insertInventory(itemId, quantity, connection);
-		connection.close();
-		return inventoryId;
-	}
+    Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
+    int inventoryId = DatabaseInserter.insertInventory(itemId, quantity, connection);
+    connection.close();
+    return inventoryId;
+  }
 
-	public static int insertSale(int userId, BigDecimal totalPrice)
-			throws DatabaseInsertException, SQLException {
+  public static int insertSale(int userId, BigDecimal totalPrice)
+      throws DatabaseInsertException, SQLException {
 
-		boolean val_success = true;
-		val_success = val_success && SalesValidator.validateUserId(userId);
-		val_success = val_success && SalesValidator.validateTotalPrice(totalPrice);
+    boolean val_success = true;
+    val_success = val_success && SalesValidator.validateUserId(userId);
+    val_success = val_success && SalesValidator.validateTotalPrice(totalPrice);
 
-		if (!val_success) {
-			throw new DatabaseInsertException();
-		}
+    if (!val_success) {
+      throw new DatabaseInsertException();
+    }
 
-		Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
-		int saleId = DatabaseInserter.insertSale(userId, totalPrice, connection);
-		connection.close();
-		return saleId;
-	}
+    Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
+    int saleId = DatabaseInserter.insertSale(userId, totalPrice, connection);
+    connection.close();
+    return saleId;
+  }
 
-	public static int insertItemizedSale(int saleId, int itemId, int quantity)
-			throws DatabaseInsertException, SQLException {
+  public static int insertItemizedSale(int saleId, int itemId, int quantity)
+      throws DatabaseInsertException, SQLException {
 
-		// Note: sale been inserted into sales already
+    // Note: sale been inserted into sales already
 
-		boolean val_success = true;
-		val_success = val_success && ItemizedSalesValidator.validateSaleId(saleId);
-		val_success = val_success && ItemizedSalesValidator.validateItemId(itemId);
-		val_success = val_success && ItemizedSalesValidator.validateQuantity(quantity);
-		val_success = val_success && ItemizedSalesValidator.validateUniqueComb(saleId, itemId);
-		val_success = val_success && ItemizedSalesValidator.validateTotalPrice(saleId, itemId, quantity);
+    boolean val_success = true;
+    val_success = val_success && ItemizedSalesValidator.validateSaleId(saleId);
+    val_success = val_success && ItemizedSalesValidator.validateItemId(itemId);
+    val_success = val_success && ItemizedSalesValidator.validateQuantity(quantity);
+    val_success = val_success && ItemizedSalesValidator.validateUniqueComb(saleId, itemId);
+    val_success =
+        val_success && ItemizedSalesValidator.validateTotalPrice(saleId, itemId, quantity);
 
-		if (!val_success) {
-			throw new DatabaseInsertException();
-		}
+    if (!val_success) {
+      throw new DatabaseInsertException();
+    }
 
-		Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
-		int itemizedId = DatabaseInserter.insertItemizedSale(saleId, itemId, quantity, connection);
-		connection.close();
-		return itemizedId;
-	}
-	
-	public static int insertAccount(int userId)
-			throws DatabaseInsertException, SQLException {
+    Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
+    int itemizedId = DatabaseInserter.insertItemizedSale(saleId, itemId, quantity, connection);
+    connection.close();
+    return itemizedId;
+  }
 
-		boolean val_success = true;
-		val_success = val_success && AccountValidator.validateUserId(userId);
+  public static int insertAccount(int userId)
+      throws DatabaseInsertException, SQLException {
 
-		if (!val_success) {
-			throw new DatabaseInsertException();
-		}
+    boolean val_success = true;
+    val_success = val_success && AccountValidator.validateUserId(userId);
 
-		Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
-		int accountId = DatabaseInserter.insertAccount(userId, connection);
-		connection.close();
-		return accountId;
-	}
-	
-	public static int insertAccountSummary(int acctId, int itemId, int quantity)
-			throws DatabaseInsertException, SQLException {
+    if (!val_success) {
+      throw new DatabaseInsertException();
+    }
 
-		boolean val_success = true;
-		val_success = val_success && AccountSummaryValidator.validateAccountId(acctId);
-		val_success = val_success && AccountSummaryValidator.validateItemId(itemId);
-		val_success = val_success && AccountSummaryValidator.validateQuantity(quantity);
+    Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
+    int accountId = DatabaseInserter.insertAccount(userId, connection);
+    connection.close();
+    return accountId;
+  }
 
-		if (!val_success) {
-			throw new DatabaseInsertException();
-		}
+  public static int insertAccountSummary(int acctId, int itemId, int quantity)
+      throws DatabaseInsertException, SQLException {
 
-		Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
-		int accountSummaryId = DatabaseInserter.insertAccountLine(acctId, itemId, quantity, connection);
-		connection.close();
-		return accountSummaryId;
-	}
+    boolean val_success = true;
+    val_success = val_success && AccountSummaryValidator.validateAccountId(acctId);
+    val_success = val_success && AccountSummaryValidator.validateItemId(itemId);
+    val_success = val_success && AccountSummaryValidator.validateQuantity(quantity);
+
+    if (!val_success) {
+      throw new DatabaseInsertException();
+    }
+
+    Connection connection = DatabaseDriverHelper.connectOrCreateDataBase();
+    int accountSummaryId = DatabaseInserter.insertAccountLine(acctId, itemId, quantity, connection);
+    connection.close();
+    return accountSummaryId;
+  }
 
 }

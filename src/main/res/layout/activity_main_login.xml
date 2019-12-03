@@ -1,77 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/colorDark"
+  android:orientation="vertical"
+  tools:context="com.Application.View.MainLoginView">
+
+  <TextView
+    android:id="@+id/createNewUserTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="51dp"
+    android:layout_gravity="center"
+    android:layout_marginTop="50dp"
+    android:text="@string/login"
+    android:textAlignment="center"
+    android:textColor="@color/colorLight"
+    android:textSize="@dimen/text_size_large" />
+
+  <ImageView
+    android:id="@+id/userIconImageView"
+    android:layout_width="115dp"
+    android:layout_height="112dp"
+    android:layout_gravity="center"
+    app:srcCompat="@drawable/user" />
+
+  <include layout="@layout/content_user_login_fields"></include>
+
+  <Button
+    android:id="@+id/loginButton"
+    android:layout_width="@dimen/user_info_field_width"
+    android:layout_height="40dp"
+    android:layout_gravity="center"
+    android:background="@color/colorLightBlue"
+    android:text="@string/login"
+    android:textColor="@color/colorDark"
+    android:visibility="visible" />
+
+
+  <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDark"
-    android:orientation="vertical"
-    tools:context="com.Application.View.MainLoginView">
+    android:gravity="bottom"
+    android:orientation="horizontal"
+    android:padding="10dp">
 
     <TextView
-        android:id="@+id/createNewUserTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="51dp"
-        android:text="@string/login"
-        android:textAlignment="center"
-        android:textColor="@color/colorLight"
-        android:textSize="@dimen/text_size_large"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"/>
-
-    <ImageView
-        android:id="@+id/userIconImageView"
-        android:layout_width="115dp"
-        android:layout_height="112dp"
-        app:srcCompat="@drawable/user"
-        android:layout_gravity="center"/>
-
-    <include layout="@layout/content_user_login_fields"></include>
+      android:id="@+id/DoNotHaveAccountTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="28dp"
+      android:layout_marginLeft="50dp"
+      android:layout_marginRight="10dp"
+      android:text="Do not have an account?"
+      android:textColor="@color/colorLight"
+      android:textSize="18sp" />
 
     <Button
-        android:id="@+id/loginButton"
-        android:layout_width="@dimen/user_info_field_width"
-        android:layout_height="40dp"
-        android:background="@color/colorLightBlue"
-        android:text="@string/login"
-        android:textColor="@color/colorDark"
-        android:visibility="visible"
-        android:layout_gravity="center"/>
+      android:id="@+id/signUpButton"
+      style="@style/Widget.AppCompat.Button.Borderless"
+      android:layout_width="wrap_content"
+      android:layout_height="29dp"
+      android:background="@color/colorDark"
+      android:text="Too Bad!"
+      android:textAlignment="viewStart"
+      android:textColor="@color/colorLight" />
 
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <TextView
-            android:id="@+id/DoNotHaveAccountTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:text="Do not have an account?"
-            android:textColor="@color/colorLight"
-            android:textSize="18sp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="10dp"/>
-
-        <Button
-            android:id="@+id/signUpButton"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="29dp"
-            android:background="@color/colorDark"
-            android:text="Too Bad!"
-            android:textAlignment="viewStart"
-            android:textColor="@color/colorLight" />
-
-    </LinearLayout>
-
-
-
+  </LinearLayout>
 
 
 </LinearLayout>

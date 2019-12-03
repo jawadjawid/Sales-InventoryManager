@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/user"
-        android:title="Employees"
-        />
+  <item
+    android:id="@+id/navigation_home"
+    android:icon="@drawable/user"
+    android:title="Employees" />
 
-    <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/letter_a"
-        android:title="Accounts" />
+  <item
+    android:id="@+id/navigation_dashboard"
+    android:icon="@drawable/letter_a"
+    android:title="Accounts" />
 
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/open_book"
-        android:title="Books" />
+  <item
+    android:id="@+id/navigation_notifications"
+    android:icon="@drawable/open_book"
+    android:title="Books" />
 
 </menu>

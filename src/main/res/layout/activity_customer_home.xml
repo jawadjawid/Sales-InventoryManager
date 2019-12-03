@@ -1,89 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorDark"
-    tools:context="com.Application.View.Customer.CustomerHomeView"
-    android:orientation="vertical">
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/colorDark"
+  android:orientation="vertical"
+  tools:context="com.Application.View.Customer.CustomerHomeView">
 
-    <TextView
-        android:id="@+id/welcomeTextView"
-        android:layout_width="360dp"
-        android:layout_height="76dp"
-        android:layout_above="@+id/shopBtn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/welcome_greeting"
-        android:textAlignment="center"
-        android:textColor="@color/colorLight"
-        android:textSize="@dimen/customer_home_welcome" />
+  <TextView
+    android:id="@+id/welcomeTextView"
+    android:layout_width="360dp"
+    android:layout_height="76dp"
+    android:layout_above="@+id/shopBtn"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentEnd="true"
+    android:layout_marginStart="17dp"
+    android:layout_marginTop="20dp"
+    android:text="@string/welcome_greeting"
+    android:textAlignment="center"
+    android:textColor="@color/colorLight"
+    android:textSize="@dimen/customer_home_welcome" />
 
-    <TextView
-        android:id="@+id/customerName"
-        android:layout_width="360dp"
-        android:layout_height="80dp"
-        android:layout_above="@+id/shopBtn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="30dp"
-        android:hint="Customer's Name"
-        android:textColorHint="@color/colorLight"
-        android:textAlignment="center"
-        android:textColor="@color/colorLight"
-        android:textSize="@dimen/text_size_large" />
+  <TextView
+    android:id="@+id/customerName"
+    android:layout_width="360dp"
+    android:layout_height="80dp"
+    android:layout_above="@+id/shopBtn"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentEnd="true"
+    android:layout_marginStart="17dp"
+    android:layout_marginTop="30dp"
+    android:hint="Customer's Name"
+    android:textAlignment="center"
+    android:textColor="@color/colorLight"
+    android:textColorHint="@color/colorLight"
+    android:textSize="@dimen/text_size_large" />
 
-    <TextView
-        android:id="@+id/customerBalance"
-        android:layout_width="360dp"
-        android:layout_height="60dp"
-        android:layout_above="@+id/shopBtn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="30dp"
-        android:hint="Current Balance: $0.00"
-        android:textColorHint="@color/colorLight"
-        android:textAlignment="center"
-        android:textColor="@color/colorLight"
-        android:textSize="@dimen/text_size_medium" />
+  <TextView
+    android:id="@+id/customerBalance"
+    android:layout_width="360dp"
+    android:layout_height="60dp"
+    android:layout_above="@+id/shopBtn"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentEnd="true"
+    android:layout_marginStart="17dp"
+    android:layout_marginTop="30dp"
+    android:hint="Current Balance: $0.00"
+    android:textAlignment="center"
+    android:textColor="@color/colorLight"
+    android:textColorHint="@color/colorLight"
+    android:textSize="@dimen/text_size_medium" />
 
-    <Button
-        android:id="@+id/shopBtn"
-        android:layout_width="@dimen/customer_home_button_width"
-        android:layout_height="@dimen/button_height_standard"
-        android:layout_marginStart="@dimen/customer_home_button_margin_left"
-        android:layout_marginBottom="@dimen/customer_home_button_margin_bottom"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorLightBlue"
-        android:text="@string/go_shopping_btn"
-        android:textColor="@color/colorDark"
-        android:textSize="@dimen/text_size_medium" />
+  <Button
+    android:id="@+id/shopBtn"
+    android:layout_width="@dimen/customer_home_button_width"
+    android:layout_height="@dimen/button_height_standard"
+    android:layout_marginStart="@dimen/customer_home_button_margin_left"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="@dimen/customer_home_button_margin_bottom"
+    android:background="@color/colorLightBlue"
+    android:text="@string/go_shopping_btn"
+    android:textColor="@color/colorDark"
+    android:textSize="@dimen/text_size_medium" />
 
-    <Button
-        android:id="@+id/cartBtn"
-        android:layout_width="@dimen/customer_home_button_width"
-        android:layout_height="@dimen/button_height_standard"
-        android:layout_marginStart="@dimen/customer_home_button_margin_left"
-        android:layout_marginBottom="@dimen/customer_home_button_margin_bottom"
-        android:background="@color/colorLightBlue"
-        android:text="@string/see_cart_btn"
-        android:textColor="@color/colorDark"
-        android:textSize="@dimen/text_size_medium" />
+  <Button
+    android:id="@+id/cartBtn"
+    android:layout_width="@dimen/customer_home_button_width"
+    android:layout_height="@dimen/button_height_standard"
+    android:layout_marginStart="@dimen/customer_home_button_margin_left"
+    android:layout_marginBottom="@dimen/customer_home_button_margin_bottom"
+    android:background="@color/colorLightBlue"
+    android:text="@string/see_cart_btn"
+    android:textColor="@color/colorDark"
+    android:textSize="@dimen/text_size_medium" />
 
-    <Button
-        android:id="@+id/LogOutBtn"
-        android:layout_width="170dp"
-        android:layout_height="@dimen/button_height_standard"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorLightBlue"
-        android:text="@string/logout"
-        android:textColor="@color/colorDark"
-        android:textSize="@dimen/text_size_medium" />
+  <Button
+    android:id="@+id/LogOutBtn"
+    android:layout_width="170dp"
+    android:layout_height="@dimen/button_height_standard"
+    android:layout_marginStart="115dp"
+    android:layout_marginTop="30dp"
+    android:background="@color/colorLightBlue"
+    android:text="@string/logout"
+    android:textColor="@color/colorDark"
+    android:textSize="@dimen/text_size_medium" />
 
 </LinearLayout>

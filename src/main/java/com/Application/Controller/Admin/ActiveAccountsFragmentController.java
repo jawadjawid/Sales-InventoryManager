@@ -14,30 +14,31 @@ import java.util.ArrayList;
 
 public class ActiveAccountsFragmentController {
 
-    private static View view;
-    private static Context appContext;
-    private static ActiveAccountsFragmentView activeAccountsFragmentView;
+  private static View view;
+  private static Context appContext;
+  private static ActiveAccountsFragmentView activeAccountsFragmentView;
 
-    public ActiveAccountsFragmentController(View view, ActiveAccountsFragmentView activeAccountsFragmentView) {
-        this.view = view;
-        appContext = view.getContext();
-        this.activeAccountsFragmentView = activeAccountsFragmentView;
+  public ActiveAccountsFragmentController(View view,
+      ActiveAccountsFragmentView activeAccountsFragmentView) {
+    this.view = view;
+    appContext = view.getContext();
+    this.activeAccountsFragmentView = activeAccountsFragmentView;
+  }
+
+  public static void displayActiveAccounts(int userId) {
+    DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
+
+    ArrayList<Account> accounts = mydb.getUserActiveAccountsH(userId);
+    ArrayList<String> accountIds = new ArrayList<>();
+    for (Account account : accounts) {
+      accountIds.add("" + account.getId());
     }
-
-    public static void displayActiveAccounts(int userId) {
-        DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
-
-        ArrayList<Account> accounts = mydb.getUserActiveAccountsH(userId);
-        ArrayList<String> accountIds = new ArrayList<>();
-        for(Account account:accounts){
-            accountIds.add("" + account.getId());
-        }
     //    Collections.sort(accountIds);
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(appContext,
-                R.layout.content_listview, accountIds);
+    ArrayAdapter adapter = new ArrayAdapter<String>(appContext,
+        R.layout.content_listview, accountIds);
 
-        ListView listView = (ListView) view.findViewById(R.id.accountsList);
-        listView.setAdapter(adapter);
-    }
+    ListView listView = (ListView) view.findViewById(R.id.accountsList);
+    listView.setAdapter(adapter);
+  }
 }

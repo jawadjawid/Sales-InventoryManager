@@ -13,38 +13,39 @@ import com.google.android.material.navigation.NavigationView;
 
 
 public class EmployeeOptionsController implements View.OnClickListener {
-    private static EmployeeOptionsView view;
-    private Context appContext;
-    private static User user;
 
-    public EmployeeOptionsController(Context context) {
-        appContext = context;
-        view = (EmployeeOptionsView) appContext;
-        Intent intent = view.getIntent();
-        user = (User) intent.getSerializableExtra("user");
+  private static EmployeeOptionsView view;
+  private Context appContext;
+  private static User user;
 
-        setUsername(user.getName());
-    }
+  public EmployeeOptionsController(Context context) {
+    appContext = context;
+    view = (EmployeeOptionsView) appContext;
+    Intent intent = view.getIntent();
+    user = (User) intent.getSerializableExtra("user");
 
-    @Override
-    public void onClick(View v) {
-    }
+    setUsername(user.getName());
+  }
 
-    public static void setUsername(String username) {
-        NavigationView navigationView = view.findViewById(R.id.nav_view);
-        View headerView = navigationView.getHeaderView(0);
+  @Override
+  public void onClick(View v) {
+  }
 
-        TextView usernameTextView = headerView.findViewById(R.id.usernameTextView);
-        usernameTextView.setText(username);
-    }
+  public static void setUsername(String username) {
+    NavigationView navigationView = view.findViewById(R.id.nav_view);
+    View headerView = navigationView.getHeaderView(0);
 
-    public static User getUser() {
-        return user;
-    }
+    TextView usernameTextView = headerView.findViewById(R.id.usernameTextView);
+    usernameTextView.setText(username);
+  }
 
-    public static void setUser(User user1) {
-        user = user1;
+  public static User getUser() {
+    return user;
+  }
 
-    }
+  public static void setUser(User user1) {
+    user = user1;
+
+  }
 
 }

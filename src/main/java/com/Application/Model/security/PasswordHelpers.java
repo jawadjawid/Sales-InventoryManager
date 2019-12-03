@@ -33,7 +33,7 @@ public class PasswordHelpers {
   /**
    * check if the database password matches user provided password.
    *
-   * @param dbPassword      the password stored in the database.
+   * @param dbPassword the password stored in the database.
    * @param enteredPassword the user provided password (unhashed).
    * @return true if passwords match, false otherwise.
    */

@@ -1,75 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/colorDark"
+  android:orientation="vertical">
+
+  <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDark"
+    android:gravity="center"
     android:orientation="vertical">
 
-    <LinearLayout
+
+    <ImageView
+      android:id="@+id/userIconImageView"
+      android:layout_width="115dp"
+      android:layout_height="112dp"
+      app:srcCompat="@drawable/user" />
+
+    <include layout="@layout/content_user_signup_fields"></include>
+
+
+    <RadioGroup
+      android:id="@+id/roleRadioGroup"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginLeft="17dp"
+      android:layout_marginTop="-10dp"
+      android:orientation="vertical">
+
+      <RadioButton
+        android:id="@+id/employeeRadioButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:paddingRight="10dp"
+        android:text="Employee"
+        android:textColor="@color/colorLight" />
 
-
-        <ImageView
-            android:id="@+id/userIconImageView"
-            android:layout_width="115dp"
-            android:layout_height="112dp"
-            app:srcCompat="@drawable/user" />
-
-        <include layout="@layout/content_user_signup_fields"></include>
-
-
-
-            <RadioGroup
-                android:id="@+id/roleRadioGroup"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="17dp"
-                android:layout_marginTop="-10dp"
-                android:orientation="vertical">
-
-                <RadioButton
-                    android:id="@+id/employeeRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:paddingRight="10dp"
-                    android:text="Employee"
-                    android:textColor="@color/colorLight" />
-
-                <RadioButton
-                    android:id="@+id/customerRadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Customer"
-                    android:layout_marginLeft="120dp"
-                    android:layout_marginTop="-32dp"
-                    android:textColor="@color/colorLight" />
-
-            </RadioGroup>
-
-    </LinearLayout>
-
-    <LinearLayout
+      <RadioButton
+        android:id="@+id/customerRadioButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="-32dp"
+        android:text="Customer"
+        android:textColor="@color/colorLight" />
 
-        <Button
-            android:id="@+id/createNewUserButton"
-            android:layout_width="@dimen/user_info_field_width"
-            android:layout_height="@dimen/button_height_standard"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:background="@color/colorLightBlue"
-            android:text="@string/make_new_user"
-            android:textColor="@color/colorDark"
-            android:visibility="visible" />
-    </LinearLayout>
+    </RadioGroup>
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <Button
+      android:id="@+id/createNewUserButton"
+      android:layout_width="@dimen/user_info_field_width"
+      android:layout_height="@dimen/button_height_standard"
+      android:layout_gravity="center"
+      android:layout_marginBottom="20dp"
+      android:background="@color/colorLightBlue"
+      android:text="@string/make_new_user"
+      android:textColor="@color/colorDark"
+      android:visibility="visible" />
+  </LinearLayout>
 
 
 </RelativeLayout>

@@ -5,33 +5,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import com.Application.Controller.Admin.EmployeesFragmentController;
 import com.example.Application.R;
 
 
 public class EmployeesFragmentView extends Fragment {
 
-    private EmployeesFragmentController employeesFragmentController;
+  private EmployeesFragmentController employeesFragmentController;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-     //   employeesFragmentController =
-          //      ViewModelProviders.of(this).get(EmployeesFragmentController.class);
-        View root = inflater.inflate(R.layout.fragment_admin_employees, container, false);
-      //  final TextView textView = root.findViewById(R.id.text_home);
-      //  employeesFragmentController.getText().observe(this, new Observer<String>() {
-      ///      @Override
-       //     public void onChanged(@Nullable String s) {
-      //          textView.setText(s);
-      //      }
-      //  });
-        employeesFragmentController = new EmployeesFragmentController(root);
-        Button selectEmployeeIdButton = root.findViewById(R.id.selectEmployeeIdButton);
-        selectEmployeeIdButton.setOnClickListener(employeesFragmentController);
-        return root;
-    }
+  public View onCreateView(@NonNull LayoutInflater inflater,
+      ViewGroup container, Bundle savedInstanceState) {
+    //   employeesFragmentController =
+    //      ViewModelProviders.of(this).get(EmployeesFragmentController.class);
+    View root = inflater.inflate(R.layout.fragment_admin_employees, container, false);
+    //  final TextView textView = root.findViewById(R.id.text_home);
+    //  employeesFragmentController.getText().observe(this, new Observer<String>() {
+    ///      @Override
+    //     public void onChanged(@Nullable String s) {
+    //          textView.setText(s);
+    //      }
+    //  });
+    employeesFragmentController = new EmployeesFragmentController(root);
+    Button selectEmployeeIdButton = root.findViewById(R.id.selectEmployeeIdButton);
+    selectEmployeeIdButton.setOnClickListener(employeesFragmentController);
+    return root;
+  }
 }

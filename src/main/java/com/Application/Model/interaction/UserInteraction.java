@@ -153,7 +153,7 @@ public class UserInteraction {
 
     return choice;
   }
-  
+
   // returns an arraylist including the ids of all employees in database as strings
   public static ArrayList<String> getAllIds(HashMap<String, Integer> rolesToId, Roles role) {
     try {
@@ -171,5 +171,5 @@ public class UserInteraction {
       return null;
     }
   }
-  
+
 }

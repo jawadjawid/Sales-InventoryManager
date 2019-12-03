@@ -25,30 +25,30 @@ import com.Application.Model.inventory.InventoryImpl;
 
 
 public class DatabaseBackupSetDown {
-   
+
   private static DatabaseDriverAndroidHelper mydb;
 
   private static void SetDownUserPw(DatabaseBackup databasebackup) throws SQLException {
     LinkedHashMap<Integer, String> userpw = new LinkedHashMap<Integer, String>();
     userpw = databasebackup.getUserPw();
     for (Map.Entry<Integer, String> entry : userpw.entrySet()) {
-    	mydb.insertPasswordH(entry.getValue(), entry.getKey());
+      mydb.insertPasswordH(entry.getValue(), entry.getKey());
     }
   }
 
   private static void SetDownSales(DatabaseBackup databasebackup)
       throws DatabaseInsertException {
-	List<Sale> Sales = databasebackup.getSales();
+    List<Sale> Sales = databasebackup.getSales();
     for (Sale sale : Sales) {
-    	mydb.insertSaleH((sale.getUser()).getId(), sale.getTotalPrice());
+      mydb.insertSaleH((sale.getUser()).getId(), sale.getTotalPrice());
     }
   }
 
-  private static void SetDownUsers(DatabaseBackup databasebackup){
+  private static void SetDownUsers(DatabaseBackup databasebackup) {
     List<User> usersdetails = new ArrayList<User>();
     usersdetails = databasebackup.getUsers();
     for (User user : usersdetails) {
-    	mydb.insertNewUserNoPasswordH(user.getName(), user.getAge(),
+      mydb.insertNewUserNoPasswordH(user.getName(), user.getAge(),
           user.getAddress(), user.getBalance());
     }
   }
@@ -58,7 +58,7 @@ public class DatabaseBackupSetDown {
     LinkedHashMap<Integer, Integer> UserRole = new LinkedHashMap<Integer, Integer>();
     UserRole = databasebackup.getUserRole();
     for (Map.Entry<Integer, Integer> entry : UserRole.entrySet()) {
-    	mydb.insertUserRoleH(entry.getKey(), entry.getValue());
+      mydb.insertUserRoleH(entry.getKey(), entry.getValue());
     }
   }
 
@@ -70,14 +70,14 @@ public class DatabaseBackupSetDown {
     Sales = ItimizedSales.getSales();
     for (Sale sale : Sales) {
       for (Map.Entry<Item, Integer> entry : (sale.getItemMap()).entrySet()) {
-    	  mydb.insertItemizedSaleH(sale.getId(), (entry.getKey()).getId(),
+        mydb.insertItemizedSaleH(sale.getId(), (entry.getKey()).getId(),
             entry.getValue());
       }
     }
   }
 
   private static void SetDownItems(DatabaseBackup databasebackup)
-      throws  DatabaseInsertException {
+      throws DatabaseInsertException {
     List<Item> Items = new ArrayList<>();
     Items = databasebackup.getItems();
     for (Item item : Items) {
@@ -88,7 +88,7 @@ public class DatabaseBackupSetDown {
         }
       }
       if (allowed) {
-    	  mydb.insertItemH(item.getName(), item.getPrice());
+        mydb.insertItemH(item.getName(), item.getPrice());
       } else {
         throw new DatabaseInsertException();
       }
@@ -98,7 +98,7 @@ public class DatabaseBackupSetDown {
 
 
   private static void SetDownAccountSummary(DatabaseBackup databasebackup)
-      throws  DatabaseInsertException {
+      throws DatabaseInsertException {
     LinkedHashMap<Integer, List<Account>> AccountSummary =
         new LinkedHashMap<Integer, List<Account>>();
     AccountSummary = databasebackup.getAccountSummary();
@@ -121,7 +121,7 @@ public class DatabaseBackupSetDown {
   }
 
   private static void SetDownRoles(DatabaseBackup databasebackup)
-      throws  DatabaseInsertException {
+      throws DatabaseInsertException {
     List<String> roles = new ArrayList<String>();
     roles = databasebackup.getRoles();
     for (String roleName : roles) {
@@ -132,7 +132,7 @@ public class DatabaseBackupSetDown {
         }
       }
       if (allowed) {
-    	  mydb.insertRoleH(roleName);
+        mydb.insertRoleH(roleName);
       } else {
         throw new DatabaseInsertException();
       }
@@ -140,38 +140,39 @@ public class DatabaseBackupSetDown {
   }
 
   private static void SetDownInventory(DatabaseBackup databasebackup)
-      throws  DatabaseInsertException {
+      throws DatabaseInsertException {
     LinkedHashMap<Integer, Integer> inventory = new LinkedHashMap<Integer, Integer>();
     inventory = databasebackup.getInventory();
     for (Map.Entry<Integer, Integer> entry : inventory.entrySet()) {
-    	mydb.insertInventoryH(entry.getKey(), entry.getValue());
+      mydb.insertInventoryH(entry.getKey(), entry.getValue());
     }
   }
 
-  public static void SetDownEverything(DatabaseBackup databasebackup, DatabaseDriverAndroidHelper mydb1)
+  public static void SetDownEverything(DatabaseBackup databasebackup,
+      DatabaseDriverAndroidHelper mydb1)
       throws SQLException, DatabaseInsertException {
-	  
-	mydb = mydb1;  
-	SetDownUsers(databasebackup);
-	Log.d("HAHA","HGAGAGDDf");
-	SetDownUserPw(databasebackup);
-    Log.d("HAHA","HGAGAGDDf2");
-	SetDownRoles(databasebackup);
-    Log.d("HAHA","HGAGAGDDf333");
-	SetDownUserRole(databasebackup);
-    Log.d("HAHA","HGAGAGDD4444");
-	SetDownSales(databasebackup);
 
-    Log.d("HAHA","55555");
-	SetDownItems(databasebackup);
+    mydb = mydb1;
+    SetDownUsers(databasebackup);
+    Log.d("HAHA", "HGAGAGDDf");
+    SetDownUserPw(databasebackup);
+    Log.d("HAHA", "HGAGAGDDf2");
+    SetDownRoles(databasebackup);
+    Log.d("HAHA", "HGAGAGDDf333");
+    SetDownUserRole(databasebackup);
+    Log.d("HAHA", "HGAGAGDD4444");
+    SetDownSales(databasebackup);
 
-    Log.d("HAHA","6666");
-	SetDownAccount(databasebackup);
-	SetDownAccountSummary(databasebackup);
-	SetDownInventory(databasebackup);
-	SetDownItimizedSales(databasebackup);
-    Log.d("HAHA","HGAGAGDDnnnnnnnn");
-    Log.d("HAHA","Serialized data successfully restored");
+    Log.d("HAHA", "55555");
+    SetDownItems(databasebackup);
+
+    Log.d("HAHA", "6666");
+    SetDownAccount(databasebackup);
+    SetDownAccountSummary(databasebackup);
+    SetDownInventory(databasebackup);
+    SetDownItimizedSales(databasebackup);
+    Log.d("HAHA", "HGAGAGDDnnnnnnnn");
+    Log.d("HAHA", "Serialized data successfully restored");
     System.out.println("Serialized data successfully restored");
   }
 

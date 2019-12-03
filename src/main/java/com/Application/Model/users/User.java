@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public abstract class User implements Serializable {
 
   /**
-   * 
+   *
    */
   private static final long serialVersionUID = 8826950644046688757L;
   private int id;
@@ -89,11 +89,11 @@ public abstract class User implements Serializable {
     return roleId;
   }
 
-  public void setBalance(BigDecimal balance){
+  public void setBalance(BigDecimal balance) {
     this.balance = balance;
   }
 
-  public BigDecimal getBalance(){
+  public BigDecimal getBalance() {
     return balance;
   }
 

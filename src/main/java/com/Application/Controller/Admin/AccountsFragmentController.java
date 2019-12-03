@@ -12,53 +12,54 @@ import com.google.android.material.tabs.TabLayout;
 
 public class AccountsFragmentController implements View.OnClickListener {
 
-    private View viewView;
-    private Context appContext;
-    TabLayout tabLayout;
-    ViewPager viewPager;
-    private AccountsFragmentView accountsFragmentView;
+  private View viewView;
+  private Context appContext;
+  TabLayout tabLayout;
+  ViewPager viewPager;
+  private AccountsFragmentView accountsFragmentView;
 
-    public AccountsFragmentController(View view, AccountsFragmentView accountsFragmentView) {
-        this.viewView = view;
-        this.accountsFragmentView = accountsFragmentView;
-        appContext = view.getContext();
-        tabLayout=(TabLayout)view.findViewById(R.id.tabLayout);
-        viewPager=(ViewPager)view.findViewById(R.id.viewPager);
+  public AccountsFragmentController(View view, AccountsFragmentView accountsFragmentView) {
+    this.viewView = view;
+    this.accountsFragmentView = accountsFragmentView;
+    appContext = view.getContext();
+    tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
+    viewPager = (ViewPager) view.findViewById(R.id.viewPager);
 
-        tabLayout.addTab(tabLayout.newTab().setText("Active"));
-        tabLayout.addTab(tabLayout.newTab().setText("Inactive"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+    tabLayout.addTab(tabLayout.newTab().setText("Active"));
+    tabLayout.addTab(tabLayout.newTab().setText("Inactive"));
+    tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final MyAdapter adapter = new MyAdapter(appContext,accountsFragmentView.getFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(adapter);
+    final MyAdapter adapter = new MyAdapter(appContext, accountsFragmentView.getFragmentManager(),
+        tabLayout.getTabCount());
+    viewPager.setAdapter(adapter);
 
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+    viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
+    tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+      @Override
+      public void onTabSelected(TabLayout.Tab tab) {
+        viewPager.setCurrentItem(tab.getPosition());
+      }
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
+      @Override
+      public void onTabUnselected(TabLayout.Tab tab) {
 
-            }
+      }
 
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
+      @Override
+      public void onTabReselected(TabLayout.Tab tab) {
 
-            }
-        });
-    }
+      }
+    });
+  }
 
-    @Override
-    public void onClick(View view) {
+  @Override
+  public void onClick(View view) {
 
-        EditText userIdEditText = viewView.findViewById(R.id.userIdEditText);
+    EditText userIdEditText = viewView.findViewById(R.id.userIdEditText);
 
-        int customerId = Integer.parseInt(userIdEditText.getText().toString());
-        ActiveAccountsFragmentController.displayActiveAccounts(customerId);
-        InactiveAccountsFragmentController.displayInactiveAccounts(customerId);
-    }
+    int customerId = Integer.parseInt(userIdEditText.getText().toString());
+    ActiveAccountsFragmentController.displayActiveAccounts(customerId);
+    InactiveAccountsFragmentController.displayInactiveAccounts(customerId);
+  }
 }

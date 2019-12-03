@@ -12,24 +12,24 @@ import java.sql.SQLException;
 
 public class BooksFragmentController implements View.OnClickListener {
 
-    private View view;
-    private Context appContext;
+  private View view;
+  private Context appContext;
 
-    public BooksFragmentController(View view) {
-        this.view = view;
-        appContext = view.getContext();
-        DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
-        try {
-            String books = AdminInteraction.viewBooks(mydb);
-            TextView booksTextView = view.findViewById(R.id.booksTextView);
-            booksTextView.setText(books);
-        }catch (SQLException e){
-
-        }
-    }
-
-    @Override
-    public void onClick(View view) {
+  public BooksFragmentController(View view) {
+    this.view = view;
+    appContext = view.getContext();
+    DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
+    try {
+      String books = AdminInteraction.viewBooks(mydb);
+      TextView booksTextView = view.findViewById(R.id.booksTextView);
+      booksTextView.setText(books);
+    } catch (SQLException e) {
 
     }
+  }
+
+  @Override
+  public void onClick(View view) {
+
+  }
 }

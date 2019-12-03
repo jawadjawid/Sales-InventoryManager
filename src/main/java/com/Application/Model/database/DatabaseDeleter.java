@@ -33,10 +33,10 @@ public class DatabaseDeleter {
 
       sql = "DROP TABLE ITEMIZEDSALES";
       statement.executeUpdate(sql);
-      
+
       sql = "DROP TABLE ACCOUNT";
       statement.executeUpdate(sql);
-      
+
       sql = "DROP TABLE ACCOUNTSUMMARY";
       statement.executeUpdate(sql);
 
