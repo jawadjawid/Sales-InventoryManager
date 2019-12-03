@@ -124,6 +124,7 @@ public class CustomerCartController implements View.OnClickListener {
             public void onClick(DialogInterface dialog, int whichButton) {
                 Intent intent = new Intent(appContext, CustomerHomeView.class);
                 intent.putExtra("continue shopping", "yes");
+                intent.putExtra("balance", recievedCart.getCustomer().getBalance());
                 appContext.startActivity(intent);
             }
         });

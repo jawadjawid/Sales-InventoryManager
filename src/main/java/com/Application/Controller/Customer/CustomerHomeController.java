@@ -23,6 +23,7 @@ import com.Application.View.Customer.CustomerShoppingView;
 import com.Application.View.MainLoginView;
 import com.example.Application.R;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -57,10 +58,11 @@ public class CustomerHomeController implements View.OnClickListener {
                 displayRestoreAlert();
                 numHomePageVisits = 1;
             }
-            displayUserName();
-            displayUserBalance();
-            updateCart();
         }
+        displayUserName();
+        updateBalance();
+        displayUserBalance();
+        updateCart();
     }
 
     private void displayUserName() {
@@ -81,6 +83,15 @@ public class CustomerHomeController implements View.OnClickListener {
         }
     }
 
+    public void updateBalance() {
+        Intent intent = view.getIntent();
+        BigDecimal updatedBalance = (BigDecimal) intent.getSerializableExtra("balance");
+        Toast.makeText(appContext, "balance" + updatedBalance, Toast.LENGTH_SHORT).show();
+        if (updatedBalance != null) {
+            this.recievedUser.setBalance(updatedBalance.setScale(2));
+        }
+    }
+
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.shopBtn) {
@@ -90,6 +101,7 @@ public class CustomerHomeController implements View.OnClickListener {
             view.startActivity(intent);
         } else if (v.getId() == R.id.cartBtn) {
             Intent intent = new Intent(appContext, CustomerCartView.class);
+            this.cart.getCustomer().setBalance(recievedUser.getBalance());
             intent.putExtra("cart", cart);
             intent.putExtra("account id", accountId);
             view.startActivity(intent);
