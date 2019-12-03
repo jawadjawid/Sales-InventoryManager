@@ -45,4 +45,7 @@ public class CustomerShoppingView extends AppCompatActivity {
         goToHomeBtn.setOnClickListener(controller);
         resetAllBtn.setOnClickListener(controller);
     }
+
+    @Override
+    public void onBackPressed() { }
 }

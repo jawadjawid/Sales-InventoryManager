@@ -21,4 +21,7 @@ public class MainLoginView extends AppCompatActivity {
         Button loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(controller);
     }
+
+    @Override
+    public void onBackPressed() { }
 }

@@ -23,4 +23,6 @@ public class InitialEmployeeSignupView extends AppCompatActivity {
         Button createNewEmployeeButton = findViewById(R.id.createNewEmployeeButton);
         createNewEmployeeButton.setOnClickListener(controller);
     }
+    @Override
+    public void onBackPressed() { }
 }

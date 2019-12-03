@@ -23,4 +23,7 @@ public class InitialAdminSignupView extends AppCompatActivity {
         Button createNewAdminButton = findViewById(R.id.createNewAdminButton);
         createNewAdminButton.setOnClickListener(controller);
     }
+
+    @Override
+    public void onBackPressed() { }
 }
