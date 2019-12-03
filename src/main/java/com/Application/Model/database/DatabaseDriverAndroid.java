@@ -16,22 +16,11 @@ import java.math.BigDecimal;
 
 public class DatabaseDriverAndroid extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
-    private static String DATABASE_NAME = "inventorymgmt.db";
+    private static final String DATABASE_NAME = "inventorymgmt.db";
 
     public DatabaseDriverAndroid(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
-
-    public DatabaseDriverAndroid(Context context, String databaseName) {
-        super(context, databaseName, null, 1);
-        DATABASE_NAME = databaseName;
-    }
-
-    public static void setDatabaseName(String databaseName){
-        DATABASE_NAME = databaseName;
-    }
-
-
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {

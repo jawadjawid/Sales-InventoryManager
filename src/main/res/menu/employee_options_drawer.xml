@@ -23,6 +23,10 @@
             android:id="@+id/nav_restock_inventory"
             android:icon="@drawable/inventory"
             android:title="@string/restock_inventory" />
+        <item
+            android:id="@+id/nav_send_customer_credits"
+            android:title="@string/send_customer_credits" />
+
 
     </group>
 

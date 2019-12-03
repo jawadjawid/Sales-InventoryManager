@@ -44,12 +44,6 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         setValidatorContexts();
     }
 
-    public DatabaseDriverAndroidHelper(Context context, String databaseName) {
-        super(context, databaseName);
-        setValidatorContexts();
-    }
-
-
     private void setValidatorContexts() {
         AccountSummaryValidator.setContext(this);
         AccountValidator.setContext(this);
