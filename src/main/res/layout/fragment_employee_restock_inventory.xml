@@ -13,7 +13,7 @@
         android:id="@+id/productsLabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="46dp"
-        android:text="Products"
+        android:text="Inventory"
         android:textAlignment="center"
         android:textColor="@color/colorLight"
         android:textSize="30sp"/>
@@ -134,9 +134,9 @@
         android:id="@+id/saveChangesButton"
         android:layout_width="@dimen/user_info_field_width"
         android:layout_height="@dimen/button_height_standard"
-        android:background="@color/colorDark"
+        android:background="@color/colorLightBlue"
         android:text="Save Changes"
-        android:textColor="@color/colorLightBlue"
+        android:textColor="@color/colorDark"
         android:textSize="@dimen/text_size_medium"
         android:layout_marginTop="-50dp"/>
 
