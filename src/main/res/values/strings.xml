@@ -52,4 +52,6 @@
     <string name="current_quantity_heading">Current Quantity</string>
     <string name="action_serialize">Serialize</string>
     <string name="action_deserialize">Deserialize</string>
+    <string name="send_customer_credits">Send Customer Credits</string>
+
 </resources>
