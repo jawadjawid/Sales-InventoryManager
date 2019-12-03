@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDark">
+    android:background="@color/colorDark"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/selectCustomerIdTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select Customer Id to Associate Account To:"
-        android:textColor="@color/colorLight"/>
+        android:textColor="@color/colorLight" />
 
     <TextView
         android:id="@+id/text_make_new_account"
@@ -20,15 +21,15 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
+        android:textColor="@color/colorDark"
         android:textSize="20sp"
-        android:textColor="@color/colorLight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <NumberPicker
         android:id="@+id/customerIdNumberPicker"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,16 +43,16 @@
         android:gravity="bottom"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/selectCustomerIdButton"
-            android:layout_width="@dimen/user_info_field_width"
-            android:layout_height="@dimen/button_height_standard"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:background="@color/colorLightBlue"
-            android:text="Select"
-            android:textColor="@color/colorLight"
-            android:visibility="visible" />
+    <Button
+        android:id="@+id/selectCustomerIdButton"
+        android:layout_width="@dimen/user_info_field_width"
+        android:layout_height="@dimen/button_height_standard"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorLight"
+        android:text="Select"
+        android:textColor="@color/colorDark"
+        android:visibility="visible"
+        android:layout_marginTop="-100dp" />
     </LinearLayout>
-
 </LinearLayout>
