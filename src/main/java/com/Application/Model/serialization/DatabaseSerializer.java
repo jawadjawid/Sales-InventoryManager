@@ -71,13 +71,13 @@ public class DatabaseSerializer {
     context.deleteDatabase("backup.db");
 
     try {
+    
+      	
       DatabaseBackup backupversion = DatabaseSerializer.deserialize(context);
       DatabaseBackupSetDown.SetDownEverything(backupversion, mydbBackup);
-      Log.d("HAHA","sdfsdf");
       context.deleteDatabase("inventorymgmt.db");
-
       File databaseFile = context.getDatabasePath("backup.db");
-     File oldDatabaseFile = new File(databaseFile.getParentFile(), "inventorymgmt.db");
+      File oldDatabaseFile = new File(databaseFile.getParentFile(), "inventorymgmt.db");
 
      databaseFile.renameTo(oldDatabaseFile);
 
