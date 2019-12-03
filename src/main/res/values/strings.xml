@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Employee</string>
+    <string name="app_name">Shopping Mart</string>
     <string name="title_activity_employee_options_sidebar">EmployeeOptionsSidebar</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_title">Shopping Mart</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
@@ -22,9 +22,9 @@
     <string name="title_activity_employee_options">EmployeeOptionsView</string>
     <string name="make_new_admin">Create New Admin</string>
     <string name="title_activity_admin_options_view">AdminOptionsView</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Promotion</string>
+    <string name="title_dashboard">View Accounts</string>
+    <string name="title_notifications">Sales</string>
     <string name="initialization">INITIALIZATION</string>
     <string name="create_an_admin">Create an Admin</string>
     <string name="create_an_employee">Create An Employee</string>
