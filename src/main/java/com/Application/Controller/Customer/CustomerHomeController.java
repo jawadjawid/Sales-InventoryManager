@@ -86,7 +86,6 @@ public class CustomerHomeController implements View.OnClickListener {
     public void updateBalance() {
         Intent intent = view.getIntent();
         BigDecimal updatedBalance = (BigDecimal) intent.getSerializableExtra("balance");
-        Toast.makeText(appContext, "balance" + updatedBalance, Toast.LENGTH_SHORT).show();
         if (updatedBalance != null) {
             this.recievedUser.setBalance(updatedBalance.setScale(2));
         }
