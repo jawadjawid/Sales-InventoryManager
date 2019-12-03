@@ -108,24 +108,27 @@ public class ShoppingCart implements Serializable {
     }
 
     public boolean checkOut(DatabaseDriverAndroidHelper mydb) throws DatabaseInsertException {
-        if (customer != null && checkInventory(mydb)) {
+        if (customer != null && checkInventory(mydb) && checkBalance()) {
             int userId = customer.getId();
+
             int salesId = Math.toIntExact(mydb.insertSaleH(userId, total));
 
             Inventory inventory = mydb.getInventoryH();
             // update itemized sale and inventory
             for (Item item : items.keySet()) {
                 if (items.get(item) > 0) {
-                    Log.d("HAHA", "gotemmmm " + item.getId());
                     mydb.insertItemizedSaleH(salesId, item.getId(), items.get(item));
                     mydb.updateInventoryQuantityH(inventory.getItemMap().get(getInventoryVersion(inventory, item)) - items.get(item),
                             item.getId());
                 }
             }
+            BigDecimal totalWithTax = total.multiply(TAXRATE).setScale(2);
+            BigDecimal newBalance = customer.getBalance().subtract(totalWithTax).setScale(2);
+            mydb.updateUserBalanceH(newBalance, customer.getId());
+            clearCart();
+            return true;
         }
-
-        clearCart();
-        return true;
+        return false;
     }
 
     private boolean checkInventory(DatabaseDriverAndroidHelper mydb) {
@@ -143,6 +146,10 @@ public class ShoppingCart implements Serializable {
             }
         }
         return true;
+    }
+
+    private boolean checkBalance(){
+        return (customer.getBalance().compareTo(total.multiply(TAXRATE).setScale(2))) >= 0;
     }
 
     private Item getInventoryVersion(Inventory inventory, Item item) {

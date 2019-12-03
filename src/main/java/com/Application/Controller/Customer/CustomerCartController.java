@@ -14,14 +14,13 @@ import android.widget.Toast;
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.exceptions.DatabaseInsertException;
 import com.Application.Model.inventory.Item;
-import com.Application.Model.inventory.ItemImpl;
 import com.Application.Model.store.Account;
 import com.Application.Model.store.ShoppingCart;
 import com.Application.View.Customer.CustomerCartView;
 import com.Application.View.Customer.CustomerHomeView;
-import com.Application.View.InitialEmployeeSignupView;
 import com.example.Application.R;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 
@@ -46,20 +45,18 @@ public class CustomerCartController implements View.OnClickListener {
         DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
         if (v.getId() == R.id.checkOutBtn) {
             try {
-                if(recievedCart.checkOut(mydb)){
-                    if(accountId != -1){
-                        mydb.updateAccountStatusH(accountId,false);
+                if (recievedCart.checkOut(mydb)) {
+                    if (accountId != -1) {
+                        mydb.updateAccountStatusH(accountId, false);
                         Toast.makeText(appContext, "Cart has been successfully checked out and Account with id " + accountId + " has been deactivated.", Toast.LENGTH_SHORT).show();
-                    }else{
+                    } else {
                         Toast.makeText(appContext, "Cart has been successfully checked out.", Toast.LENGTH_SHORT).show();
                     }
                     displayContinueShoppingAlert();
                 } else {
-                    Toast.makeText(appContext, "Checkout failed as there is not enough items in the inventory.", Toast.LENGTH_SHORT).show();
-                    throw new DatabaseInsertException();
-                }
-            }catch (Exception e){
-                Toast.makeText(appContext,"Cannot checkout Empty Cart",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(appContext, "Checkout failed as there is not enough items in the inventory or not enough balance.", Toast.LENGTH_SHORT).show(); }
+            } catch (Exception e) {
+                Toast.makeText(appContext, "Cannot checkout Empty Cart", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         } else {
@@ -67,7 +64,7 @@ public class CustomerCartController implements View.OnClickListener {
         }
     }
 
-    private void setRestoredAccountId(){
+    private void setRestoredAccountId() {
         Intent intent = view.getIntent();
         int accId = (int) intent.getSerializableExtra("account id");
         this.accountId = accId;
@@ -96,7 +93,7 @@ public class CustomerCartController implements View.OnClickListener {
                     int id = Integer.parseInt(edittext.getText().toString());
                     if (validAccountId(id)) {
                         storeCart();
-                        } else {
+                    } else {
                         Toast.makeText(appContext, "Cannot store as Account was not found", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -137,14 +134,14 @@ public class CustomerCartController implements View.OnClickListener {
     private void storeCart() {
         try {
             DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(appContext);
-            if(storingAccount.getItemMap().isEmpty()){
+            if (storingAccount.getItemMap().isEmpty()) {
                 for (Item i : recievedCart.getItemMap().keySet()) {
                     if (recievedCart.getItemMap().get(i) != 0) {
                         mydb.insertAccountSummaryH(storingAccount.getId(), i.getId(), recievedCart.getItemMap().get(i));
                     }
                 }
                 Toast.makeText(appContext, "Shopping Cart stored to account with id" + storingAccount.getId(), Toast.LENGTH_SHORT).show();
-            }else{
+            } else {
                 Toast.makeText(appContext, "Cannot save to cart as the cart already has items.", Toast.LENGTH_SHORT).show();
             }
 
@@ -198,7 +195,7 @@ public class CustomerCartController implements View.OnClickListener {
 
     public void displayTotal() {
         TextView totalPrice = view.findViewById(R.id.totalPriceText);
-        totalPrice.setText("$ " + recievedCart.getTotal().toString());
+        totalPrice.setText("$ " + recievedCart.getTotal().multiply(recievedCart.getTaxRate()).setScale(2));
     }
 
     public void displayItemDetail(int textViewIdLabel, String itemLabel, int textViewIdQuantity, int totalQuantity) {

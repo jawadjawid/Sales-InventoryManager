@@ -144,7 +144,7 @@ public class CustomerHomeController implements View.OnClickListener {
     }
 
     private void createNewCart(boolean restore) {
-        Customer c = new Customer(recievedUser.getId(), recievedUser.getName(), recievedUser.getAge(), recievedUser.getAddress(), recievedUser.getRoleId());
+        Customer c = new Customer(recievedUser.getId(), recievedUser.getName(), recievedUser.getAge(), recievedUser.getAddress(), recievedUser.getRoleId(), recievedUser.getBalance());
         if (!restore) {
             this.cart = new ShoppingCart(c);
             allQuantities = new int[5];

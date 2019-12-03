@@ -57,19 +57,17 @@ public class InitialAdminSignupController extends SignupController implements Vi
 
     private void dbSetup(DatabaseDriverAndroidHelper mydb) {
         try {
-         //   appContext.deleteDatabase("inventorymgmt.db");
-
-            Log.d("HAHA","dfsd");
+         //appContext.deleteDatabase("inventorymgmt.db");
 
             mydb.insertRoleH("ADMIN");
             mydb.insertRoleH("EMPLOYEE");
             mydb.insertRoleH("CUSTOMER");
 
             mydb.insertItemH("FISHING_ROD", new BigDecimal("12.00").setScale(2));
-            mydb.insertItemH("HOCKEY_STICK", new BigDecimal("10.00").setScale(2));
-            mydb.insertItemH("SKATES", new BigDecimal("9.00").setScale(2));
+            mydb.insertItemH("HOCKEY_STICK", new BigDecimal("8.50").setScale(2));
+            mydb.insertItemH("SKATES", new BigDecimal("10.00").setScale(2));
             mydb.insertItemH("RUNNING_SHOES", new BigDecimal("15.00").setScale(2));
-            mydb.insertItemH("PROTEIN_BAR", new BigDecimal("5.00").setScale(2));
+            mydb.insertItemH("PROTEIN_BAR", new BigDecimal("3.00").setScale(2));
 
             mydb.insertInventoryH(1, 0);
             mydb.insertInventoryH(2, 0);
