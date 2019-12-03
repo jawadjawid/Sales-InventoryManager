@@ -1,5 +1,7 @@
 package com.Application.Model.serialization;
 
+import android.util.Log;
+
 import java.sql.SQLException;
 
 import java.util.ArrayList;
@@ -151,15 +153,25 @@ public class DatabaseBackupSetDown {
 	  
 	mydb = mydb1;  
 	SetDownUsers(databasebackup);
+	Log.d("HAHA","HGAGAGDDf");
 	SetDownUserPw(databasebackup);
+    Log.d("HAHA","HGAGAGDDf2");
 	SetDownRoles(databasebackup);
+    Log.d("HAHA","HGAGAGDDf333");
 	SetDownUserRole(databasebackup);
+    Log.d("HAHA","HGAGAGDD4444");
 	SetDownSales(databasebackup);
+
+    Log.d("HAHA","55555");
 	SetDownItems(databasebackup);
+
+    Log.d("HAHA","6666");
 	SetDownAccount(databasebackup);
 	SetDownAccountSummary(databasebackup);
 	SetDownInventory(databasebackup);
 	SetDownItimizedSales(databasebackup);
+    Log.d("HAHA","HGAGAGDDnnnnnnnn");
+    Log.d("HAHA","Serialized data successfully restored");
     System.out.println("Serialized data successfully restored");
   }
 
