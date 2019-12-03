@@ -35,4 +35,10 @@
         android:label="@string/restock_inventory"
         tools:layout="@layout/fragment_employee_restock_inventory" />
 
+    <fragment
+        android:id="@+id/nav_send_customer_credits"
+        android:name="com.Application.View.Employee.SendCustomerCreditsFragmentView"
+        android:label="@string/send_customer_credits"
+        tools:layout="@layout/fragment_employee_send_customer_credits" />
+
 </navigation>

@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 
 public class DatabaseDriverAndroid extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "inventorymgmt.db";
+    private static String DATABASE_NAME = "inventorymgmt.db";
 
     public DatabaseDriverAndroid(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -24,7 +24,13 @@ public class DatabaseDriverAndroid extends SQLiteOpenHelper {
 
     public DatabaseDriverAndroid(Context context, String databaseName) {
         super(context, databaseName, null, 1);
+        DATABASE_NAME = databaseName;
     }
+
+    public static void setDatabaseName(String databaseName){
+        DATABASE_NAME = databaseName;
+    }
+
 
 
     @Override
@@ -227,6 +233,8 @@ public class DatabaseDriverAndroid extends SQLiteOpenHelper {
         contentValues.put("ADDRESS", address);
         if(balance != null) {
             contentValues.put("BALANCE", balance.toPlainString());
+        }else{
+            contentValues.putNull("BALANCE");
         }
 
         long id = sqLiteDatabase.insert("USERS", null, contentValues);

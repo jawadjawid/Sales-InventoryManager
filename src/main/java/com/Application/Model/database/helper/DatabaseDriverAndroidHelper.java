@@ -45,11 +45,12 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public DatabaseDriverAndroidHelper(Context context, String databaseName) {
-        super(context,databaseName);
+        super(context, databaseName);
         setValidatorContexts();
     }
 
-    private void setValidatorContexts(){
+
+    private void setValidatorContexts() {
         AccountSummaryValidator.setContext(this);
         AccountValidator.setContext(this);
         InventoryValidator.setContext(this);
@@ -60,7 +61,6 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         UserRoleValidator.setContext(this);
         UsersValidator.setContext(this);
     }
-
 
 
     public long insertRoleH(String name) throws DatabaseInsertException {
@@ -75,15 +75,15 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         long roleId = insertRole(name);
         return roleId;
     }
-    
+
     public void insertPasswordH(String password, int userId) throws SQLException {
-    	insertPasswordUnhashed(password, userId);
-            
-          }
-    
-    public void insertNewUserNoPasswordH(String name, Integer age, String address, BigDecimal balance){
-    	insertNewUserNoPassword(name, age, address, balance);
-    	
+        insertPasswordUnhashed(password, userId);
+
+    }
+
+    public void insertNewUserNoPasswordH(String name, Integer age, String address, BigDecimal balance) {
+        insertNewUserNoPassword(name, age, address, balance);
+
     }
 
 
@@ -194,10 +194,10 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
             throw new DatabaseInsertException();
         }
 
-        long accountId = insertAccount(userId,true);
+        long accountId = insertAccount(userId, true);
         return accountId;
     }
-    
+
     public long insertAccountH1(int userId, boolean active)
             throws DatabaseInsertException {
 
@@ -248,7 +248,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return roleId;
     }
 
-    public List<Integer> getUsersByRoleH(int roleId)  {
+    public List<Integer> getUsersByRoleH(int roleId) {
         Cursor results = getUsersByRole(roleId);
         List<Integer> userIds = new ArrayList<>();
         while (results.moveToNext()) {
@@ -262,21 +262,29 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         Cursor results = getUsersDetails();
         int roleId;
         String role;
+        String balanceStr;
+        BigDecimal balance;
 
         List<User> users = new ArrayList<>();
         User user;
         while (results.moveToNext()) {
             roleId = getUserRole(results.getInt(results.getColumnIndex("ID")));
             role = getRole(roleId);
+            balanceStr = results.getString(results.getColumnIndex("BALANCE"));
+            if (balanceStr == null) {
+                balance = null;
+            } else {
+                balance = new BigDecimal(balanceStr);
+            }
             user = createUser(results.getInt(results.getColumnIndex("ID")), results.getString(results.getColumnIndex("NAME")), results.getInt(results.getColumnIndex("AGE")),
-                    results.getString(results.getColumnIndex("ADDRESS")), role,roleId, new BigDecimal( results.getString(results.getColumnIndex("BALANCE"))));
+                    results.getString(results.getColumnIndex("ADDRESS")), role, roleId, balance);
             users.add(user);
         }
         results.close();
         return users;
     }
 
-    public User getUserDetailsH(int userId)  {
+    public User getUserDetailsH(int userId) {
         Cursor results = getUserDetails(userId);
         int roleId;
         String role;
@@ -287,14 +295,14 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         while (results.moveToNext()) {
             roleId = getUserRole(results.getInt(results.getColumnIndex("ID")));
             role = getRole(roleId);
-            balanceStr =  results.getString(results.getColumnIndex("BALANCE"));
-            if(balanceStr == null){
+            balanceStr = results.getString(results.getColumnIndex("BALANCE"));
+            if (balanceStr == null) {
                 balance = null;
-            }else{
+            } else {
                 balance = new BigDecimal(balanceStr);
             }
             user = createUser(results.getInt(results.getColumnIndex("ID")), results.getString(results.getColumnIndex("NAME")), results.getInt(results.getColumnIndex("AGE")),
-                    results.getString(results.getColumnIndex("ADDRESS")), role,roleId, balance);
+                    results.getString(results.getColumnIndex("ADDRESS")), role, roleId, balance);
         }
         results.close();
         return user;
@@ -315,7 +323,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return password;
     }
 
-    public List<Item> getAllItemsH()  {
+    public List<Item> getAllItemsH() {
         Cursor results = getAllItems();
         List<Item> items = new ArrayList<>();
         Item item;
@@ -328,7 +336,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return items;
     }
 
-    public Item getItemH(int itemId)  {
+    public Item getItemH(int itemId) {
         Cursor results = getItem(itemId);
 
         Item item = null;
@@ -340,7 +348,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return item;
     }
 
-    public  Inventory getInventoryH()  {
+    public Inventory getInventoryH() {
         Cursor results = getInventory();
         Item item;
         Inventory inventory = new InventoryImpl();
@@ -357,7 +365,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return quantity;
     }
 
-    public SalesLog getSalesH()  {
+    public SalesLog getSalesH() {
         Cursor results = getSales();
 
         SalesLog salesLog = new SalesLogImpl();
@@ -370,7 +378,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return salesLog;
     }
 
-    public Sale getSaleByIdH(int saleId)  {
+    public Sale getSaleByIdH(int saleId) {
         Cursor results = getSaleById(saleId);
         Sale sale = null;
         while (results.moveToNext()) {
@@ -381,7 +389,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return sale;
     }
 
-    public List<Sale> getSalesToUserH(int userId)  {
+    public List<Sale> getSalesToUserH(int userId) {
         Cursor results = getSalesToUser(userId);
         List<Sale> sales = new ArrayList<>();
         while (results.moveToNext()) {
@@ -424,7 +432,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return salesLog;
     }
 
-    public  boolean userIdExists(int userId) {
+    public boolean userIdExists(int userId) {
         Cursor results = getUserDetails(userId);
         boolean exists = false;
         while (results.moveToNext()) {
@@ -507,7 +515,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public boolean updateUserNameH(String name, int userId)
-            throws  DatabaseInsertException {
+            throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && UsersValidator.validateName(name);
@@ -536,8 +544,8 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return complete;
     }
 
-    public  boolean updateUserAddressH(String address, int userId)
-            throws  DatabaseInsertException {
+    public boolean updateUserAddressH(String address, int userId)
+            throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && UsersValidator.validateId(userId);
@@ -551,7 +559,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return complete;
     }
 
-    public boolean updateUserBalanceH(BigDecimal balance, int userId) throws DatabaseInsertException{
+    public boolean updateUserBalanceH(BigDecimal balance, int userId) throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && UsersValidator.validateId(userId);
@@ -580,8 +588,8 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         return complete;
     }
 
-    public  boolean updateItemNameH(String name, int itemId)
-            throws  DatabaseInsertException {
+    public boolean updateItemNameH(String name, int itemId)
+            throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && ItemsValidator.validateName(name);
@@ -597,7 +605,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public boolean updateItemPriceH(BigDecimal price, int itemId)
-            throws  DatabaseInsertException {
+            throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && ItemsValidator.validatePrice(price);
@@ -612,7 +620,7 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public boolean updateInventoryQuantityH(int quantity, int itemId)
-            throws  DatabaseInsertException {
+            throws DatabaseInsertException {
 
         boolean val_success = true;
         val_success = val_success && InventoryValidator.validateQuantity(quantity);
@@ -627,10 +635,10 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
     }
 
     public boolean updateAccountStatusH(int accountId, boolean active)
-            throws  DatabaseInsertException {
+            throws DatabaseInsertException {
 
         boolean val_success = true;
-      val_success = val_success && AccountSummaryValidator.validateAccountId(accountId);
+        val_success = val_success && AccountSummaryValidator.validateAccountId(accountId);
 
         if (!val_success) {
             throw new DatabaseInsertException();
@@ -639,9 +647,6 @@ public class DatabaseDriverAndroidHelper extends DatabaseDriverAndroid {
         boolean complete = updateAccountStatus(accountId, active);
         return complete;
     }
-
-
-
 
 
 }

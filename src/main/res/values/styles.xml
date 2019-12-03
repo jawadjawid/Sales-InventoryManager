@@ -3,9 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPurple</item>
         <item name="colorPrimaryDark">@android:color/darker_gray</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -19,7 +20,10 @@
 
     <style name="AppTheme.NumberPicker">
         <item name="colorControlNormal"> @color/colorLight </item>
-        <item name="android:textColor"> @color/colorLight </item>
+        <item name="android:textColorPrimary"> @color/colorLight </item>
+        <!-- Change edit color here. -->
+        <item name="android:editTextColor">@color/colorLight</item>
     </style>
+
 
 </resources>

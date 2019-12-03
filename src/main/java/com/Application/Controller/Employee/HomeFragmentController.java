@@ -26,6 +26,7 @@ public class HomeFragmentController implements View.OnClickListener {
     }
 
 
+
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(this.appContext, MainLoginView.class);

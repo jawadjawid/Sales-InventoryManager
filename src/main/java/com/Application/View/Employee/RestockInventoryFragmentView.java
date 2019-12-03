@@ -18,7 +18,7 @@ public class RestockInventoryFragmentView extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_employee_restock_inventory, container, false);
+        View root = inflater.inflate(R.layout.fragment_employee_send_customer_credits, container, false);
 
         controller = new RestockInventoryFragmentController(root);
         Button addFishingRodButton = root.findViewById(R.id.addFishingRodButton);

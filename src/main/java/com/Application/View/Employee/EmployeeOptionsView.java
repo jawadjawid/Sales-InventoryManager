@@ -36,7 +36,7 @@ public class EmployeeOptionsView extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home,
-                R.id.nav_authenticate_new_employee, R.id.nav_make_new_user, R.id.nav_make_new_account, R.id.nav_restock_inventory)
+                R.id.nav_authenticate_new_employee, R.id.nav_make_new_user, R.id.nav_make_new_account, R.id.nav_restock_inventory, R.id.nav_send_customer_credits)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

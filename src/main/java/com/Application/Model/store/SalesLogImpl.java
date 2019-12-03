@@ -1,8 +1,9 @@
 package com.Application.Model.store;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SalesLogImpl implements SalesLog {
+public class SalesLogImpl implements SalesLog, Serializable {
 
   private ArrayList<Sale> sales;
 

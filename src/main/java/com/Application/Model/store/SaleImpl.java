@@ -1,12 +1,13 @@
 package com.Application.Model.store;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashMap;
 
 import com.Application.Model.inventory.Item;
 import com.Application.Model.users.User;
 
-public class SaleImpl implements Sale {
+public class SaleImpl implements Sale, Serializable {
 
   private int id;
   private User user;

@@ -18,6 +18,8 @@ public class InitialAdminSignupView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_admin_signup);
         controller = new InitialAdminSignupController(this);
+
+        Log.d("hehe","haha im heare");
         Button createNewAdminButton = findViewById(R.id.createNewAdminButton);
         createNewAdminButton.setOnClickListener(controller);
     }

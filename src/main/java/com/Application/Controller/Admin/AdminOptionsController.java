@@ -66,7 +66,7 @@ public class AdminOptionsController implements View.OnClickListener {
                         try {
                             DatabaseSerializer.serializeDatabase(appContext, input1.getText().toString());
                         }catch (DatabaseInsertException | SQLException e){
-
+    e.printStackTrace();
                         }
 
                     }
@@ -97,7 +97,7 @@ public class AdminOptionsController implements View.OnClickListener {
                         try {
                             DatabaseSerializer.deserializeDatabase(appContext, user, input2.getText().toString());
                         }catch (Exception e){
-
+e.printStackTrace();
                         }
                     }
                 });

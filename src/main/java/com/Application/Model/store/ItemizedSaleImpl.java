@@ -3,10 +3,11 @@ package com.Application.Model.store;
 import com.Application.Model.inventory.Item;
 import com.Application.Model.users.User;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashMap;
 
-public class ItemizedSaleImpl implements Sale {
+public class ItemizedSaleImpl implements Sale, Serializable {
 
   private int id;
   private BigDecimal total;

@@ -1,11 +1,12 @@
 package com.Application.Model.store;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import com.Application.Model.inventory.Item;
 import com.Application.Model.users.User;
 
-public class AccountImpl implements Account {
+public class AccountImpl implements Account, Serializable {
 	private int id;
 	private User user;
 	private HashMap<Item, Integer> itemMap;
