@@ -25,7 +25,7 @@ public class InitialAdminSignupController extends SignupController implements Vi
         DatabaseDriverAndroidHelper mydb = new DatabaseDriverAndroidHelper(view);
 
         // Uncomment below to go to admin sign up page
-     //appContext.deleteDatabase("inventorymgmt.db");
+       appContext.deleteDatabase("inventorymgmt.db");
 
 
         if(mydb.getUserDetailsH(2) == null){
@@ -66,10 +66,10 @@ public class InitialAdminSignupController extends SignupController implements Vi
             mydb.insertRoleH("CUSTOMER");
 
             mydb.insertItemH("FISHING_ROD", new BigDecimal("12.00").setScale(2));
-            mydb.insertItemH("HOCKEY_STICK", new BigDecimal("10.00").setScale(2));
-            mydb.insertItemH("SKATES", new BigDecimal("9.00").setScale(2));
+            mydb.insertItemH("HOCKEY_STICK", new BigDecimal("8.50").setScale(2));
+            mydb.insertItemH("SKATES", new BigDecimal("10.00").setScale(2));
             mydb.insertItemH("RUNNING_SHOES", new BigDecimal("15.00").setScale(2));
-            mydb.insertItemH("PROTEIN_BAR", new BigDecimal("5.00").setScale(2));
+            mydb.insertItemH("PROTEIN_BAR", new BigDecimal("3.00").setScale(2));
 
             mydb.insertInventoryH(1, 0);
             mydb.insertInventoryH(2, 0);
