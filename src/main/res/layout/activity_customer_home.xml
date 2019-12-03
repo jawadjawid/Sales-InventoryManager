@@ -37,6 +37,21 @@
         android:textColor="@color/colorLight"
         android:textSize="@dimen/text_size_large" />
 
+    <TextView
+        android:id="@+id/customerBalance"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/shopBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="30dp"
+        android:hint="Current Balance: $0.00"
+        android:textColorHint="@color/colorLight"
+        android:textAlignment="center"
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/text_size_medium" />
+
     <Button
         android:id="@+id/shopBtn"
         android:layout_width="@dimen/customer_home_button_width"

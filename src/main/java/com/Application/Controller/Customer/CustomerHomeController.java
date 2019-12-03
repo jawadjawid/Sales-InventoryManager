@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
 import com.Application.Model.inventory.Item;
-import com.Application.Model.inventory.ItemImpl;
 import com.Application.Model.store.Account;
 import com.Application.Model.store.ShoppingCart;
 import com.Application.Model.users.Customer;
@@ -24,7 +23,6 @@ import com.Application.View.Customer.CustomerShoppingView;
 import com.Application.View.MainLoginView;
 import com.example.Application.R;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -44,23 +42,23 @@ public class CustomerHomeController implements View.OnClickListener {
         view = (CustomerHomeView) appContext;
         Intent intent = view.getIntent();
         String shopping = intent.getStringExtra("continue shopping");
-        if(shopping != null){
-            if(shopping.equals("yes")){
+        if (shopping != null) {
+            if (shopping.equals("yes")) {
                 this.cart.clearCart();
-            }else{
+            } else {
                 this.numHomePageVisits = 0;
                 Intent intent2 = new Intent(appContext, MainLoginView.class);
                 view.startActivity(intent2);
             }
 
-        }
-        else {
+        } else {
             if (numHomePageVisits == 0) {
                 setUserName();
                 displayRestoreAlert();
                 numHomePageVisits = 1;
             }
             displayUserName();
+            displayUserBalance();
             updateCart();
         }
     }
@@ -68,6 +66,11 @@ public class CustomerHomeController implements View.OnClickListener {
     private void displayUserName() {
         TextView usernameTextView = view.findViewById(R.id.customerName);
         usernameTextView.setText(recievedUser.getName());
+    }
+
+    private void displayUserBalance() {
+        TextView balanceTextView = view.findViewById(R.id.customerBalance);
+        balanceTextView.setText("Current Balance: $ " + recievedUser.getBalance().setScale(2));
     }
 
     private void updateCart() {
@@ -170,7 +173,7 @@ public class CustomerHomeController implements View.OnClickListener {
         if (cart.getItemMap().size() != 0) {
             this.allQuantities = new int[5];
             for (Item i : cart.getItemMap().keySet()) {
-                allQuantities[i.getId()-1] = cart.getItemMap().get(i);
+                allQuantities[i.getId() - 1] = cart.getItemMap().get(i);
             }
         }
     }

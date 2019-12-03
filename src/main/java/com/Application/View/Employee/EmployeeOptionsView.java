@@ -55,8 +55,6 @@ public class EmployeeOptionsView extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                return true;
             case R.id.action_logout:
                 Intent intent = new Intent(this, MainLoginView.class);
                 startActivity(intent);

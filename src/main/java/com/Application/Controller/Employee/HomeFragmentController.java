@@ -21,10 +21,9 @@ public class HomeFragmentController implements View.OnClickListener {
     public HomeFragmentController(View view) {
         this.view = view;
         appContext = view.getContext();
-        welcomeTextView = view.findViewById(R.id.welcomeEmployeeTextView);
+        welcomeTextView = view.findViewById(R.id.welcomeTextView);
         setUsername(EmployeeOptionsController.getUser().getName());
     }
-
 
 
     @Override

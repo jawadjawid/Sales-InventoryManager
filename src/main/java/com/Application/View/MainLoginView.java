@@ -19,8 +19,6 @@ public class MainLoginView extends AppCompatActivity {
 
         controller = new MainLoginController(this);
         Button loginButton = findViewById(R.id.loginButton);
-        Button signUpButton =  findViewById(R.id.signUpButton);
         loginButton.setOnClickListener(controller);
-        signUpButton.setOnClickListener(controller);
     }
 }
