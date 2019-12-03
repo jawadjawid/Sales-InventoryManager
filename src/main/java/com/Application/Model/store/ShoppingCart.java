@@ -2,22 +2,18 @@ package com.Application.Model.store;
 
 import android.util.Log;
 
+import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
+import com.Application.Model.exceptions.DatabaseInsertException;
+import com.Application.Model.inventory.Inventory;
+import com.Application.Model.inventory.Item;
+import com.Application.Model.users.Customer;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.Application.Model.database.helper.DatabaseDriverAndroidHelper;
-import com.Application.Model.database.helper.DatabaseInsertHelper;
-import com.Application.Model.database.helper.DatabaseSelectHelper;
-import com.Application.Model.database.helper.DatabaseUpdateHelper;
-import com.Application.Model.inventory.Inventory;
-import com.Application.Model.inventory.Item;
-import com.Application.Model.exceptions.DatabaseInsertException;
-import com.Application.Model.users.Customer;
 
 public class ShoppingCart implements Serializable {
 
@@ -122,9 +118,10 @@ public class ShoppingCart implements Serializable {
                             item.getId());
                 }
             }
-            BigDecimal totalWithTax = total.multiply(TAXRATE).setScale(2);
-            BigDecimal newBalance = customer.getBalance().subtract(totalWithTax).setScale(2);
+            BigDecimal totalWithTax = total.multiply(TAXRATE);
+            BigDecimal newBalance = (customer.getBalance().subtract(totalWithTax)).setScale(2);
             mydb.updateUserBalanceH(newBalance, customer.getId());
+            customer.setBalance(newBalance);
             clearCart();
             return true;
         }
@@ -148,7 +145,7 @@ public class ShoppingCart implements Serializable {
         return true;
     }
 
-    private boolean checkBalance(){
+    private boolean checkBalance() {
         return (customer.getBalance().compareTo(total.multiply(TAXRATE).setScale(2))) >= 0;
     }
 

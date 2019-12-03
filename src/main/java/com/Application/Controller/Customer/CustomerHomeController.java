@@ -186,6 +186,8 @@ public class CustomerHomeController implements View.OnClickListener {
             for (Item i : cart.getItemMap().keySet()) {
                 allQuantities[i.getId() - 1] = cart.getItemMap().get(i);
             }
+        }else{
+            this.allQuantities = new int[5];
         }
     }
 }
